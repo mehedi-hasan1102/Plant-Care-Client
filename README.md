@@ -43,7 +43,7 @@ A **full-stack, mobile-responsive web application** that helps users manage and 
 | React Router DOM | Routing and navigation                      |
 
 ---
-🔗 **Live Website**: [https://plant-care-tracker-bd.web.app](https://plant-care-tracker-bd.web.app)
+🔗 **Live Website**: https://plant-care-tracker-bd.web.app
 
 ---
 
