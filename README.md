@@ -57,9 +57,10 @@ A full-stack web application for plant enthusiasts to manage and monitor their p
 git clone https://github.com/HasanCodeX/Project---web-b11-A10-PlantCare---client
 cd plant-care-tracker
 npm install
-Configuration
+
 
 ```
+Configuration
 Create .env file with your Firebase credentials:
 ```env
 VITE_FIREBASE_API_KEY=your_key
