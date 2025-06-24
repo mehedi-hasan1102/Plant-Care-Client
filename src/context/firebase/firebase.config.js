@@ -16,16 +16,6 @@ const firebaseConfig = {
 
 
 
-// .env for firebase configuration
-
-// VITE_FIREBASE_API_KEY=AIzaSyC6rpLhDqVxkRz5KTynl4CK5O2e4EXOT4A
-// VITE_FIREBASE_AUTH_DOMAIN=plant-care-tracker-bd.firebaseapp.com
-// VITE_FIREBASE_PROJECT_ID=plant-care-tracker-bd
-// VITE_FIREBASE_STORAGE_BUCKET=plant-care-tracker-bd.appspot.com
-// VITE_FIREBASE_MESSAGING_SENDER_ID=824611666945
-// VITE_FIREBASE_APP_ID=1:824611666945:web:d085a6836eb987f3e61400
-
-
 
 
 
