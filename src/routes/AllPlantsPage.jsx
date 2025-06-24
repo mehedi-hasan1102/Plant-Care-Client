@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 // import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import Loading from "../Components/Loading";
 
 const AllPlantsPage = () => {
   const [plants, setPlants] = useState([]);
@@ -34,8 +35,9 @@ const AllPlantsPage = () => {
 
   if (loading) {
     return (
-      <div className="text-center mt-10 text-green-700 dark:text-green-300 text-lg animate-pulse">
-        Loading plants...
+      <div>
+        <Loading/>
+
       </div>
     );
   }
@@ -68,7 +70,7 @@ const AllPlantsPage = () => {
                   <td className="p-4">{plant.wateringFrequency}</td>
                   <td className="p-4">
                     <button
-                      className="btn btn-sm btn-outline btn-success"
+                      className="btn btn-success btn-sm text-white dark:bg-green-600 dark:hover:bg-green-700 "
                       onClick={() => navigate(`/plant-details/${plant._id}`)}
                     >
                       View Details

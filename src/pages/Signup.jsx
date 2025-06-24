@@ -110,7 +110,7 @@ const Signup = () => {
           </span>
         </div>
 
-        <button type="submit" className="btn btn-success text-white w-full">
+        <button type="submit" className="w-full  btn btn-success btn-sm text-white dark:bg-green-600 dark:hover:bg-green-700">
           Sign Up
         </button>
 
@@ -119,7 +119,7 @@ const Signup = () => {
         <button
           type="button"
           onClick={handleGoogleSignup}
-          className="btn btn-outline w-full dark:border-gray-600 dark:text-white hover:dark:bg-gray-700"
+          className=" w-full btn btn-outline btn-sm dark:border-green-500 dark:text-white dark:hover:bg-green-600"
         >
           Continue with Google
         </button>

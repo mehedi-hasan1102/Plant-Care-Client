@@ -6,6 +6,7 @@ import { updateProfile } from "firebase/auth";
 import { Navigate } from "react-router-dom";
 // import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import Loading from "../Components/Loading";
 
 const Profile = () => {
   const [user, loading] = useAuthState(auth);
@@ -13,7 +14,7 @@ const Profile = () => {
   const [photoURL, setPhotoURL] = useState("");
   const [error, setError] = useState(null);
 
-  if (loading) return <p className="text-center mt-20 text-gray-600 dark:text-gray-300 text-lg">Loading...</p>;
+  if (loading) return  <div>  <Loading/> </div> ;
   if (!user) return <Navigate to="/login" replace />;
 
   const handleSave = async (e) => {
@@ -109,7 +110,7 @@ Swal.fire({
 
           <button
             type="submit"
-            className="w-full bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white font-semibold py-3 rounded-md shadow transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full btn btn-success btn-sm text-white dark:bg-green-600 dark:hover:bg-green-700 "
             disabled={false}
           >
             Save Changes

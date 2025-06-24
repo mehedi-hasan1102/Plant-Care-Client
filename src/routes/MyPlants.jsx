@@ -6,6 +6,7 @@ import { useAuth } from "../context/Provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 // import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import Loading from "../Components/Loading";
 
 const MyPlants = () => {
   const { user } = useAuth();
@@ -74,8 +75,8 @@ Swal.fire({
 
   if (loading) {
     return (
-      <div className="text-center mt-10 text-green-700 dark:text-green-300 text-lg animate-pulse">
-        Loading your plants...
+      <div>
+        <Loading/>
       </div>
     );
   }
@@ -114,13 +115,13 @@ Swal.fire({
                     <td className="p-4 flex justify-center gap-3">
                       <button
                         onClick={() => navigate(`/update-plant/${plant._id}`)}
-                        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+                        className="px-4 py-2 btn btn-success btn-sm text-white dark:bg-green-600 dark:hover:bg-green-700 "
                       >
                         Update
                       </button>
                       <button
                         onClick={() => setDeletingId(plant._id)}
-                        className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
+                        className="px-4 py-2 btn btn-sm btn-outline text-red-500 dark:text-red-400 "
                       >
                         Delete
                       </button>

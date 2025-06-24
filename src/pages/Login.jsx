@@ -160,7 +160,7 @@ const Login = () => {
           </button>
         </div>
 
-        <button type="submit" className="btn btn-success w-full text-white">
+        <button type="submit" className=" w-full btn btn-success btn-sm text-white dark:bg-green-600 dark:hover:bg-green-700">
           Login
         </button>
 
@@ -169,8 +169,11 @@ const Login = () => {
         <button
           type="button"
           onClick={handleGoogleLogin}
-          className="btn btn-outline w-full dark:border-gray-600 dark:text-white"
+          className=" w-full btn btn-outline btn-sm dark:border-green-500 dark:text-white dark:hover:bg-green-600"
         >
+
+
+          
           Continue with Google
         </button>
 

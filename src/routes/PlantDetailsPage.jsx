@@ -1,10 +1,8 @@
-
-
-
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../context/Provider/AuthProvider";
 import NextWateringReminder from "../Components/NextWateringReminder";
+import Loading from "../Components/Loading";
 
 const PlantDetailsPage = () => {
   const { id } = useParams();
@@ -18,7 +16,12 @@ const PlantDetailsPage = () => {
       .catch((err) => console.error("Failed to load plant details:", err));
   }, [id]);
 
-  if (!plant) return <div className="text-center mt-12">Loading...</div>;
+  if (!plant)
+    return (
+      <div >
+        <Loading />
+      </div>
+    );
 
   return (
     <div className="px-4 py-1 min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-500">
@@ -43,7 +46,8 @@ const PlantDetailsPage = () => {
           <strong>Care Level:</strong> {plant.careLevel}
         </p>
         <p className="text-gray-700 dark:text-gray-300 mb-2">
-          <strong>Watering Frequency:</strong> Every {plant.wateringFrequency} days
+          <strong>Watering Frequency:</strong> Every {plant.wateringFrequency}{" "}
+          days
         </p>
         <p className="text-gray-700 dark:text-gray-300 mb-2">
           <strong>Last Watered:</strong> {plant.lastWateredDate}
@@ -71,4 +75,3 @@ const PlantDetailsPage = () => {
 };
 
 export default PlantDetailsPage;
-

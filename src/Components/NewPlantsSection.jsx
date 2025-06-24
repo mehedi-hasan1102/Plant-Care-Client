@@ -47,7 +47,8 @@ const NewPlantsSection = () => {
       </div>
 
       {loading ? (
-        <Loading />
+        
+        <div>  <Loading/> </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {visiblePlants.map((plant) => (
@@ -68,12 +69,14 @@ const NewPlantsSection = () => {
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
                 {plant.category}
               </p>
+              
               <p className="text-sm text-gray-700 dark:text-gray-300">
                 💧 Watering: {plant.wateringFrequency}
               </p>
+              <br />
               <button
                 onClick={() => navigate(`/plant-details/${plant._id}`)}
-                className="mt-4 inline-block px-4 py-2 rounded-md bg-emerald-600 text-white hover:bg-emerald-700 transition-colors"
+                className="btn btn-success btn-sm text-white dark:bg-green-600 dark:hover:bg-green-700 "
               >
                 View Details
               </button>
@@ -86,7 +89,7 @@ const NewPlantsSection = () => {
         <div className="flex justify-center mt-12">
           <button
             onClick={handleShowAll}
-            className="px-6 py-2 rounded-full bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition-all duration-300"
+            className="px-6 py-2 rounded-full btn btn-outline btn-sm dark:border-green-500 dark:text-white dark:hover:bg-green-600"
           >
             View All Plants
           </button>

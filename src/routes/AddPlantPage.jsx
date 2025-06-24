@@ -63,7 +63,7 @@ const AddPlantPage = () => {
             <FormInput label="Email" name="email" type="email" value={user.email} readOnly />
           </div>
 
-          <button type="submit" className="btn btn-success w-full text-white text-lg">
+          <button type="submit" className=" w-full btn btn-success btn-sm text-white dark:bg-green-600 dark:hover:bg-green-700 ">
             🌱 Add Plant
           </button>
         </form>
