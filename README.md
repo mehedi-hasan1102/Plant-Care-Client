@@ -54,12 +54,13 @@ A full-stack web application for plant enthusiasts to manage and monitor their p
 
 ### Installation  
 ```bash
-git clone [your-repository-url]
+git clone https://github.com/HasanCodeX/Project---web-b11-A10-PlantCare---client
 cd plant-care-tracker
 npm install
 Configuration
-Create .env file with your Firebase credentials:
+
 ```
+Create .env file with your Firebase credentials:
 ```env
 VITE_FIREBASE_API_KEY=your_key
 VITE_FIREBASE_AUTH_DOMAIN=your_domain
@@ -112,7 +113,7 @@ Open a Pull Request
 This project is currently unlicensed. For usage permissions, please contact the maintainer.
 
 📬 Contact
-Maintainer: [Mehedi Hasan]
+Maintainer: Mehedi Hasan
 📧 Email: dev.hasan10@gmail.com
 🔗 GitHub: https://github.com/HasanCodeX
 
