@@ -60,7 +60,8 @@ npm install
 
 
 ```
-Configuration
+### Configuration
+
 Create .env file with your Firebase credentials:
 ```env
 VITE_FIREBASE_API_KEY=your_key
