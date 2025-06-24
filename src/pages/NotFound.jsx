@@ -22,11 +22,11 @@ const NotFound = () => {
 
         <Link
           to="/"
-          className="px-6 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 dark:hover:bg-green-500 transition mb-4"
+          className="px-6 py-3  rounded-full btn btn-success btn-sm text-white dark:bg-green-600 dark:hover:bg-green-700"
         >
           Go Back Home
         </Link>
-
+<br />
         {/* Dark Mode Toggle under the button */}
         <div className="mt-2">
           <Switch />
