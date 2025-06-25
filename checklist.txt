@@ -7,9 +7,9 @@
 [ ] 7 extra sections in Landing page
 [ ] Footer with logo + links + social icons
 [ ] All items page with sort & filter
-[ ] Dashboard overview with stats
+[ ] Dashboard overview with stats [done]
 [ ] Dashboard routing and data tables
 [ ] Responsive checked (mobile + tab + desktop)
-[ ] No lorem text
+[ ] No lorem text [done]
 [ ] Dark mode contrast OK
 [ ] Custom error page designed

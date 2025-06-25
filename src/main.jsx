@@ -50,14 +50,7 @@ const router = createBrowserRouter([
         ),
       },
 
-      {
-        path: "/myProfile",
-        element: (
-          <PrivateRoute>
-            <Profile />
-          </PrivateRoute>
-        ),
-      },
+     
       {
         path: "plant-details/:id",
         element: (
@@ -84,9 +77,10 @@ const router = createBrowserRouter([
     ),
     children: [
       { index: true, element: <Overview /> },
-      { path: "all-items", element: <AllPlantsPage /> },
-      { path: "add-item", element: <AddPlantPage /> },
-      { path: "my-items", element: <MyPlants /> },
+      { path: "all-plants", element: <AllPlantsPage /> },
+      { path: "add-plant", element: <AddPlantPage /> },
+      { path: "my-plants", element: <MyPlants /> },
+      { path: "user-profile", element:  <Profile />},
     ],
   },
 ]);
