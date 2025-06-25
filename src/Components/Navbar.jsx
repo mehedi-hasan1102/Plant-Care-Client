@@ -52,75 +52,161 @@ const Navbar = () => {
     }
   };
 
-  const navItems = (
-    <>
-      <li>
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            `hover:text-green-600 dark:hover:text-green-400 ${
-              isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
-            }`
-          }
-          data-tooltip-id="tooltip-home"
-          data-tooltip-content="Home Page"
-        >
-          Home
-        </NavLink>
-        <Tooltip id="tooltip-home" place="bottom" effect="solid" />
-      </li>
-      <li>
-        <NavLink
-          to="/all-plants"
-          className={({ isActive }) =>
-            `hover:text-green-600 dark:hover:text-green-400 ${
-              isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
-            }`
-          }
-          data-tooltip-id="tooltip-all-plants"
-          data-tooltip-content="See all available plants"
-        >
-          All Plants
-        </NavLink>
-        <Tooltip id="tooltip-all-plants" place="bottom" effect="solid" />
-      </li>
-      {user && (
-        <>
-          <li>
-            <NavLink
-              to="/add-plant"
-              className={({ isActive }) =>
-                `hover:text-green-600 dark:hover:text-green-400 ${
-                  isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
-                }`
-              }
-              data-tooltip-id="tooltip-add-plant"
-              data-tooltip-content="Add a new plant"
-            >
-              Add Plant
-            </NavLink>
-            <Tooltip id="tooltip-add-plant" place="bottom" effect="solid" />
-          </li>
-          <li>
-            <NavLink
-              to="/my-plants"
-              className={({ isActive }) =>
-                `hover:text-green-600 dark:hover:text-green-400 ${
-                  isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
-                }`
-              }
-              data-tooltip-id="tooltip-my-plants"
-              data-tooltip-content="View your added plants"
-            >
-              My Plants
-            </NavLink>
-            <Tooltip id="tooltip-my-plants" place="bottom" effect="solid" />
-          </li>
-        </>
-      )}
-    </>
-  );
+  // const navItems = (
+  //   <>
+  //     <li>
+  //       <NavLink
+  //         to="/"
+  //         className={({ isActive }) =>
+  //           `hover:text-green-600 dark:hover:text-green-400 ${
+  //             isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
+  //           }`
+  //         }
+  //         data-tooltip-id="tooltip-home"
+  //         data-tooltip-content="Home Page"
+  //       >
+  //         Home
+  //       </NavLink>
+  //       <Tooltip id="tooltip-home" place="bottom" effect="solid" />
+  //     </li>
+  //     <li>
+  //       <NavLink
+  //         to="/all-plants"
+  //         className={({ isActive }) =>
+  //           `hover:text-green-600 dark:hover:text-green-400 ${
+  //             isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
+  //           }`
+  //         }
+  //         data-tooltip-id="tooltip-all-plants"
+  //         data-tooltip-content="See all available plants"
+  //       >
+  //         All Plants
+  //       </NavLink>
+  //       <Tooltip id="tooltip-all-plants" place="bottom" effect="solid" />
+  //     </li>
+  //     {user && (
+  //       <>
+  //         <li>
+  //           <NavLink
+  //             to="/add-plant"
+  //             className={({ isActive }) =>
+  //               `hover:text-green-600 dark:hover:text-green-400 ${
+  //                 isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
+  //               }`
+  //             }
+  //             data-tooltip-id="tooltip-add-plant"
+  //             data-tooltip-content="Add a new plant"
+  //           >
+  //             Add Plant
+  //           </NavLink>
+  //           <Tooltip id="tooltip-add-plant" place="bottom" effect="solid" />
+  //         </li>
+  //         <li>
+  //           <NavLink
+  //             to="/my-plants"
+  //             className={({ isActive }) =>
+  //               `hover:text-green-600 dark:hover:text-green-400 ${
+  //                 isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
+  //               }`
+  //             }
+  //             data-tooltip-id="tooltip-my-plants"
+  //             data-tooltip-content="View your added plants"
+  //           >
+  //             My Plants
+  //           </NavLink>
+  //           <Tooltip id="tooltip-my-plants" place="bottom" effect="solid" />
+  //         </li>
+  //       </>
+  //     )}
+  //   </>
+  // );
 
+
+const navItems = (
+  <>
+    <li>
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          `hover:text-green-600 dark:hover:text-green-400 ${
+            isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
+          }`
+        }
+      >
+        Home
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        to="/all-plants"
+        className={({ isActive }) =>
+          `hover:text-green-600 dark:hover:text-green-400 ${
+            isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
+          }`
+        }
+      >
+        All Plants
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        to="/about"
+        className={({ isActive }) =>
+          `hover:text-green-600 dark:hover:text-green-400 ${
+            isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
+          }`
+        }
+      >
+        About Us
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        to="/contact"
+        className={({ isActive }) =>
+          `hover:text-green-600 dark:hover:text-green-400 ${
+            isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
+          }`
+        }
+      >
+        Contact
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        to="/support"
+        className={({ isActive }) =>
+          `hover:text-green-600 dark:hover:text-green-400 ${
+            isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
+          }`
+        }
+      >
+        Support
+      </NavLink>
+    </li>
+
+    {user && (
+      <>
+       
+       
+        <li>
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              `hover:text-green-600 dark:hover:text-green-400 ${
+                isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
+              }`
+            }
+          >
+            Dashboard
+          </NavLink>
+        </li>
+      </>
+    )}
+  </>
+);
+
+  
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 border-b-2 border-green-400 backdrop-blur-xl shadow-md transition">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
