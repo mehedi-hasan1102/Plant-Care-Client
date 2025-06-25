@@ -1,5 +1,3 @@
-
-
 import { FaFacebookF, FaInstagram, FaTwitter, FaLeaf } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -11,7 +9,6 @@ const Footer = () => {
       dark:bg-gray-900 dark:text-green-100 transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-
         {/* Brand Info */}
         <div>
           <Link
@@ -22,30 +19,71 @@ const Footer = () => {
             PlantCare
           </Link>
           <p className="text-sm text-green-800 dark:text-green-200">
-            Your personal assistant for healthier, happier plants.  
-            Track watering, fertilizing, and plant health with ease.
+            Empowering plant lovers to nurture healthier greenery. Manage your
+            plant care routines with intelligent tracking and timely reminders.
           </p>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-2 text-green-900 dark:text-green-200">Quick Links</h3>
+          <h3 className="text-lg font-semibold mb-2 text-green-900 dark:text-green-200">
+            Quick Links
+          </h3>
           <ul className="space-y-1 text-sm">
-            <li><Link to="/" className="hover:text-green-600 dark:hover:text-green-400">Home</Link></li>
-            <li><Link to="/all-plants" className="hover:text-green-600 dark:hover:text-green-400">All Plants</Link></li>
-            <li><Link to="/myProfile" className="hover:text-green-600 dark:hover:text-green-400">My Profile</Link></li>
+            <li>
+              <Link
+                to="/"
+                className="hover:text-green-600 dark:hover:text-green-400"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/all-plants"
+                className="hover:text-green-600 dark:hover:text-green-400"
+              >
+                All Plants
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/about"
+                className="hover:text-green-600 dark:hover:text-green-400"
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                className="hover:text-green-600 dark:hover:text-green-400"
+              >
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/support"
+                className="hover:text-green-600 dark:hover:text-green-400"
+              >
+                Support
+              </Link>
+            </li>
           </ul>
         </div>
 
         {/* Contact + Social */}
         <div>
-          <h3 className="text-lg font-semibold mb-2 text-green-900 dark:text-green-200">Contact</h3>
-          <p className="text-sm">Email: support@plantcare.app</p>
-          <p className="text-sm mb-3">Phone: +880 123-456-789</p>
+          <h3 className="text-lg font-semibold mb-2 text-green-900 dark:text-green-200">
+            Contact
+          </h3>
+          <p className="text-sm">Email: help@plantcare.com</p>
+          <p className="text-sm mb-3">Phone: +880 1700-123456</p>
 
           <div className="flex gap-4 mt-2">
             <a
-              href="https://facebook.com"
+              href="https://facebook.com/plantcarebd"
               target="_blank"
               rel="noopener noreferrer"
               className="text-green-700 dark:text-green-400 hover:text-green-900 dark:hover:text-green-300 text-xl"
@@ -53,7 +91,7 @@ const Footer = () => {
               <FaFacebookF />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://instagram.com/plantcarebd"
               target="_blank"
               rel="noopener noreferrer"
               className="text-green-700 dark:text-green-400 hover:text-green-900 dark:hover:text-green-300 text-xl"
@@ -61,7 +99,7 @@ const Footer = () => {
               <FaInstagram />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://twitter.com/plantcarebd"
               target="_blank"
               rel="noopener noreferrer"
               className="text-green-700 dark:text-green-400 hover:text-green-900 dark:hover:text-green-300 text-xl"
@@ -74,20 +112,10 @@ const Footer = () => {
 
       {/* Bottom Line */}
       <div className="border-t mt-10 pt-4 text-center text-sm text-green-700 dark:text-green-400">
-        &copy; {new Date().getFullYear()} PlantCare Tracker — All rights reserved.
+        &copy; {new Date().getFullYear()} PlantCare — All rights reserved.
       </div>
     </footer>
   );
 };
 
 export default Footer;
-
-
-
-
-
-
-
-
-
-
