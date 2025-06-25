@@ -75,7 +75,7 @@ const NewPlantsSection = () => {
               </p>
               <br />
               <button
-                onClick={() => navigate(`/plant-details/${plant._id}`)}
+                onClick={() => navigate(`/dashboard/plant-details/${plant._id}`)}
                 className="btn btn-success btn-sm text-white dark:bg-green-600 dark:hover:bg-green-700 "
               >
                 View Details

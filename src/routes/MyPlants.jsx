@@ -114,7 +114,7 @@ Swal.fire({
                     <td className="p-4">{plant.wateringFrequency}</td>
                     <td className="p-4 flex justify-center gap-3">
                       <button
-                        onClick={() => navigate(`/update-plant/${plant._id}`)}
+                        onClick={() => navigate(`/dashboard/update-plant/${plant._id}`)}
                         className="px-4 py-2 btn btn-success btn-sm text-white dark:bg-green-600 dark:hover:bg-green-700 "
                       >
                         Update

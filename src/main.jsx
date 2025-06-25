@@ -36,48 +36,15 @@ const router = createBrowserRouter([
       { path: "about", element: <About /> },
       { path: "contact", element: <Contact /> },
       { path: "support", element: <Support /> },
-
       {
         path: "all-plants",
         element: <AllPlantsPage />,
       },
-      {
-        // path: "update-plant/:id",
-        path: "update-plant/:id",
-        loader: ({ params }) =>
-          fetch(
-            `https://project-web-b11-a10-plant-care-serv.vercel.app/plants/${params.id}`
-          ),
-
-        element: (
-          <PrivateRoute>
-            <UpdatePlant />
-          </PrivateRoute>
-        ),
-      },
-
-     
-      {
-        path: "plant-details/:id",
-        element: (
-          <PrivateRoute>
-            <PlantDetailsPage />
-          </PrivateRoute>
-        ),
-      },
     ],
   },
 
-  // Catch-all route for 404 Not Found
   {
-    path: "*",
-    element: <NotFound />,
-  },
-
-  { path: "/about", element: <About /> },
-
-  {
-    path: "dashboard",
+    path: "/dashboard",
     element: (
       <PrivateRoute>
         <DashboardLayout />
@@ -88,8 +55,28 @@ const router = createBrowserRouter([
       { path: "all-plants", element: <AllPlantsPage /> },
       { path: "add-plant", element: <AddPlantPage /> },
       { path: "my-plants", element: <MyPlants /> },
-      { path: "user-profile", element:  <Profile />},
+      { path: "user-profile", element: <Profile /> },
+
+      {
+        path: "update-plant/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://project-web-b11-a10-plant-care-serv.vercel.app/plants/${params.id}`
+          ),
+        element: <UpdatePlant />,
+      },
+
+      {
+        path: "plant-details/:id",
+        element: <PlantDetailsPage />,
+      },
     ],
+  },
+
+  // 404 Not Found route
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 

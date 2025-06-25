@@ -71,7 +71,7 @@ const AllPlantsPage = () => {
                   <td className="p-4">
                     <button
                       className="btn btn-success btn-sm text-white dark:bg-green-600 dark:hover:bg-green-700 "
-                      onClick={() => navigate(`/plant-details/${plant._id}`)}
+                      onClick={() => navigate(`/dashboard/plant-details/${plant._id}`)}
                     >
                       View Details
                     </button>
