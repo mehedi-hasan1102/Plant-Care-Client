@@ -157,7 +157,7 @@ const navItems = (
           }`
         }
       >
-        About Us
+        About
       </NavLink>
     </li>
     <li>

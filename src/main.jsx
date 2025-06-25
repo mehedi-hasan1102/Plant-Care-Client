@@ -21,6 +21,9 @@ import Profile from "./routes/Profile";
 import UpdatePlant from "./pages/UpdatePlant";
 import DashboardLayout from "./layouts/DashboardLayout";
 import Overview from "./pages/dashboard/Overview";
+import About from "./routes/About";
+import Support from "./routes/Support";
+import Contact from "./routes/Contact";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +33,9 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: "login", element: <Login /> },
       { path: "signup", element: <Signup /> },
+      { path: "about", element: <About /> },
+      { path: "contact", element: <Contact /> },
+      { path: "support", element: <Support /> },
 
       {
         path: "all-plants",
@@ -67,6 +73,8 @@ const router = createBrowserRouter([
     path: "*",
     element: <NotFound />,
   },
+
+  { path: "/about", element: <About /> },
 
   {
     path: "dashboard",
