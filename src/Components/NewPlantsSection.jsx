@@ -1,7 +1,6 @@
-
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import Loading from "./Loading";
 
 const NewPlantsSection = () => {
@@ -13,7 +12,12 @@ const NewPlantsSection = () => {
 
   useEffect(() => {
     fetch("https://project-web-b11-a10-plant-care-serv.vercel.app/plants")
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return res.json();
+      })
       .then((data) => {
         const sorted = [...data].reverse();
         setAllPlants(sorted);
@@ -51,50 +55,51 @@ const NewPlantsSection = () => {
           <Loading />
         </div>
       ) : (
-        <motion.div
+        <Motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
           {visiblePlants.map((plant, index) => (
-            <motion.div
-              key={plant._id}
+            <Motion.div
+              key={plant._id || index}
               className="bg-gradient-to-br from-green-100 to-white dark:from-zinc-800 dark:to-zinc-900 p-5 rounded-xl shadow hover:shadow-xl transition duration-300"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
               {plant.image && (
-                <motion.img
+                <Motion.img
                   src={plant.image}
-                  alt={plant.plantName}
+                  alt={plant.plantName || "Plant image"}
                   className="w-full h-32 object-cover rounded-md mb-4"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 200 }}
                 />
               )}
               <h3 className="text-xl font-semibold text-emerald-800 dark:text-emerald-300">
-                {plant.plantName}
+                {plant.plantName || "Unnamed Plant"}
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
-                {plant.category}
+                {plant.category || "No category"}
               </p>
               <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
-                💧 Watering: {plant.wateringFrequency}
+                💧 Watering: {plant.wateringFrequency || "Not specified"}
               </p>
               <button
-                onClick={() => navigate(`/dashboard/plant-details/${plant._id}`)}
+                onClick={() => plant._id && navigate(`/dashboard/plant-details/${plant._id}`)}
                 className="px-4 py-1.5 rounded-md bg-green-600 hover:bg-green-700 text-white text-sm transition"
+                disabled={!plant._id}
               >
                 View Details
               </button>
-            </motion.div>
+            </Motion.div>
           ))}
-        </motion.div>
+        </Motion.div>
       )}
 
-      {!showAll && !loading && (
+      {!showAll && !loading && allPlants.length > 4 && (
         <div className="flex justify-center mt-12">
           <button
             onClick={handleShowAll}
