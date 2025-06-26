@@ -46,7 +46,8 @@ const NewPlantsSection = () => {
           New Arrivals
         </h2>
         <p className="text-gray-600 dark:text-gray-400 mt-3 text-base max-w-xl mx-auto">
-          Discover beautiful and healthy plants freshly added to our collection. Perfect for home, office, or gifts.
+          Discover beautiful and healthy plants freshly added to our collection.
+          Perfect for home, office, or gifts.
         </p>
       </div>
 
@@ -62,39 +63,46 @@ const NewPlantsSection = () => {
           transition={{ duration: 0.6 }}
         >
           {visiblePlants.map((plant, index) => (
-            <Motion.div
-              key={plant._id || index}
-              className="bg-gradient-to-br from-green-100 to-white dark:from-zinc-800 dark:to-zinc-900 p-5 rounded-xl shadow hover:shadow-xl transition duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-            >
-              {plant.image && (
-                <Motion.img
-                  src={plant.image}
-                  alt={plant.plantName || "Plant image"}
-                  className="w-full h-32 object-cover rounded-md mb-4"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 200 }}
-                />
-              )}
-              <h3 className="text-xl font-semibold text-emerald-800 dark:text-emerald-300">
-                {plant.plantName || "Unnamed Plant"}
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
-                {plant.category || "No category"}
-              </p>
-              <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
-                💧 Watering: {plant.wateringFrequency || "Not specified"}
-              </p>
-              <button
-                onClick={() => plant._id && navigate(`/dashboard/plant-details/${plant._id}`)}
-                className="px-4 py-1.5 rounded-md bg-green-600 hover:bg-green-700 text-white text-sm transition"
-                disabled={!plant._id}
-              >
-                View Details
-              </button>
-            </Motion.div>
+           <Motion.div
+  key={plant._id || index}
+  className="bg-white/70 dark:bg-zinc-800/70 backdrop-blur-md border border-green-200 dark:border-zinc-700 p-4 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between min-h-[380px] group"
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: index * 0.1 }}
+>
+  {plant.image && (
+    <Motion.img
+      src={plant.image}
+      alt={plant.plantName || "Plant image"}
+      className="w-full h-36 object-cover rounded-xl mb-3 transition-transform duration-500 ease-in-out group-hover:scale-105"
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: "spring", stiffness: 200 }}
+    />
+  )}
+
+  <div className="flex-1">
+    <h3 className="text-xl font-bold text-emerald-800 dark:text-emerald-300 mb-1">
+      {plant.plantName || "Unnamed Plant"}
+    </h3>
+
+    <p className="text-xs inline-block px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-800 dark:text-white mb-2">
+      {plant.category || "No category"}
+    </p>
+
+    <p className="text-sm text-gray-700 dark:text-gray-300 line-clamp-2 mb-3 leading-relaxed">
+      {plant.description?.slice(0, 80) || "No description available..."}
+    </p>
+  </div>
+
+  <button
+    onClick={() => plant._id && navigate(`/dashboard/plant-details/${plant._id}`)}
+    className="mt-auto px-4 py-2 rounded-md bg-green-600 hover:bg-green-700 text-white text-sm font-medium transition"
+    disabled={!plant._id}
+  >
+    See More
+  </button>
+</Motion.div>
+
           ))}
         </Motion.div>
       )}
