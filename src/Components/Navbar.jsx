@@ -1,4 +1,3 @@
-
 import { Link, NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/Provider/AuthProvider";
@@ -15,7 +14,6 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     const isDarkMode = document.documentElement.classList.contains("dark");
-
     const result = await Swal.fire({
       title: "Are you sure?",
       text: "You will be logged out of your account.",
@@ -55,46 +53,60 @@ const Navbar = () => {
   const navItems = (
     <>
       <li>
-        <NavLink to="/" className={({ isActive }) =>
-          `hover:text-green-600 dark:hover:text-green-400 ${isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""}`}>
+        <NavLink to="/" className={({ isActive }) => isActive ? "text-green-700 dark:text-green-300 font-semibold" : "hover:text-green-600 dark:hover:text-green-400"}>
           Home
         </NavLink>
       </li>
       <li>
-        <NavLink to="/all-plants" className={({ isActive }) =>
-          `hover:text-green-600 dark:hover:text-green-400 ${isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""}`}>
+        <NavLink to="/all-plants" className={({ isActive }) => isActive ? "text-green-700 dark:text-green-300 font-semibold" : "hover:text-green-600 dark:hover:text-green-400"}>
           All Plants
         </NavLink>
       </li>
       <li>
-        <NavLink to="/about" className={({ isActive }) =>
-          `hover:text-green-600 dark:hover:text-green-400 ${isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""}`}>
+        <NavLink to="/about" className={({ isActive }) => isActive ? "text-green-700 dark:text-green-300 font-semibold" : "hover:text-green-600 dark:hover:text-green-400"}>
           About
         </NavLink>
       </li>
       <li>
-        <NavLink to="/contact" className={({ isActive }) =>
-          `hover:text-green-600 dark:hover:text-green-400 ${isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""}`}>
+        <NavLink to="/contact" className={({ isActive }) => isActive ? "text-green-700 dark:text-green-300 font-semibold" : "hover:text-green-600 dark:hover:text-green-400"}>
           Contact
         </NavLink>
       </li>
       <li>
-        <NavLink to="/support" className={({ isActive }) =>
-          `hover:text-green-600 dark:hover:text-green-400 ${isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""}`}>
+        <NavLink to="/support" className={({ isActive }) => isActive ? "text-green-700 dark:text-green-300 font-semibold" : "hover:text-green-600 dark:hover:text-green-400"}>
           Support
         </NavLink>
       </li>
 
-      <hr className=" border-green-800" />
-
       {user && (
-        <li className="lg:hidden">
-          <NavLink to="/dashboard" className={({ isActive }) =>
-            `hover:text-green-600 dark:hover:text-green-400 btn btn-outline btn-sm dark:border-green-500 dark:text-white dark:hover:bg-green-600 ${isActive ? "font-semibold" : ""}`}>
-            Dashboard
-          </NavLink>
-        </li>
-      )}
+  <li className="lg:hidden mt-4 pt-4 border-t border-green-400 px-2">
+    {/* Avatar + Name */}
+    <div className="flex items-center gap-3 bg-green-50 dark:bg-zinc-800 p-3 rounded-lg shadow-sm mb-3">
+      <img
+        src={user.photoURL}
+        alt={user.displayName || "User"}
+        className="w-10 h-10 rounded-full ring-2 ring-green-400 object-cover"
+      />
+      <div>
+        <p className="text-sm font-semibold text-gray-800 dark:text-white">
+          {user.displayName || "User"}
+        </p>
+        <p className="text-xs text-gray-500 dark:text-gray-400">
+          Logged in
+        </p>
+      </div>
+    </div>
+
+    {/* Dashboard Button */}
+    <NavLink
+      to="/dashboard"
+      className="block w-full text-center px-4 py-2 rounded-md bg-green-600 text-white font-medium hover:bg-green-700 transition duration-200"
+    >
+      Go to Dashboard
+    </NavLink>
+  </li>
+)}
+
     </>
   );
 
@@ -103,18 +115,11 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2 text-2xl font-bold text-green-700 dark:text-green-400 flex-shrink-0">
+          <div className="flex items-center gap-2 text-2xl font-bold text-green-700 dark:text-green-400">
             <FaLeaf />
-            <Link
-              to="/"
-              className="hover:text-green-600 dark:hover:text-green-300 transition "
-              data-tooltip-id="tooltip-logo"
-              data-tooltip-content="PlantCare Home"
-              aria-label="Go to PlantCare Home"
-            >
+            <Link to="/" className="hover:text-green-600 dark:hover:text-green-300 transition">
               PlantCare
             </Link>
-            <Tooltip id="tooltip-logo" place="bottom" effect="solid" />
           </div>
 
           {/* Desktop Menu */}
@@ -124,43 +129,49 @@ const Navbar = () => {
             </ul>
           </div>
 
-          {/* Right Controls */}
+          {/* Right Side */}
           <div className="flex items-center gap-3">
             <Switch />
             {!user ? (
               <div className="flex space-x-3">
-                <Link to="/login" className="btn btn-outline btn-sm dark:border-green-500 dark:text-white dark:hover:bg-green-600">Login</Link>
-                <Link to="/signup" className="btn btn-success btn-sm text-white dark:bg-green-600 dark:hover:bg-green-700">Register</Link>
+                <Link to="/login" className="btn btn-outline btn-sm dark:border-green-500 dark:text-white dark:hover:bg-green-600">
+                  Login
+                </Link>
+                <Link to="/signup" className="btn btn-success btn-sm text-white dark:bg-green-600 dark:hover:bg-green-700">
+                  Register
+                </Link>
               </div>
             ) : (
-              <div className="flex items-center space-x-3 ">
+              <div className="hidden lg:flex items-center space-x-3">
                 <img
                   src={user.photoURL}
                   alt={user.displayName || "User"}
-                  className="w-9 h-9 rounded-full ring-2 ring-green-400 cursor-pointer"
-                  data-tooltip-id="tooltip-user"
-                  data-tooltip-content={user.displayName || "User"}
+                  className="w-9 h-9 rounded-full ring-2 ring-green-400"
                 />
-                <Tooltip id="tooltip-user" place="bottom" effect="solid" />
-
-                <Link to="/dashboard" className="hidden lg:inline-flex btn btn-outline btn-sm dark:border-green-500 dark:text-white dark:hover:bg-green-600">
+                <Link
+                  to="/dashboard"
+                  className="btn btn-outline btn-sm dark:border-green-500 dark:text-white dark:hover:bg-green-600"
+                >
                   Dashboard
                 </Link>
-
-                <button onClick={handleLogout} className="btn btn-ghost btn-circle text-red-500 dark:text-red-400 text-lg" data-tooltip-id="tooltip-logout" data-tooltip-content="Logout">
+                <button
+                  onClick={handleLogout}
+                  className="btn btn-ghost btn-circle text-red-500 dark:text-red-400 text-lg"
+                  data-tooltip-id="tooltip-logout"
+                  data-tooltip-content="Logout"
+                  aria-label="Logout"
+                >
                   <FiLogOut />
                 </button>
-                <Tooltip id="tooltip-logout" place="bottom" effect="solid" />
               </div>
             )}
 
-            {/* Mobile Toggle */}
+            {/* Hamburger */}
             <div className="lg:hidden ml-1">
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
                 className="p-2 rounded-md text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-800"
-                aria-expanded={menuOpen}
-                aria-label="Toggle navigation menu"
+                aria-label="Toggle menu"
               >
                 {menuOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
               </button>
@@ -170,7 +181,11 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`lg:hidden bg-green-50 dark:bg-zinc-900 border-t border-green-400 transition-[max-height] duration-500 ease-in-out overflow-hidden ${menuOpen ? "max-h-screen py-4" : "max-h-0 py-0"}`}>
+      <div
+        className={`lg:hidden bg-white dark:bg-gray-900 border-t border-green-400 overflow-hidden transition-[max-height] duration-500 ease-in-out ${
+          menuOpen ? "max-h-screen py-4" : "max-h-0 py-0"
+        }`}
+      >
         <ul className="space-y-2 px-4 text-lg font-medium dark:text-white">
           {navItems}
         </ul>
