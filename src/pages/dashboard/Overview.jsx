@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../context/firebase/firebase.config";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -39,7 +39,7 @@ const Overview = () => {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-100 to-green-300 dark:from-zinc-900 dark:to-zinc-800 px-4 py-12">
       <div className="w-full max-w-6xl space-y-8">
         {/* Welcome */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -51,12 +51,12 @@ const Overview = () => {
           <p className="text-gray-700 dark:text-gray-400">
             Here's a quick snapshot of your plant collection.
           </p>
-        </motion.div>
+        </Motion.div>
 
         {/* Grid of 3 Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Avatar Card */}
-          <motion.div
+          <Motion.div
             className="bg-white dark:bg-zinc-900 rounded-[1.5rem] p-6 shadow-xl text-center cursor-default"
             custom={0}
             variants={cardVariants}
@@ -65,7 +65,7 @@ const Overview = () => {
             whileHover={{ scale: 1.05 }}
           >
             <div className="relative w-24 h-24 mx-auto mb-4">
-              <motion.img
+              <Motion.img
                 src={user?.photoURL || "https://i.ibb.co/5r5C1fJ/user.png"}
                 alt="User Avatar"
                 className="w-full h-full rounded-full border-4 border-green-500 dark:border-green-400 object-cover shadow-md"
@@ -81,10 +81,10 @@ const Overview = () => {
               {user?.displayName || "Anonymous"}
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">{user?.email}</p>
-          </motion.div>
+          </Motion.div>
 
           {/* Total Plants Card */}
-          <motion.div
+          <Motion.div
             className="bg-white dark:bg-zinc-900 rounded-[1.5rem] p-6 shadow-xl text-center cursor-default"
             custom={1}
             variants={cardVariants}
@@ -95,7 +95,7 @@ const Overview = () => {
             <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2">
               🌿 Total Plants
             </h3>
-            <motion.p
+            <Motion.p
               className="text-5xl font-extrabold text-green-700 dark:text-emerald-400"
               initial="rest"
               whileHover="hover"
@@ -103,11 +103,11 @@ const Overview = () => {
               variants={numberPulse}
             >
               {stats.total}
-            </motion.p>
-          </motion.div>
+            </Motion.p>
+          </Motion.div>
 
           {/* My Plants Card */}
-          <motion.div
+          <Motion.div
             className="bg-white dark:bg-zinc-900 rounded-[1.5rem] p-6 shadow-xl text-center cursor-default"
             custom={2}
             variants={cardVariants}
@@ -118,7 +118,7 @@ const Overview = () => {
             <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2">
               🪴 My Plants
             </h3>
-            <motion.p
+            <Motion.p
               className="text-5xl font-extrabold text-green-700 dark:text-emerald-400"
               initial="rest"
               whileHover="hover"
@@ -126,8 +126,8 @@ const Overview = () => {
               variants={numberPulse}
             >
               {stats.mine}
-            </motion.p>
-          </motion.div>
+            </Motion.p>
+          </Motion.div>
         </div>
       </div>
     </div>
