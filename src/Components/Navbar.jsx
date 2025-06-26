@@ -1,4 +1,3 @@
-
 import { Link, NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/Provider/AuthProvider";
@@ -24,8 +23,8 @@ const Navbar = () => {
       confirmButtonColor: "#16a34a",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, logout",
-      background: isDarkMode ? "#1f2937" : "#ffffff", // dark:bg-gray-800
-      color: isDarkMode ? "#d1d5db" : "#111827",      // dark:text-gray-300 / light text-gray-900
+      background: isDarkMode ? "#1f2937" : "#ffffff",
+      color: isDarkMode ? "#d1d5db" : "#111827",
     });
 
     if (result.isConfirmed) {
@@ -52,148 +51,75 @@ const Navbar = () => {
     }
   };
 
-  // const navItems = (
-  //   <>
-  //     <li>
-  //       <NavLink
-  //         to="/"
-  //         className={({ isActive }) =>
-  //           `hover:text-green-600 dark:hover:text-green-400 ${
-  //             isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
-  //           }`
-  //         }
-  //         data-tooltip-id="tooltip-home"
-  //         data-tooltip-content="Home Page"
-  //       >
-  //         Home
-  //       </NavLink>
-  //       <Tooltip id="tooltip-home" place="bottom" effect="solid" />
-  //     </li>
-  //     <li>
-  //       <NavLink
-  //         to="/all-plants"
-  //         className={({ isActive }) =>
-  //           `hover:text-green-600 dark:hover:text-green-400 ${
-  //             isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
-  //           }`
-  //         }
-  //         data-tooltip-id="tooltip-all-plants"
-  //         data-tooltip-content="See all available plants"
-  //       >
-  //         All Plants
-  //       </NavLink>
-  //       <Tooltip id="tooltip-all-plants" place="bottom" effect="solid" />
-  //     </li>
-  //     {user && (
-  //       <>
-  //         <li>
-  //           <NavLink
-  //             to="/add-plant"
-  //             className={({ isActive }) =>
-  //               `hover:text-green-600 dark:hover:text-green-400 ${
-  //                 isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
-  //               }`
-  //             }
-  //             data-tooltip-id="tooltip-add-plant"
-  //             data-tooltip-content="Add a new plant"
-  //           >
-  //             Add Plant
-  //           </NavLink>
-  //           <Tooltip id="tooltip-add-plant" place="bottom" effect="solid" />
-  //         </li>
-  //         <li>
-  //           <NavLink
-  //             to="/my-plants"
-  //             className={({ isActive }) =>
-  //               `hover:text-green-600 dark:hover:text-green-400 ${
-  //                 isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
-  //               }`
-  //             }
-  //             data-tooltip-id="tooltip-my-plants"
-  //             data-tooltip-content="View your added plants"
-  //           >
-  //             My Plants
-  //           </NavLink>
-  //           <Tooltip id="tooltip-my-plants" place="bottom" effect="solid" />
-  //         </li>
-  //       </>
-  //     )}
-  //   </>
-  // );
+  const navItems = (
+    <>
+      <li>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `hover:text-green-600 dark:hover:text-green-400 ${
+              isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
+            }`
+          }
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/all-plants"
+          className={({ isActive }) =>
+            `hover:text-green-600 dark:hover:text-green-400 ${
+              isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
+            }`
+          }
+        >
+          All Plants
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            `hover:text-green-600 dark:hover:text-green-400 ${
+              isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
+            }`
+          }
+        >
+          About
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            `hover:text-green-600 dark:hover:text-green-400 ${
+              isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
+            }`
+          }
+        >
+          Contact
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/support"
+          className={({ isActive }) =>
+            `hover:text-green-600 dark:hover:text-green-400 ${
+              isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
+            }`
+          }
+        >
+          Support
+        </NavLink>
+      </li>
 
-
-const navItems = (
-  <>
-    <li>
-      <NavLink
-        to="/"
-        className={({ isActive }) =>
-          `hover:text-green-600 dark:hover:text-green-400 ${
-            isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
-          }`
-        }
-      >
-        Home
-      </NavLink>
-    </li>
-    <li>
-      <NavLink
-        to="/all-plants"
-        className={({ isActive }) =>
-          `hover:text-green-600 dark:hover:text-green-400 ${
-            isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
-          }`
-        }
-      >
-        All Plants
-      </NavLink>
-    </li>
-    <li>
-      <NavLink
-        to="/about"
-        className={({ isActive }) =>
-          `hover:text-green-600 dark:hover:text-green-400 ${
-            isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
-          }`
-        }
-      >
-        About
-      </NavLink>
-    </li>
-    <li>
-      <NavLink
-        to="/contact"
-        className={({ isActive }) =>
-          `hover:text-green-600 dark:hover:text-green-400 ${
-            isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
-          }`
-        }
-      >
-        Contact
-      </NavLink>
-    </li>
-    <li>
-      <NavLink
-        to="/support"
-        className={({ isActive }) =>
-          `hover:text-green-600 dark:hover:text-green-400 ${
-            isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
-          }`
-        }
-      >
-        Support
-      </NavLink>
-    </li>
-
-    {user && (
-      <>
-       
-       
-        <li>
+      {user && (
+        <li className="lg:hidden">
           <NavLink
             to="/dashboard"
             className={({ isActive }) =>
-              `hover:text-green-600 dark:hover:text-green-400 ${
+              `hover:text-green-600 dark:hover:text-green-400 btn btn-outline  ${
                 isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
               }`
             }
@@ -201,22 +127,20 @@ const navItems = (
             Dashboard
           </NavLink>
         </li>
-      </>
-    )}
-  </>
-);
+      )}
+    </>
+  );
 
-  
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 border-b-2 border-green-400 backdrop-blur-xl shadow-md transition">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2 text-2xl font-bold text-green-700 dark:text-green-400 flex-shrink-0">
+          <div className="flex  items-center gap-2 text-2xl font-bold text-green-700 dark:text-green-400 flex-shrink-0">
             <FaLeaf aria-hidden="true" />
             <Link
               to="/"
-              className="hover:text-green-600 dark:hover:text-green-300 transition"
+              className="hover:text-green-600 dark:hover:text-green-300 transition hidden md:flex"
               data-tooltip-id="tooltip-logo"
               data-tooltip-content="PlantCare Home"
               aria-label="Go to PlantCare Home"
@@ -235,9 +159,7 @@ const navItems = (
 
           {/* Right Side Controls */}
           <div className="flex items-center gap-3">
-            <div className="flex-shrink-0">
-              <Switch />
-            </div>
+            <Switch />
 
             {!user ? (
               <div className="flex space-x-3">
@@ -255,7 +177,7 @@ const navItems = (
                 </Link>
               </div>
             ) : (
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 ">
                 <img
                   src={user.photoURL}
                   alt={user.displayName || "User Avatar"}
@@ -264,6 +186,16 @@ const navItems = (
                   data-tooltip-content={user.displayName || "User"}
                 />
                 <Tooltip id="tooltip-user" place="bottom" effect="solid" />
+
+
+{/* ✅ Dashboard Button for Large Screens */}
+                <Link
+                  to="/dashboard"
+                  className="hidden lg:inline-flex btn btn-outline btn-sm dark:border-green-500 dark:text-white dark:hover:bg-green-600"
+                >
+                  Dashboard
+                </Link>
+
                 <button
                   onClick={handleLogout}
                   className="btn btn-ghost btn-circle text-red-500 dark:text-red-400 text-lg"
@@ -274,14 +206,16 @@ const navItems = (
                   <FiLogOut />
                 </button>
                 <Tooltip id="tooltip-logout" place="bottom" effect="solid" />
+
+                
               </div>
             )}
 
-            {/* Mobile menu toggle */}
+            {/* Mobile Toggle Button */}
             <div className="lg:hidden ml-1">
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500"
+                className="p-2 rounded-md text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-800"
                 aria-expanded={menuOpen}
                 aria-label="Toggle navigation menu"
               >
