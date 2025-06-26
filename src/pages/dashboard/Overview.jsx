@@ -1,31 +1,133 @@
+import { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../context/firebase/firebase.config";
+import { motion } from "framer-motion";
 
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../context/Provider/AuthProvider";
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" },
+  }),
+};
+
+const numberPulse = {
+  rest: { scale: 1 },
+  hover: {
+    scale: 1.1,
+    transition: { yoyo: Infinity, duration: 0.6, ease: "easeInOut" },
+  },
+};
 
 const Overview = () => {
-  const { user } = useContext(AuthContext);
+  const [user] = useAuthState(auth);
   const [stats, setStats] = useState({ total: 0, mine: 0 });
 
   useEffect(() => {
+    if (!user?.email) return;
+
     fetch("https://project-web-b11-a10-plant-care-serv.vercel.app/plants")
-      .then(res => res.json())
-      .then(data => {
-        const myItems = data.filter(item => item.email === user.email); // ✅ Fixed
-        setStats({ total: data.length, mine: myItems.length });
+      .then((res) => res.json())
+      .then((data) => {
+        const myPlants = data.filter((item) => item.email === user.email);
+        setStats({ total: data.length, mine: myPlants.length });
       });
-  }, [user.email]);
+  }, [user?.email]);
 
   return (
-    <div>
-      <h2 className="text-2xl font-bold mb-4">Dashboard Overview</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-white dark:bg-gray-700 p-4 rounded shadow">
-          <h3 className="text-lg">Total Plants</h3>
-          <p className="text-3xl font-bold">{stats.total}</p>
-        </div>
-        <div className="bg-white dark:bg-gray-700 p-4 rounded shadow">
-          <h3 className="text-lg">My Plants</h3>
-          <p className="text-3xl font-bold">{stats.mine}</p>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-100 to-green-300 dark:from-zinc-900 dark:to-zinc-800 px-4 py-12">
+      <div className="w-full max-w-6xl space-y-8">
+        {/* Welcome */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
+          <h1 className="text-4xl font-extrabold text-green-700 dark:text-green-400 mb-2">
+            Welcome to your Dashboard!
+          </h1>
+          <p className="text-gray-700 dark:text-gray-400">
+            Here's a quick snapshot of your plant collection.
+          </p>
+        </motion.div>
+
+        {/* Grid of 3 Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Avatar Card */}
+          <motion.div
+            className="bg-white dark:bg-zinc-900 rounded-[1.5rem] p-6 shadow-xl text-center cursor-default"
+            custom={0}
+            variants={cardVariants}
+            initial="hidden"
+            animate="visible"
+            whileHover={{ scale: 1.05 }}
+          >
+            <div className="relative w-24 h-24 mx-auto mb-4">
+              <motion.img
+                src={user?.photoURL || "https://i.ibb.co/5r5C1fJ/user.png"}
+                alt="User Avatar"
+                className="w-full h-full rounded-full border-4 border-green-500 dark:border-green-400 object-cover shadow-md"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.6 }}
+              />
+              <span className="absolute -top-2 -right-2 bg-green-600 text-white text-xs font-semibold px-2 py-0.5 rounded-full shadow">
+                ✅ User
+              </span>
+            </div>
+            <h3 className="text-xl font-semibold text-green-700 dark:text-emerald-400">
+              {user?.displayName || "Anonymous"}
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400">{user?.email}</p>
+          </motion.div>
+
+          {/* Total Plants Card */}
+          <motion.div
+            className="bg-white dark:bg-zinc-900 rounded-[1.5rem] p-6 shadow-xl text-center cursor-default"
+            custom={1}
+            variants={cardVariants}
+            initial="hidden"
+            animate="visible"
+            whileHover={{ scale: 1.05 }}
+          >
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2">
+              🌿 Total Plants
+            </h3>
+            <motion.p
+              className="text-5xl font-extrabold text-green-700 dark:text-emerald-400"
+              initial="rest"
+              whileHover="hover"
+              animate="rest"
+              variants={numberPulse}
+            >
+              {stats.total}
+            </motion.p>
+          </motion.div>
+
+          {/* My Plants Card */}
+          <motion.div
+            className="bg-white dark:bg-zinc-900 rounded-[1.5rem] p-6 shadow-xl text-center cursor-default"
+            custom={2}
+            variants={cardVariants}
+            initial="hidden"
+            animate="visible"
+            whileHover={{ scale: 1.05 }}
+          >
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2">
+              🪴 My Plants
+            </h3>
+            <motion.p
+              className="text-5xl font-extrabold text-green-700 dark:text-emerald-400"
+              initial="rest"
+              whileHover="hover"
+              animate="rest"
+              variants={numberPulse}
+            >
+              {stats.mine}
+            </motion.p>
+          </motion.div>
         </div>
       </div>
     </div>
