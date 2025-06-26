@@ -114,13 +114,17 @@ const Navbar = () => {
         </NavLink>
       </li>
 
+      <hr className=" border-green-800" />
+
       {user && (
         <li className="lg:hidden">
           <NavLink
             to="/dashboard"
             className={({ isActive }) =>
-              `hover:text-green-600 dark:hover:text-green-400 btn btn-outline  ${
-                isActive ? "text-green-700 dark:text-green-300 font-semibold" : ""
+              `hover:text-green-600 dark:hover:text-green-400 btn btn-outline btn-sm dark:border-green-500 dark:text-white dark:hover:bg-green-600 ${
+                isActive
+                  ? "btn btn-outline  text-green-700 dark:text-green-300 font-semibold  dark:hover:bg-green-600"
+                  : ""
               }`
             }
           >
@@ -187,8 +191,7 @@ const Navbar = () => {
                 />
                 <Tooltip id="tooltip-user" place="bottom" effect="solid" />
 
-
-{/* ✅ Dashboard Button for Large Screens */}
+                {/* ✅ Dashboard Button for Large Screens */}
                 <Link
                   to="/dashboard"
                   className="hidden lg:inline-flex btn btn-outline btn-sm dark:border-green-500 dark:text-white dark:hover:bg-green-600"
@@ -206,8 +209,6 @@ const Navbar = () => {
                   <FiLogOut />
                 </button>
                 <Tooltip id="tooltip-logout" place="bottom" effect="solid" />
-
-                
               </div>
             )}
 
