@@ -24,6 +24,8 @@ import Overview from "./pages/dashboard/Overview";
 import About from "./routes/About";
 import Support from "./routes/Support";
 import Contact from "./routes/Contact";
+import AllPlantsDashboard from "./routes/AllPlantsDashboard";
+
 
 const router = createBrowserRouter([
   {
@@ -52,7 +54,7 @@ const router = createBrowserRouter([
     ),
     children: [
       { index: true, element: <Overview /> },
-      { path: "all-plants", element: <AllPlantsPage /> },
+      { path: "all-plants", element: <AllPlantsDashboard /> },
       { path: "add-plant", element: <AddPlantPage /> },
       { path: "my-plants", element: <MyPlants /> },
       { path: "user-profile", element: <Profile /> },
