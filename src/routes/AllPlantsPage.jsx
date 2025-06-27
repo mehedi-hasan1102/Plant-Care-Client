@@ -1,8 +1,6 @@
-
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
 import Swal from "sweetalert2";
 import Loading from "../Components/Loading";
 
@@ -38,18 +36,15 @@ const AllPlantsPage = () => {
     fetchPlants();
   }, []);
 
-  // Sort and filter logic
   useEffect(() => {
     let updatedPlants = [...plants];
 
-    // Filter by category
     if (categoryFilter !== "all") {
       updatedPlants = updatedPlants.filter(
         (plant) => plant.category === categoryFilter
       );
     }
 
-    // Sort by plantName
     updatedPlants.sort((a, b) => {
       if (a.plantName < b.plantName) return sortOrder === "asc" ? -1 : 1;
       if (a.plantName > b.plantName) return sortOrder === "asc" ? 1 : -1;
@@ -59,7 +54,6 @@ const AllPlantsPage = () => {
     setFilteredPlants(updatedPlants);
   }, [plants, sortOrder, categoryFilter]);
 
-  // Get unique categories for filter dropdown
   const categories = ["all", ...new Set(plants.map((p) => p.category).filter(Boolean))];
 
   if (loading) {
@@ -71,93 +65,107 @@ const AllPlantsPage = () => {
   }
 
   return (
-    <div className="px-4 py-10 min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-500">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-green-700 dark:text-emerald-400 mb-6 text-center">
-          All Plants
-        </h1>
+    <section
+      className="max-w-5xl mx-auto px-6 py-12 rounded-3xl shadow-md
+        bg-gradient-to-br from-green-50 via-white to-green-100
+        dark:from-gray-900 dark:via-green-950 dark:to-gray-900
+        transition-colors duration-300"
+    >
+      <h1 className="text-4xl font-bold text-green-800 dark:text-green-400 mb-10 text-center">
+        All Plants
+      </h1>
 
-        {/* Sorting and Filtering Controls */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
-          <div>
-            <label className="mr-2 font-semibold text-gray-700 dark:text-gray-300">
-              Sort by Name:
-            </label>
-            <select
-              value={sortOrder}
-              onChange={(e) => setSortOrder(e.target.value)}
-              className="border border-green-400 rounded-md px-2 py-1 dark:bg-zinc-800 dark:text-white"
-            >
-              <option value="asc">Ascending (A-Z)</option>
-              <option value="desc">Descending (Z-A)</option>
-            </select>
-          </div>
-
-          <div>
-            <label className="mr-2 font-semibold text-gray-700 dark:text-gray-300">
-              Filter by Category:
-            </label>
-            <select
-              value={categoryFilter}
-              onChange={(e) => setCategoryFilter(e.target.value)}
-              className="border border-green-400 rounded-md px-2 py-1 dark:bg-zinc-800 dark:text-white"
-            >
-              {categories.map((cat) => (
-                <option key={cat} value={cat}>
-                  {cat === "all" ? "All Categories" : cat}
-                </option>
-              ))}
-            </select>
-          </div>
+      {/* Filters Section */}
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-6 mb-12">
+        <div>
+          <label className="block mb-1 text-gray-700 dark:text-gray-300 font-semibold">
+            Sort by Name:
+          </label>
+          <select
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+            className="w-full max-w-xs px-4 py-2 rounded-md border border-green-400
+              dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500
+              transition"
+          >
+            <option value="asc">Ascending (A-Z)</option>
+            <option value="desc">Descending (Z-A)</option>
+          </select>
         </div>
 
-        {/* Card Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredPlants.length === 0 ? (
-            <p className="text-center col-span-full text-gray-600 dark:text-gray-400">
-              No plants found.
-            </p>
-          ) : (
-            filteredPlants.map((plant) => (
-              <div
-                key={plant._id}
-                className="bg-white/80 dark:bg-zinc-800/80 backdrop-blur-md border border-green-200 dark:border-zinc-700 p-4 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between min-h-[300px] group"
-              >
-                {plant.image && (
-                  <img
-                    src={plant.image}
-                    alt={plant.plantName || "Plant"}
-                    className="w-full h-36 object-cover rounded-xl mb-3 transition-transform duration-500 ease-in-out group-hover:scale-105"
-                    loading="lazy"
-                  />
-                )}
-
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-emerald-800 dark:text-emerald-300 mb-1">
-                    {plant.plantName}
-                  </h3>
-
-                  <p className="text-xs inline-block px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-800 dark:text-white mb-2">
-                    {plant.category || "No category"}
-                  </p>
-
-                  <p className="text-sm text-gray-700 dark:text-gray-300 line-clamp-3 mb-3 leading-relaxed">
-                    {plant.description || "No description available."}
-                  </p>
-                </div>
-
-                <button
-                  onClick={() => navigate(`/dashboard/plant-details/${plant._id}`)}
-                  className="mt-auto px-4 py-2 rounded-md bg-green-600 hover:bg-green-700 text-white text-sm font-medium transition"
-                >
-                  View Details
-                </button>
-              </div>
-            ))
-          )}
+        <div>
+          <label className="block mb-1 text-gray-700 dark:text-gray-300 font-semibold">
+            Filter by Category:
+          </label>
+          <select
+            value={categoryFilter}
+            onChange={(e) => setCategoryFilter(e.target.value)}
+            className="w-full max-w-xs px-4 py-2 rounded-md border border-green-400
+              dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500
+              transition"
+          >
+            {categories.map((cat) => (
+              <option key={cat} value={cat}>
+                {cat === "all"
+                  ? "All Categories"
+                  : cat.charAt(0).toUpperCase() + cat.slice(1)}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
-    </div>
+
+      {/* Plants Grid */}
+      {filteredPlants.length === 0 ? (
+        <p className="text-center text-gray-600 dark:text-gray-400">
+          No plants found.
+        </p>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredPlants.map((plant) => (
+            <article
+              key={plant._id}
+              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md
+                border border-green-200 dark:border-green-700
+                flex flex-col hover:shadow-lg transition"
+            >
+              {plant.image && (
+                <img
+                  src={plant.image}
+                  alt={plant.plantName || "Plant"}
+                  loading="lazy"
+                  className="w-full h-48 object-cover rounded-xl mb-5 hover:scale-105 transition-transform duration-300"
+                />
+              )}
+
+              <h3 className="text-2xl font-semibold text-green-900 dark:text-green-300 mb-2">
+                {plant.plantName}
+              </h3>
+
+              <span
+                className="inline-block bg-green-100 dark:bg-green-900
+                text-green-800 dark:text-green-200 px-4 py-1 rounded-full text-sm mb-4"
+              >
+                {plant.category
+                  ? plant.category.charAt(0).toUpperCase() + plant.category.slice(1)
+                  : "No category"}
+              </span>
+
+              <p className="text-gray-700 dark:text-gray-300 flex-grow mb-6 leading-relaxed line-clamp-3">
+                {plant.description || "No description available."}
+              </p>
+
+              <button
+                onClick={() => navigate(`/dashboard/plant-details/${plant._id}`)}
+                className="mt-auto bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md font-semibold transition"
+              >
+                View Details
+              </button>
+            </article>
+          ))}
+        </div>
+      )}
+    </section>
   );
 };
 
