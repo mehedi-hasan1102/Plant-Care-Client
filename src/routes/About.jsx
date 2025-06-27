@@ -4,7 +4,7 @@ import { FaLeaf } from "react-icons/fa";
 const About = () => {
   return (
     <section
-      className="max-w-5xl mx-auto px-6 py-12 rounded-3xl shadow-md bg-gradient-to-br from-green-50 via-white to-green-100
+      className="mt-8 max-w-5xl mx-auto px-6 py-12 rounded-3xl shadow-md bg-gradient-to-br from-green-50 via-white to-green-100
       dark:from-gray-900 dark:via-green-950 dark:to-gray-900 transition-colors duration-300"
     >
       <div className="text-center mb-10">
