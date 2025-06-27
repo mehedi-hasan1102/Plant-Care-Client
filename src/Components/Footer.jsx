@@ -1,12 +1,14 @@
+
 import { FaFacebookF, FaInstagram, FaTwitter, FaLeaf } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer
-      className="px-4 md:px-12 py-10 border-t border-green-400 rounded-t-xl
+      className="px-4 md:px-12 py-10 border-t border-green-400 
       bg-green-100 text-green-900 
-      dark:bg-gray-900 dark:text-green-100 transition-colors duration-300"
+      dark:bg-gray-900 dark:text-green-100 transition-colors duration-300
+      min-h-[180px]"
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Brand Info */}
@@ -86,7 +88,8 @@ const Footer = () => {
               href="https://facebook.com/plantcarebd"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-700 dark:text-green-400 hover:text-green-900 dark:hover:text-green-300 text-xl"
+              aria-label="Facebook"
+              className="text-green-700 dark:text-green-400 hover:text-green-900 dark:hover:text-green-300 text-xl transition-transform hover:scale-110"
             >
               <FaFacebookF />
             </a>
@@ -94,7 +97,8 @@ const Footer = () => {
               href="https://instagram.com/plantcarebd"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-700 dark:text-green-400 hover:text-green-900 dark:hover:text-green-300 text-xl"
+              aria-label="Instagram"
+              className="text-green-700 dark:text-green-400 hover:text-green-900 dark:hover:text-green-300 text-xl transition-transform hover:scale-110"
             >
               <FaInstagram />
             </a>
@@ -102,7 +106,8 @@ const Footer = () => {
               href="https://twitter.com/plantcarebd"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-700 dark:text-green-400 hover:text-green-900 dark:hover:text-green-300 text-xl"
+              aria-label="Twitter"
+              className="text-green-700 dark:text-green-400 hover:text-green-900 dark:hover:text-green-300 text-xl transition-transform hover:scale-110"
             >
               <FaTwitter />
             </a>

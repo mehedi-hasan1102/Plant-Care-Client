@@ -1,3 +1,4 @@
+
 import React from "react";
 import { FaSeedling } from "react-icons/fa";
 
@@ -31,10 +32,14 @@ const AdditionalSections = () => {
           {beginnerPlants.map((plant, idx) => (
             <div
               key={idx}
-              className="bg-gradient-to-br from-white to-green-50 dark:from-zinc-800 dark:to-zinc-900 p-6 rounded-2xl shadow-xl transform transition duration-500 hover:-translate-y-2 hover:shadow-2xl group"
+              tabIndex={0}
+              className="bg-gradient-to-br from-white to-green-50 dark:from-zinc-800 dark:to-zinc-900 p-6 rounded-2xl shadow-xl transform transition duration-500 hover:-translate-y-2 hover:shadow-2xl focus:-translate-y-2 focus:shadow-2xl focus:outline-none group"
             >
               <div className="flex flex-col items-center text-center">
-                <div className="bg-emerald-100 dark:bg-emerald-900 p-4 rounded-full mb-4 shadow-inner ring-2 ring-emerald-400 dark:ring-emerald-500 transition-all">
+                <div
+                  aria-hidden="true"
+                  className="bg-emerald-100 dark:bg-emerald-900 p-4 rounded-full mb-4 shadow-inner ring-2 ring-emerald-400 dark:ring-emerald-500 transition-all"
+                >
                   <FaSeedling className="text-emerald-600 dark:text-emerald-300 text-3xl group-hover:scale-110 transition-transform" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">

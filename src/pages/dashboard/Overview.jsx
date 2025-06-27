@@ -36,7 +36,12 @@ const Overview = () => {
   }, [user?.email]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-100 to-green-300 dark:from-zinc-900 dark:to-zinc-800 px-4 py-12">
+    <div
+      className="min-h-screen flex items-center justify-center
+      bg-gradient-to-br from-green-50 via-white to-green-100
+      dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
+      px-4 py-12 transition-colors duration-300"
+    >
       <div className="w-full max-w-6xl space-y-8">
         {/* Welcome */}
         <Motion.div
@@ -48,7 +53,7 @@ const Overview = () => {
           <h1 className="text-4xl font-extrabold text-green-700 dark:text-green-400 mb-2">
             Welcome to your Dashboard!
           </h1>
-          <p className="text-gray-700 dark:text-gray-400">
+          <p className="text-gray-700 dark:text-gray-300">
             Here's a quick snapshot of your plant collection.
           </p>
         </Motion.div>
@@ -57,7 +62,7 @@ const Overview = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Avatar Card */}
           <Motion.div
-            className="bg-white dark:bg-zinc-900 rounded-[1.5rem] p-6 shadow-xl text-center cursor-default"
+            className="bg-white dark:bg-zinc-900 rounded-3xl p-6 shadow-xl text-center cursor-default"
             custom={0}
             variants={cardVariants}
             initial="hidden"
@@ -77,7 +82,7 @@ const Overview = () => {
                 ✅ User
               </span>
             </div>
-            <h3 className="text-xl font-semibold text-green-700 dark:text-emerald-400">
+            <h3 className="text-xl font-semibold text-green-700 dark:text-green-400">
               {user?.displayName || "Anonymous"}
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">{user?.email}</p>
@@ -85,18 +90,18 @@ const Overview = () => {
 
           {/* Total Plants Card */}
           <Motion.div
-            className="bg-white dark:bg-zinc-900 rounded-[1.5rem] p-6 shadow-xl text-center cursor-default"
+            className="bg-white dark:bg-zinc-900 rounded-3xl p-6 shadow-xl text-center cursor-default"
             custom={1}
             variants={cardVariants}
             initial="hidden"
             animate="visible"
             whileHover={{ scale: 1.05 }}
           >
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2">
+            <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-2">
               🌿 Total Plants
             </h3>
             <Motion.p
-              className="text-5xl font-extrabold text-green-700 dark:text-emerald-400"
+              className="text-5xl font-extrabold text-green-700 dark:text-green-400"
               initial="rest"
               whileHover="hover"
               animate="rest"
@@ -108,18 +113,18 @@ const Overview = () => {
 
           {/* My Plants Card */}
           <Motion.div
-            className="bg-white dark:bg-zinc-900 rounded-[1.5rem] p-6 shadow-xl text-center cursor-default"
+            className="bg-white dark:bg-zinc-900 rounded-3xl p-6 shadow-xl text-center cursor-default"
             custom={2}
             variants={cardVariants}
             initial="hidden"
             animate="visible"
             whileHover={{ scale: 1.05 }}
           >
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2">
+            <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-2">
               🪴 My Plants
             </h3>
             <Motion.p
-              className="text-5xl font-extrabold text-green-700 dark:text-emerald-400"
+              className="text-5xl font-extrabold text-green-700 dark:text-green-400"
               initial="rest"
               whileHover="hover"
               animate="rest"

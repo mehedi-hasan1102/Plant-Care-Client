@@ -1,3 +1,4 @@
+
 import React from "react";
 import { motion as Motion } from "framer-motion";
 
@@ -51,12 +52,14 @@ const PromotionalOffers = () => {
         transition={{ duration: 0.6 }}
       >
         {promotions.map((offer, index) => (
-          <Motion.div
+          <Motion.article
             key={offer.id}
-            className="bg-white/70 dark:bg-zinc-800/70 backdrop-blur-md border border-green-200 dark:border-zinc-700 p-4 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between min-h-[300px] group"
+            className="bg-white/70 dark:bg-zinc-800/70 backdrop-blur-md border border-green-200 dark:border-zinc-700 p-4 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between min-h-[300px] group focus-within:ring-2 focus-within:ring-green-500"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
+            tabIndex={0}
+            aria-label={`Promotion: ${offer.title}`}
           >
             <img
               src={offer.img}
@@ -74,7 +77,7 @@ const PromotionalOffers = () => {
                 {offer.description}
               </p>
             </div>
-          </Motion.div>
+          </Motion.article>
         ))}
       </Motion.div>
     </section>

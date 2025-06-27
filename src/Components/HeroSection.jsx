@@ -1,11 +1,12 @@
 
+
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { EffectFade, Navigation, Pagination, Autoplay, Keyboard } from 'swiper/modules';
 
 export default function HeroSlider() {
   const slides = [
@@ -47,15 +48,17 @@ export default function HeroSlider() {
           delay: 3000,
           disableOnInteraction: false,
         }}
-        modules={[EffectFade, Navigation, Pagination, Autoplay]}
+        keyboard={{ enabled: true }}
+        modules={[EffectFade, Navigation, Pagination, Autoplay, Keyboard]}
         className="mySwiper"
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-[70vh]">
+            <div className="relative w-full h-[50vh] md:h-[70vh]">
               <img
                 src={slide.img}
-                alt={`Slide ${index + 1}`}
+                alt={slide.title}
+                loading="lazy"
                 className="w-full h-full object-cover object-center transition-transform duration-700 ease-in-out scale-100 hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>

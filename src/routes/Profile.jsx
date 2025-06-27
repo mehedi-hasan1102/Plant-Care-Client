@@ -1,3 +1,5 @@
+
+
 import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../context/firebase/firebase.config";
@@ -38,8 +40,8 @@ const Profile = () => {
           ? "#1f2937"
           : "#fff",
         color: document.documentElement.classList.contains("dark")
-          ? "#f3f4f6"
-          : "#111",
+          ? "#4ade80"
+          : "#166534",
         confirmButtonColor: "#16a34a",
       });
 
@@ -65,9 +67,9 @@ const Profile = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-green-300 dark:from-zinc-900 dark:to-zinc-800 px-6 py-16 transition-colors duration-500">
-      <div className="w-full max-w-md bg-white dark:bg-gray-900 rounded-3xl shadow-lg p-10 text-gray-900 dark:text-gray-100 transition-colors duration-500">
+      <div className="w-full max-w-md bg-white dark:bg-zinc-900 rounded-3xl shadow-lg shadow-green-200/50 dark:shadow-emerald-600/50 p-10 text-gray-900 dark:text-gray-100 transition-colors duration-500">
         {/* Heading */}
-        <h1 className="text-3xl font-extrabold text-green-700 dark:text-green-400 text-center mb-8">
+        <h1 className="text-3xl font-extrabold text-green-700 dark:text-emerald-400 text-center mb-8">
           Update Your Profile
         </h1>
 
@@ -75,9 +77,9 @@ const Profile = () => {
           <img
             src={user?.photoURL || "https://i.ibb.co/5r5C1fJ/user.png"}
             alt="Profile"
-            className="w-28 h-28 rounded-full border-4 border-green-600 dark:border-green-500 shadow-lg object-cover"
+            className="w-28 h-28 rounded-full border-4 border-green-600 dark:border-emerald-500 shadow-lg object-cover"
           />
-          <h2 className="mt-5 text-2xl font-semibold text-green-700 dark:text-green-400 tracking-tight">
+          <h2 className="mt-5 text-2xl font-semibold text-green-700 dark:text-emerald-400 tracking-tight">
             {user?.displayName || "Anonymous User"}
           </h2>
           <p className="text-gray-600 dark:text-gray-400 mt-2 text-sm select-text">
@@ -102,7 +104,7 @@ const Profile = () => {
             <input
               id="name"
               type="text"
-              className="w-full px-5 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-2xl text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-400 transition"
+              className="w-full px-5 py-3 bg-green-50 dark:bg-zinc-800 border border-green-400 dark:border-emerald-400 rounded-2xl text-green-900 dark:text-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Enter your full name"
@@ -121,7 +123,7 @@ const Profile = () => {
             <input
               id="photoURL"
               type="url"
-              className="w-full px-5 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-2xl text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-400 transition"
+              className="w-full px-5 py-3 bg-green-50 dark:bg-zinc-800 border border-green-400 dark:border-emerald-400 rounded-2xl text-green-900 dark:text-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
               value={photoURL}
               onChange={(e) => setPhotoURL(e.target.value)}
               placeholder="Paste a valid image URL"
@@ -132,7 +134,7 @@ const Profile = () => {
 
           <button
             type="submit"
-            className="w-full py-3 bg-green-600 hover:bg-green-700 rounded-2xl text-white font-semibold transition shadow-md shadow-green-300 dark:shadow-green-700 focus:outline-none focus:ring-4 focus:ring-green-400"
+            className="w-full py-3 bg-green-700 hover:bg-green-800 rounded-2xl text-white font-semibold transition shadow-md shadow-green-300 dark:shadow-green-700 focus:outline-none focus:ring-4 focus:ring-emerald-400"
           >
             Save Changes
           </button>

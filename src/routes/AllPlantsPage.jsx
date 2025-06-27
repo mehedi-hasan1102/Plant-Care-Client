@@ -46,8 +46,8 @@ const AllPlantsPage = () => {
     }
 
     updatedPlants.sort((a, b) => {
-      if (a.plantName < b.plantName) return sortOrder === "asc" ? -1 : 1;
-      if (a.plantName > b.plantName) return sortOrder === "asc" ? 1 : -1;
+      if (a.plantName.toLowerCase() < b.plantName.toLowerCase()) return sortOrder === "asc" ? -1 : 1;
+      if (a.plantName.toLowerCase() > b.plantName.toLowerCase()) return sortOrder === "asc" ? 1 : -1;
       return 0;
     });
 
@@ -68,7 +68,7 @@ const AllPlantsPage = () => {
     <section
       className="mt-8 max-w-5xl mx-auto px-6 py-12 rounded-3xl shadow-md
         bg-gradient-to-br from-green-50 via-white to-green-100
-        dark:from-gray-900 dark:via-green-950 dark:to-gray-900
+        dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
         transition-colors duration-300"
     >
       <h1 className="text-4xl font-bold text-green-800 dark:text-green-400 mb-10 text-center">
@@ -85,7 +85,7 @@ const AllPlantsPage = () => {
             value={sortOrder}
             onChange={(e) => setSortOrder(e.target.value)}
             className="w-full max-w-xs px-4 py-2 rounded-md border border-green-400
-              dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500
+              dark:bg-zinc-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500
               transition"
           >
             <option value="asc">Ascending (A-Z)</option>
@@ -101,7 +101,7 @@ const AllPlantsPage = () => {
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
             className="w-full max-w-xs px-4 py-2 rounded-md border border-green-400
-              dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500
+              dark:bg-zinc-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500
               transition"
           >
             {categories.map((cat) => (
@@ -125,7 +125,7 @@ const AllPlantsPage = () => {
           {filteredPlants.map((plant) => (
             <article
               key={plant._id}
-              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md
+              className="bg-white dark:bg-zinc-800 p-6 rounded-xl shadow-md
                 border border-green-200 dark:border-green-700
                 flex flex-col hover:shadow-lg transition"
             >

@@ -1,3 +1,4 @@
+
 import React from "react";
 import { toast } from "react-toastify";
 import { useAuth } from "../context/Provider/AuthProvider";
@@ -23,8 +24,8 @@ const AddPlantPage = () => {
           title: "🌿 Plant Added!",
           icon: "success",
           confirmButtonColor: "#16a34a",
-          background: document.documentElement.classList.contains("dark") ? "#1f2937" : "#fff",
-          color: document.documentElement.classList.contains("dark") ? "#f3f4f6" : "#111"
+          background: document.documentElement.classList.contains("dark") ? "#18181b" : "#fff",
+          color: document.documentElement.classList.contains("dark") ? "#4ade80" : "#166534",
         });
         form.reset();
       })
@@ -35,22 +36,28 @@ const AddPlantPage = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-green-100 to-green-300 dark:from-zinc-900 dark:to-zinc-800 min-h-screen flex items-center justify-center px-4 py-8">
+    <div
+      className="bg-gradient-to-br from-green-50 via-white to-green-100
+        dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
+        min-h-screen flex items-center justify-center px-4 py-8 transition-colors duration-300"
+    >
       <Motion.section
-        className="w-full max-w-3xl p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-xl dark:shadow-green-800/30"
+        className="w-full max-w-3xl p-10 bg-white dark:bg-zinc-900 rounded-3xl shadow-lg shadow-green-200/50 dark:shadow-emerald-600/50"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-3xl font-extrabold text-green-700 dark:text-green-400 text-center mb-6">
+        <h2 className="text-3xl font-extrabold text-green-700 dark:text-emerald-400 text-center mb-6">
           Add a New Plant
         </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
-          {/* Plant Info */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="image" className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
+              <label
+                htmlFor="image"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+              >
                 Image URL
               </label>
               <input
@@ -58,12 +65,17 @@ const AddPlantPage = () => {
                 name="image"
                 type="text"
                 required
-                className="input input-bordered rounded-xl w-full dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                className="input input-bordered rounded-xl w-full
+                  dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+                  border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               />
             </div>
 
             <div>
-              <label htmlFor="plantName" className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
+              <label
+                htmlFor="plantName"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+              >
                 Plant Name
               </label>
               <input
@@ -71,19 +83,26 @@ const AddPlantPage = () => {
                 name="plantName"
                 type="text"
                 required
-                className="input input-bordered rounded-xl w-full dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                className="input input-bordered rounded-xl w-full
+                  dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+                  border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               />
             </div>
 
             <div>
-              <label htmlFor="category" className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
+              <label
+                htmlFor="category"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+              >
                 Category
               </label>
               <select
                 id="category"
                 name="category"
-                className="select select-bordered rounded-xl w-full dark:bg-gray-800 dark:border-gray-600 dark:text-white"
                 required
+                className="select select-bordered rounded-xl w-full
+                  dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+                  border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               >
                 <option value="succulent">Succulent</option>
                 <option value="fern">Fern</option>
@@ -94,27 +113,37 @@ const AddPlantPage = () => {
             </div>
 
             <div>
-              <label htmlFor="description" className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
+              <label
+                htmlFor="description"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+              >
                 Description
               </label>
               <textarea
                 id="description"
                 name="description"
                 required
-                className="textarea textarea-bordered rounded-xl w-full dark:bg-gray-800 dark:border-gray-600 dark:text-white"
                 rows={3}
+                className="textarea textarea-bordered rounded-xl w-full
+                  dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+                  border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               />
             </div>
 
             <div>
-              <label htmlFor="careLevel" className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
+              <label
+                htmlFor="careLevel"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+              >
                 Care Level
               </label>
               <select
                 id="careLevel"
                 name="careLevel"
-                className="select select-bordered rounded-xl w-full dark:bg-gray-800 dark:border-gray-600 dark:text-white"
                 required
+                className="select select-bordered rounded-xl w-full
+                  dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+                  border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               >
                 <option value="easy">Easy</option>
                 <option value="moderate">Moderate</option>
@@ -123,7 +152,10 @@ const AddPlantPage = () => {
             </div>
 
             <div>
-              <label htmlFor="wateringFrequency" className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
+              <label
+                htmlFor="wateringFrequency"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+              >
                 Watering Frequency
               </label>
               <input
@@ -131,15 +163,19 @@ const AddPlantPage = () => {
                 name="wateringFrequency"
                 type="text"
                 required
-                className="input input-bordered rounded-xl w-full dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                className="input input-bordered rounded-xl w-full
+                  dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+                  border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               />
             </div>
           </div>
 
-          {/* Watering Dates */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
             <div>
-              <label htmlFor="lastWateredDate" className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
+              <label
+                htmlFor="lastWateredDate"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+              >
                 Last Watered Date
               </label>
               <input
@@ -147,12 +183,17 @@ const AddPlantPage = () => {
                 name="lastWateredDate"
                 type="date"
                 required
-                className="input input-bordered rounded-xl w-full dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                className="input input-bordered rounded-xl w-full
+                  dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+                  border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               />
             </div>
 
             <div>
-              <label htmlFor="nextWateringDate" className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
+              <label
+                htmlFor="nextWateringDate"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+              >
                 Next Watered Date
               </label>
               <input
@@ -160,15 +201,19 @@ const AddPlantPage = () => {
                 name="nextWateringDate"
                 type="date"
                 required
-                className="input input-bordered rounded-xl w-full dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                className="input input-bordered rounded-xl w-full
+                  dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+                  border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               />
             </div>
           </div>
 
-          {/* Health & User Info */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
             <div>
-              <label htmlFor="healthStatus" className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
+              <label
+                htmlFor="healthStatus"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+              >
                 Health Status
               </label>
               <input
@@ -176,12 +221,17 @@ const AddPlantPage = () => {
                 name="healthStatus"
                 type="text"
                 required
-                className="input input-bordered rounded-xl w-full dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                className="input input-bordered rounded-xl w-full
+                  dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+                  border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               />
             </div>
 
             <div>
-              <label htmlFor="name" className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
+              <label
+                htmlFor="name"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+              >
                 Added By
               </label>
               <input
@@ -190,12 +240,17 @@ const AddPlantPage = () => {
                 type="text"
                 value={user?.displayName || ""}
                 readOnly
-                className="input input-bordered rounded-xl w-full dark:bg-gray-800 dark:border-gray-600 dark:text-white cursor-not-allowed"
+                className="input input-bordered rounded-xl w-full cursor-not-allowed
+                  dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+                  border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
+              <label
+                htmlFor="email"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+              >
                 Email
               </label>
               <input
@@ -204,7 +259,9 @@ const AddPlantPage = () => {
                 type="email"
                 value={user?.email || ""}
                 readOnly
-                className="input input-bordered rounded-xl w-full dark:bg-gray-800 dark:border-gray-600 dark:text-white cursor-not-allowed"
+                className="input input-bordered rounded-xl w-full cursor-not-allowed
+                  dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+                  border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               />
             </div>
           </div>
@@ -212,7 +269,7 @@ const AddPlantPage = () => {
           <Motion.button
             type="submit"
             whileTap={{ scale: 0.97 }}
-            className="w-full btn btn-success rounded-xl text-white dark:bg-green-600 dark:hover:bg-green-700 transition"
+            className="w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-3 rounded-3xl transition mt-6"
           >
             🌱 Add Plant
           </Motion.button>

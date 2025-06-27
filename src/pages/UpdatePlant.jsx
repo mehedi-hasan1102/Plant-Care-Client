@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -35,45 +36,61 @@ const UpdatePlant = () => {
             title: "Update Successfully!",
             icon: "success",
             draggable: true,
+            background: document.documentElement.classList.contains("dark")
+              ? "#18181b"
+              : "#fff",
+            color: document.documentElement.classList.contains("dark")
+              ? "#4ade80"
+              : "#166534",
           });
         }
       });
   };
 
   return (
-    <div className="bg-gradient-to-r from-green-100 to-green-300 dark:from-gray-800 dark:to-gray-900 p-8 min-h-screen">
-      <div className="max-w-3xl mx-auto p-6 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-xl shadow mt-10">
-        <h2 className="text-2xl font-bold mb-6 text-center text-green-700 dark:text-green-400">
+    <div
+      className="bg-gradient-to-r from-green-50 via-white to-green-100
+        dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
+        p-8 min-h-screen transition-colors duration-300"
+    >
+      <div className="max-w-3xl mx-auto p-8 bg-white dark:bg-zinc-900 rounded-3xl shadow-lg shadow-green-200/50 dark:shadow-emerald-600/50 mt-10">
+        <h2 className="text-3xl font-bold mb-8 text-center text-green-700 dark:text-emerald-400">
           Update Plant
         </h2>
-        <form onSubmit={handleFormUpdate} className="space-y-5">
+        <form onSubmit={handleFormUpdate} className="space-y-6">
           {/* Plant Image */}
           <div>
-            <label className="block font-medium">Plant Image URL</label>
+            <label className="block font-semibold mb-2">Plant Image URL</label>
             <input
               type="text"
               name="image"
               placeholder="https://example.com/plant.jpg"
-              className="w-full mt-1 p-2 border rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600"
+              className="w-full p-3 border border-green-700 rounded-2xl
+                dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+                focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
             />
 
-            <label className="block font-medium mt-4">Plant Name</label>
+            <label className="block font-semibold mt-6 mb-2">Plant Name</label>
             <input
               type="text"
               name="plantName"
               defaultValue={plantName}
-              className="w-full mt-1 p-2 border rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600"
+              className="w-full p-3 border border-green-700 rounded-2xl
+                dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+                focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
               required
             />
           </div>
 
           {/* Category */}
           <div>
-            <label className="block font-medium">Category</label>
+            <label className="block font-semibold mb-2">Category</label>
             <select
               name="category"
               defaultValue={category}
-              className="w-full mt-1 p-2 border rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600"
+              className="w-full p-3 border border-green-700 rounded-2xl
+                dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+                focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
               required
             >
               <option value="">Select a category</option>
@@ -85,22 +102,26 @@ const UpdatePlant = () => {
 
           {/* Description */}
           <div>
-            <label className="block font-medium">Description</label>
+            <label className="block font-semibold mb-2">Description</label>
             <textarea
               name="description"
               defaultValue={description}
-              className="w-full mt-1 p-2 border rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600"
+              className="w-full p-3 border border-green-700 rounded-2xl
+                dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+                focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
               rows="3"
             />
           </div>
 
           {/* Care Level */}
           <div>
-            <label className="block font-medium">Care Level</label>
+            <label className="block font-semibold mb-2">Care Level</label>
             <select
               name="careLevel"
               defaultValue={careLevel}
-              className="w-full mt-1 p-2 border rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600"
+              className="w-full p-3 border border-green-700 rounded-2xl
+                dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+                focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
               required
             >
               <option value="">Select care level</option>
@@ -112,48 +133,54 @@ const UpdatePlant = () => {
 
           {/* Watering Frequency */}
           <div>
-            <label className="block font-medium">Watering Frequency</label>
+            <label className="block font-semibold mb-2">Watering Frequency</label>
             <input
               type="text"
               name="wateringFrequency"
               defaultValue={wateringFrequency}
-              className="w-full mt-1 p-2 border rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600"
+              className="w-full p-3 border border-green-700 rounded-2xl
+                dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+                focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
               required
             />
           </div>
 
           {/* Last Watered Date */}
           <div>
-            <label className="block font-medium">Last Watered Date</label>
+            <label className="block font-semibold mb-2">Last Watered Date</label>
             <input
               type="date"
               name="lastWateredDate"
               defaultValue={lastWateredDate ? lastWateredDate.slice(0, 10) : ""}
-              className="w-full mt-1 p-2 border rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600"
+              className="w-full p-3 border border-green-700 rounded-2xl
+                dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+                focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
             />
           </div>
 
           {/* Next Watering Date */}
           <div>
-            <label className="block font-medium">Next Watering Date</label>
+            <label className="block font-semibold mb-2">Next Watering Date</label>
             <input
               type="date"
               name="nextWateringDate"
-              defaultValue={
-                nextWateringDate ? nextWateringDate.slice(0, 10) : ""
-              }
-              className="w-full mt-1 p-2 border rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600"
+              defaultValue={nextWateringDate ? nextWateringDate.slice(0, 10) : ""}
+              className="w-full p-3 border border-green-700 rounded-2xl
+                dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+                focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
             />
           </div>
 
           {/* Health Status */}
           <div>
-            <label className="block font-medium">Health Status</label>
+            <label className="block font-semibold mb-2">Health Status</label>
             <input
               type="text"
               name="healthStatus"
               defaultValue={healthStatus}
-              className="w-full mt-1 p-2 border rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600"
+              className="w-full p-3 border border-green-700 rounded-2xl
+                dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+                focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
             />
           </div>
 
@@ -161,7 +188,7 @@ const UpdatePlant = () => {
           <div className="text-right">
             <button
               type="submit"
-              className="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 dark:hover:bg-green-500 transition"
+              className="px-6 py-3 bg-green-700 hover:bg-green-800 text-white font-semibold rounded-3xl transition"
             >
               Update Plant
             </button>

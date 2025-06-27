@@ -39,45 +39,52 @@ const TopMistakesSection = () => {
 
   return (
     <section
-      className="m-8 py-12 px-6 rounded-4xl shadow-md transition-colors duration-300
+      className="max-w-7xl mx-auto px-4 py-14  shadow-lg
         bg-gradient-to-br from-green-50 via-white to-green-100
-        dark:from-gray-900 dark:via-green-950 dark:to-gray-900"
+        dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-500"
     >
-      <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-3xl font-semibold text-green-800 dark:text-green-400 mb-4 tracking-wide">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-emerald-700 dark:text-emerald-400 tracking-wide">
           Top Plant Care Mistakes
         </h2>
-        <p className="text-gray-700 dark:text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-gray-700 dark:text-gray-400 mt-3 max-w-3xl mx-auto text-base md:text-lg leading-relaxed">
           Avoid these common pitfalls to keep your plants healthy and thriving.
         </p>
-        <div className="space-y-4">
-          {mistakes.map((item, idx) => (
-            <div
-              key={idx}
-              className="bg-white dark:bg-gray-800 border border-green-100 dark:border-green-700 rounded-xl p-5 text-left shadow-sm hover:shadow-md transition-shadow duration-300"
+      </div>
+
+      <div className="space-y-6 max-w-4xl mx-auto">
+        {mistakes.map((item, idx) => (
+          <div
+            key={idx}
+            className="bg-white dark:bg-zinc-800 border border-green-200 dark:border-green-700 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
+          >
+            <button
+              onClick={() => toggleCollapse(idx)}
+              className="w-full flex items-center justify-between text-lg font-semibold text-emerald-800 dark:text-emerald-300 focus:outline-none"
+              aria-expanded={openIndex === idx}
+              aria-controls={`desc-${idx}`}
             >
-              <button
-                onClick={() => toggleCollapse(idx)}
-                className="w-full flex items-center justify-between text-lg font-medium text-green-700 dark:text-green-300 focus:outline-none"
-              >
-                <span className="flex items-center gap-3">
-                  <FaExclamationTriangle className="text-green-500 dark:text-green-400" />
-                  {item.title}
-                </span>
-                {openIndex === idx ? (
-                  <FaChevronUp className="text-gray-500 dark:text-gray-400" />
-                ) : (
-                  <FaChevronDown className="text-gray-500 dark:text-gray-400" />
-                )}
-              </button>
-              {openIndex === idx && (
-                <p className="mt-3 text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
-                  {item.description}
-                </p>
+              <span className="flex items-center gap-3">
+                <FaExclamationTriangle className="text-green-500 dark:text-green-400" />
+                {item.title}
+              </span>
+              {openIndex === idx ? (
+                <FaChevronUp className="text-gray-500 dark:text-gray-400" />
+              ) : (
+                <FaChevronDown className="text-gray-500 dark:text-gray-400" />
               )}
-            </div>
-          ))}
-        </div>
+            </button>
+
+            {openIndex === idx && (
+              <p
+                id={`desc-${idx}`}
+                className="mt-4 text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed"
+              >
+                {item.description}
+              </p>
+            )}
+          </div>
+        ))}
       </div>
     </section>
   );

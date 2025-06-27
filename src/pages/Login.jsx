@@ -21,14 +21,15 @@ const Login = () => {
   const navigate = useNavigate();
 
   const isDark = document.documentElement.classList.contains("dark");
-
   const swalStyle = {
-    background: isDark ? "#1f2937" : "#fff", // dark:bg-gray-900
-    color: isDark ? "#d1fae5" : "#000",       // dark:text-green-100
+    background: isDark ? "#18181b" : "#fff",  // zinc-900 এর মত dark bg
+    color: isDark ? "#4ade80" : "#166534",     // emerald-400 এর মত green
   };
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setError(null);
+
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!passwordRegex.test(password)) {
       setError(
@@ -116,18 +117,32 @@ const Login = () => {
   };
 
   return (
-    <div className="mt-8 p-4 md:p-10 flex justify-center items-center min-h-screen bg-gradient-to-r from-green-100 to-green-300 dark:from-gray-900 dark:to-gray-800">
+    <div
+      className="mt-8 p-6 md:p-12 flex justify-center items-center min-h-screen
+        bg-gradient-to-br from-green-50 via-white to-green-100
+        dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
+        transition-colors duration-300"
+    >
       <form
         onSubmit={handleLogin}
-        className="card w-full max-w-sm bg-white dark:bg-gray-900 shadow-xl p-8 rounded-xl space-y-4"
+        className="w-full max-w-md bg-white dark:bg-zinc-900 shadow-md p-10 rounded-3xl space-y-6"
       >
-        <h2 className="text-3xl font-bold text-center text-green-700 dark:text-green-400">Login</h2>
-        {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+        <h2 className="text-4xl font-bold text-center text-green-700 dark:text-emerald-400">
+          Login
+        </h2>
+
+        {error && (
+          <p className="text-red-600 dark:text-red-400 text-center text-sm font-medium">
+            {error}
+          </p>
+        )}
 
         <input
           type="email"
           placeholder="Email"
-          className="input input-bordered w-full dark:bg-gray-800 dark:text-white"
+          className="w-full px-5 py-3 border border-green-700 rounded-xl
+            dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+            focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -137,16 +152,24 @@ const Login = () => {
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Password"
-            className="input input-bordered w-full pr-10 dark:bg-gray-800 dark:text-white"
+            className="w-full px-5 py-3 border border-green-700 rounded-xl
+              dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+              focus:outline-none focus:ring-2 focus:ring-emerald-400 transition pr-12"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
           <span
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-300"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-green-700 dark:text-emerald-400"
+            title={showPassword ? "Hide password" : "Show password"}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") setShowPassword(!showPassword);
+            }}
           >
-            {showPassword ? <FaEyeSlash /> : <FaEye />}
+            {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
           </span>
         </div>
 
@@ -154,32 +177,38 @@ const Login = () => {
           <button
             type="button"
             onClick={resetPassword}
-            className="text-sm text-green-700 dark:text-green-400 hover:underline"
+            className="text-sm text-green-700 dark:text-emerald-400 hover:underline"
           >
             Forgot Password?
           </button>
         </div>
 
-        <button type="submit" className=" w-full btn btn-success btn-sm text-white dark:bg-green-600 dark:hover:bg-green-700">
+        <button
+          type="submit"
+          className="w-full bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-3xl transition"
+        >
           Login
         </button>
 
-        <div className="divider dark:before:bg-gray-700 dark:after:bg-gray-700">OR</div>
+        <div className="divider dark:before:bg-emerald-400 dark:after:bg-emerald-400 text-green-700 dark:text-emerald-400">
+          OR
+        </div>
 
         <button
           type="button"
           onClick={handleGoogleLogin}
-          className=" w-full btn btn-outline btn-sm dark:border-green-500 dark:text-white dark:hover:bg-green-600"
+          className="w-full border-2 border-green-700 text-green-700 dark:text-emerald-400
+            hover:bg-green-700 hover:text-white rounded-3xl py-3 font-semibold transition"
         >
-
-
-          
           Continue with Google
         </button>
 
-        <p className="text-sm text-center text-gray-600 dark:text-gray-300">
+        <p className="text-center text-green-700 dark:text-emerald-400 text-sm mt-5">
           Don&apos;t have an account?{" "}
-          <a href="/signup" className="text-green-700 dark:text-green-400 font-medium hover:underline">
+          <a
+            href="/signup"
+            className="font-semibold hover:underline text-green-700 dark:text-emerald-400"
+          >
             Sign up
           </a>
         </p>

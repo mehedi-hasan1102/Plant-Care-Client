@@ -41,13 +41,13 @@ const Support = () => {
   return (
     <section
       className="mt-8 max-w-5xl mx-auto px-6 py-12 rounded-3xl shadow-md
-      bg-gradient-to-br from-green-50 via-white to-green-100
-      dark:from-gray-900 dark:via-green-950 dark:to-gray-900
-      transition-colors duration-300"
+        bg-gradient-to-br from-green-50 via-white to-green-100
+        dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
+        transition-colors duration-300"
     >
       {/* Header */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-green-800 dark:text-green-400 mb-3">
+        <h2 className="text-3xl font-bold text-green-700 dark:text-emerald-400 mb-3">
           Support & Help
         </h2>
         <p className="text-gray-700 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
@@ -60,7 +60,7 @@ const Support = () => {
         {faqs.map((item, idx) => (
           <div
             key={idx}
-            className="border border-green-200 dark:border-green-700 rounded-xl bg-white dark:bg-gray-800 shadow-sm"
+            className="border border-green-200 dark:border-green-700 rounded-xl bg-white dark:bg-zinc-800 shadow-sm"
           >
             <button
               onClick={() => toggleCollapse(idx)}
@@ -68,7 +68,7 @@ const Support = () => {
               aria-expanded={openIndex === idx}
               aria-controls={`faq-panel-${idx}`}
             >
-              <span className="text-green-700 dark:text-green-300 font-semibold text-lg">
+              <span className="text-green-700 dark:text-emerald-400 font-semibold text-lg">
                 {item.question}
               </span>
               {openIndex === idx ? (
@@ -92,15 +92,15 @@ const Support = () => {
 
       {/* Contact Form */}
       <div
-        className="max-w-3xl mx-auto bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-md"
+        className="max-w-3xl mx-auto bg-white dark:bg-zinc-800 p-8 rounded-3xl shadow-md"
         aria-live="polite"
       >
-        <h3 className="text-2xl font-semibold mb-6 text-green-700 dark:text-green-400">
+        <h3 className="text-2xl font-semibold mb-6 text-green-700 dark:text-emerald-400">
           Need More Help?
         </h3>
 
         {submitted && (
-          <p className="mb-6 text-green-600 dark:text-green-400 text-center font-medium">
+          <p className="mb-6 text-green-600 dark:text-emerald-400 text-center font-medium">
             ✅ Thanks for reaching out! We’ll get back to you soon.
           </p>
         )}
@@ -121,7 +121,7 @@ const Support = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="you@example.com"
-              className="w-full px-5 py-3 border rounded-xl dark:bg-gray-700 dark:border-gray-600
+              className="w-full px-5 py-3 border rounded-xl dark:bg-zinc-700 dark:border-zinc-600
                 focus:outline-none focus:ring-2 focus:ring-green-500
                 transition"
             />
@@ -142,7 +142,7 @@ const Support = () => {
               value={formData.message}
               onChange={handleChange}
               placeholder="Describe your issue or question"
-              className="w-full px-5 py-3 border rounded-xl dark:bg-gray-700 dark:border-gray-600
+              className="w-full px-5 py-3 border rounded-xl dark:bg-zinc-700 dark:border-zinc-600
                 focus:outline-none focus:ring-2 focus:ring-green-500
                 transition resize-none"
             />
@@ -150,7 +150,7 @@ const Support = () => {
 
           <button
             type="submit"
-            className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-semibold transition"
+            className="w-full bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-xl font-semibold transition"
           >
             Submit
           </button>

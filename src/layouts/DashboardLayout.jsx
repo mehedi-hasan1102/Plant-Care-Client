@@ -1,3 +1,4 @@
+
 import { Outlet, NavLink, Link } from "react-router-dom";
 import { useState } from "react";
 import {
@@ -14,30 +15,41 @@ import Switch from "../Components/DarkModeSidebar";
 const DashboardLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
 
+  const navItems = [
+    { to: "/dashboard", label: "Overview", icon: <MdOutlineDashboard size={20} /> },
+    { to: "/dashboard/all-plants", label: "All Plants", icon: <MdOutlineListAlt size={20} /> },
+    { to: "/dashboard/add-plant", label: "Add Plant", icon: <MdOutlineAddBox size={20} /> },
+    { to: "/dashboard/my-plants", label: "My Plants", icon: <MdOutlineInventory size={20} /> },
+    { to: "/dashboard/user-profile", label: "User Profile", icon: <MdOutlinePerson size={20} /> },
+  ];
+
   return (
-    <div className="min-h-screen flex bg-white dark:bg-gray-900 transition">
+    <div className="min-h-screen flex bg-gradient-to-br from-green-50 via-white to-green-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-300">
       {/* Sidebar */}
       <aside
         className={`${
           collapsed ? "w-20" : "w-64"
-        } bg-white dark:bg-gray-900 border-r-2 border-green-400 p-4 flex flex-col justify-between transition-all duration-300`}
+        } bg-white dark:bg-zinc-900 border-r-2 border-green-300 dark:border-emerald-700 p-4 flex flex-col justify-between transition-all duration-300`}
       >
         {/* Top: Logo + Collapse */}
         <div>
           <div className="flex items-center justify-between mb-6">
             <Link
               to="/"
-              className="flex items-center gap-2 text-green-700 dark:text-green-300"
+              className="flex items-center gap-2 text-green-700 dark:text-emerald-400"
             >
               <FaLeaf size={24} />
               {!collapsed && (
-                <span className="text-xl font-bold tracking-wide">PlantCare</span>
+                <span className="text-xl font-bold tracking-wide select-none">
+                  PlantCare
+                </span>
               )}
             </Link>
             <button
               onClick={() => setCollapsed(!collapsed)}
-              className="text-green-600 dark:text-green-300 text-lg"
+              className="text-green-600 dark:text-emerald-400 text-lg font-bold select-none"
               aria-label="Toggle sidebar"
+              title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
             >
               {collapsed ? "»" : "«"}
             </button>
@@ -47,10 +59,10 @@ const DashboardLayout = () => {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `flex items-center gap-3 px-3 py-2 rounded-md transition hover:bg-green-100 dark:hover:bg-green-700 mb-2 ${
+              `flex items-center gap-3 px-3 py-2 rounded-md transition-colors hover:bg-green-100 dark:hover:bg-emerald-700 mb-2 ${
                 isActive
-                  ? "bg-green-200 dark:bg-green-700 font-semibold text-green-700 dark:text-green-300"
-                  : "text-gray-800 dark:text-white"
+                  ? "bg-green-200 dark:bg-emerald-700 font-semibold text-green-700 dark:text-emerald-300"
+                  : "text-gray-800 dark:text-zinc-300"
               }`
             }
           >
@@ -60,87 +72,34 @@ const DashboardLayout = () => {
 
           {/* Dashboard Navigation */}
           <nav className="space-y-3">
-            <NavLink
-              to="/dashboard"
-              end
-              className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2 rounded-md transition hover:bg-green-100 dark:hover:bg-green-700 ${
-                  isActive
-                    ? "bg-green-200 dark:bg-green-700 font-semibold text-green-700 dark:text-green-300"
-                    : "text-gray-800 dark:text-white"
-                }`
-              }
-            >
-              <MdOutlineDashboard size={20} />
-              {!collapsed && "Overview"}
-            </NavLink>
-
-            <NavLink
-              to="/dashboard/all-plants"
-              className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2 rounded-md transition hover:bg-green-100 dark:hover:bg-green-700 ${
-                  isActive
-                    ? "bg-green-200 dark:bg-green-700 font-semibold text-green-700 dark:text-green-300"
-                    : "text-gray-800 dark:text-white"
-                }`
-              }
-            >
-              <MdOutlineListAlt size={20} />
-              {!collapsed && "All Plants"}
-            </NavLink>
-
-            <NavLink
-              to="/dashboard/add-plant"
-              className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2 rounded-md transition hover:bg-green-100 dark:hover:bg-green-700 ${
-                  isActive
-                    ? "bg-green-200 dark:bg-green-700 font-semibold text-green-700 dark:text-green-300"
-                    : "text-gray-800 dark:text-white"
-                }`
-              }
-            >
-              <MdOutlineAddBox size={20} />
-              {!collapsed && "Add Plant"}
-            </NavLink>
-
-            <NavLink
-              to="/dashboard/my-plants"
-              className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2 rounded-md transition hover:bg-green-100 dark:hover:bg-green-700 ${
-                  isActive
-                    ? "bg-green-200 dark:bg-green-700 font-semibold text-green-700 dark:text-green-300"
-                    : "text-gray-800 dark:text-white"
-                }`
-              }
-            >
-              <MdOutlineInventory size={20} />
-              {!collapsed && "My Plants"}
-            </NavLink>
-
-            <NavLink
-              to="/dashboard/user-profile"
-              className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2 rounded-md transition hover:bg-green-100 dark:hover:bg-green-700 ${
-                  isActive
-                    ? "bg-green-200 dark:bg-green-700 font-semibold text-green-700 dark:text-green-300"
-                    : "text-gray-800 dark:text-white"
-                }`
-              }
-            >
-              <MdOutlinePerson size={20} />
-              {!collapsed && "User Profile"}
-            </NavLink>
+            {navItems.map(({ to, label, icon }) => (
+              <NavLink
+                key={to}
+                to={to}
+                end={to === "/dashboard"}
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-3 py-2 rounded-md transition-colors hover:bg-green-100 dark:hover:bg-emerald-700 ${
+                    isActive
+                      ? "bg-green-200 dark:bg-emerald-700 font-semibold text-green-700 dark:text-emerald-300"
+                      : "text-gray-800 dark:text-zinc-300"
+                  }`
+                }
+              >
+                {icon}
+                {!collapsed && label}
+              </NavLink>
+            ))}
           </nav>
         </div>
 
         {/* Bottom: Theme Toggle */}
-        <div className="pt-4 border-t border-green-300 dark:border-green-600 flex justify-center">
+        <div className="pt-4 border-t border-green-300 dark:border-emerald-700 flex justify-center">
           {!collapsed && <Switch />}
         </div>
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-6 overflow-y-auto bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white">
+      <main className="flex-1 p-6 overflow-y-auto bg-white dark:bg-zinc-900 text-gray-900 dark:text-zinc-200 transition-colors duration-300">
         <Outlet />
       </main>
     </div>
