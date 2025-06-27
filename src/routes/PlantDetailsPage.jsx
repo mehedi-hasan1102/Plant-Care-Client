@@ -46,38 +46,50 @@ const PlantDetailsPage = () => {
         {/* Plant Information */}
         <div className="space-y-5 text-gray-800 dark:text-gray-300 text-lg leading-relaxed">
           <p>
-            <span className="font-semibold text-green-700 dark:text-emerald-400">Category:</span>{" "}
+            <span className="font-semibold text-green-700 dark:text-emerald-400">
+              Category:
+            </span>{" "}
             <span className="capitalize">{plant.category}</span>
           </p>
 
           <p>
-            <span className="font-semibold text-green-700 dark:text-emerald-400">Description:</span>{" "}
+            <span className="font-semibold text-green-700 dark:text-emerald-400">
+              Description:
+            </span>{" "}
             {plant.description}
           </p>
 
           <p>
-            <span className="font-semibold text-green-700 dark:text-emerald-400">Care Level:</span>{" "}
+            <span className="font-semibold text-green-700 dark:text-emerald-400">
+              Care Level:
+            </span>{" "}
             {plant.careLevel}
           </p>
 
           <p>
-            <span className="font-semibold text-green-700 dark:text-emerald-400">Watering Frequency:</span>{" "}
-            Every {plant.wateringFrequency} day{plant.wateringFrequency > 1 ? "s" : ""}
+            <span className="font-semibold text-green-700 dark:text-emerald-400">
+              Watering Frequency:
+            </span>{" "}
+            Every {plant.wateringFrequency} day
+            {plant.wateringFrequency > 1 ? "s" : ""}
           </p>
 
           <p>
-            <span className="font-semibold text-green-700 dark:text-emerald-400">Last Watered:</span>{" "}
+            <span className="font-semibold text-green-700 dark:text-emerald-400">
+              Last Watered:
+            </span>{" "}
             {plant.lastWateredDate}
           </p>
 
           <p>
-            <span className="font-semibold text-green-700 dark:text-emerald-400">Health Status:</span>{" "}
+            <span className="font-semibold text-green-700 dark:text-emerald-400">
+              Health Status:
+            </span>{" "}
             {plant.healthStatus}
           </p>
 
           <p className="mt-6 text-sm text-gray-600 dark:text-gray-400 italic text-center">
-            <strong>Added by:</strong> {user?.displayName || "Unknown User"} (
-            {user?.email || "No email"})
+            <strong>Added by:</strong> ({plant.email || "No email"})
           </p>
         </div>
       </div>
