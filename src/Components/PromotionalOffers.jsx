@@ -5,24 +5,24 @@ import { motion as Motion } from "framer-motion";
 const promotions = [
   {
     id: 1,
-    title: "Summer Plant Sale - Up to 30% Off",
+    title: "Summer Plant Sale - Up to 50% Off",
     description:
       "Get your favorite indoor and outdoor plants at amazing discounts this summer season.",
-    img: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=600&q=80",
+    img: "https://freedesignfile.com/upload/2020/07/Summer-sale-up-to-50-off-Green-Background-Vector.jpg",
   },
   {
     id: 2,
     title: "Buy 2 Get 1 Free on Succulents",
     description:
       "Decorate your space with beautiful succulents. Buy two and get one absolutely free!",
-    img: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=600&q=80",
+    img: "https://www.thefoodstatecompany.com/content/images/thumbs/0001088_900.jpeg",
   },
   {
     id: 3,
     title: "Free Shipping on Orders Over $50",
     description:
       "Shop now and enjoy free shipping on all orders over $50. Limited time offer!",
-    img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+    img: "https://st5.depositphotos.com/82875930/69062/v/450/depositphotos_690621590-stock-illustration-free-shipping-all-orders-tag.jpg",
   },
   {
     id: 4,
