@@ -90,7 +90,7 @@ const PlantDetailsPage = () => {
         >
           <section>
             <p className="mb-5">
-              <span className="font-semibold text-green-700 dark:text-emerald-400 uppercase tracking-wide">
+              <span className="font-semibold text-green-700 dark:text-emerald-400  tracking-wide">
                 Category:
               </span>{" "}
               <span className="capitalize">{plant.category}</span>
@@ -104,7 +104,7 @@ const PlantDetailsPage = () => {
             </article>
 
             <p className="mb-5">
-              <span className="font-semibold text-green-700 dark:text-emerald-400 uppercase tracking-wide">
+              <span className="font-semibold text-green-700 dark:text-emerald-400  tracking-wide">
                 Care Level:
               </span>{" "}
               {plant.careLevel}
@@ -113,7 +113,7 @@ const PlantDetailsPage = () => {
 
           <section>
             <p className="mb-5">
-              <span className="font-semibold text-green-700 dark:text-emerald-400 uppercase tracking-wide">
+              <span className="font-semibold text-green-700 dark:text-emerald-400 tracking-wide">
                 Watering Frequency:
               </span>{" "}
               Every {plant.wateringFrequency} day
@@ -121,14 +121,14 @@ const PlantDetailsPage = () => {
             </p>
 
             <p className="mb-5">
-              <span className="font-semibold text-green-700 dark:text-emerald-400 uppercase tracking-wide">
+              <span className="font-semibold text-green-700 dark:text-emerald-400 tracking-wide">
                 Last Watered:
               </span>{" "}
               {plant.lastWateredDate}
             </p>
 
             <p>
-              <span className="font-semibold text-green-700 dark:text-emerald-400 uppercase tracking-wide">
+              <span className="font-semibold text-green-700 dark:text-emerald-400 tracking-wide">
                 Health Status:
               </span>{" "}
               {plant.healthStatus}
