@@ -10,7 +10,7 @@ import {
 import { auth } from "../context/firebase/firebase.config";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import LoginLottie from "../LoginLottie";
+// import LoginLottie from "../LoginLottie";
 
 const provider = new GoogleAuthProvider();
 
@@ -66,7 +66,7 @@ const Signup = () => {
         dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
         transition-colors duration-300"
     >
-       <LoginLottie />
+       {/* <LoginLottie /> */}
       <form
         onSubmit={handleSignup}
         className="w-full max-w-md bg-white dark:bg-zinc-900 shadow-md dark:shadow-green-800/30 p-10 rounded-3xl space-y-6"
