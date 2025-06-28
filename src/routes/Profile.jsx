@@ -8,6 +8,7 @@ import { Navigate } from "react-router-dom";
 
 import Swal from "sweetalert2";
 import Loading from "../Components/Loading";
+import LoginLottie from '../LoginLottie';
 
 const Profile = () => {
   const [user, loading] = useAuthState(auth);
@@ -67,6 +68,9 @@ const Profile = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-green-300 dark:from-zinc-900 dark:to-zinc-800 px-6 py-16 transition-colors duration-500">
+      
+       <LoginLottie />
+
       <div className="w-full max-w-md bg-white dark:bg-zinc-900 rounded-3xl shadow-lg shadow-green-200/50 dark:shadow-emerald-600/50 p-10 text-gray-900 dark:text-gray-100 transition-colors duration-500">
         {/* Heading */}
         <h1 className="text-3xl font-extrabold text-green-700 dark:text-emerald-400 text-center mb-8">
