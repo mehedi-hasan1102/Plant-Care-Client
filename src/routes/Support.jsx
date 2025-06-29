@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
@@ -32,6 +33,8 @@ const Support = () => {
     e.preventDefault();
     setSubmitted(true);
     setFormData({ email: "", message: "" });
+
+    setTimeout(() => setSubmitted(false), 5000);
   };
 
   const toggleCollapse = (index) => {
@@ -39,124 +42,107 @@ const Support = () => {
   };
 
   return (
-    <section
-      className="mt-8 max-w-7xl mx-auto px-6 py-12 rounded-3xl shadow-md
-        bg-gradient-to-br from-green-50 via-white to-green-100
-        dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
-        transition-colors duration-300"
+    <div
+      className="flex flex-col-reverse md:flex-row justify-center items-center gap-10 min-h-screen px-6 py-12
+      bg-gradient-to-br from-green-50 via-white to-green-100
+      dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
+      transition-colors duration-300"
     >
-      {/* Header */}
-      <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-green-700 dark:text-emerald-400 mb-3">
-          Support & Help
-        </h2>
-        <p className="text-gray-700 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-          Find quick answers to common questions. Still need help? Reach out through the form below.
-        </p>
-      </div>
-
-      {/* FAQ Section */}
-      <div className="space-y-5 mb-16 max-w-3xl mx-auto">
-        {faqs.map((item, idx) => (
-          <div
-            key={idx}
-            className="border border-green-200 dark:border-green-700 rounded-xl bg-white dark:bg-zinc-800 shadow-sm"
-          >
-            <button
-              onClick={() => toggleCollapse(idx)}
-              className="w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none"
-              aria-expanded={openIndex === idx}
-              aria-controls={`faq-panel-${idx}`}
-            >
-              <span className="text-green-700 dark:text-emerald-400 font-semibold text-lg">
-                {item.question}
-              </span>
-              {openIndex === idx ? (
-                <FaChevronUp className="text-gray-500 dark:text-gray-300" />
-              ) : (
-                <FaChevronDown className="text-gray-500 dark:text-gray-300" />
-              )}
-            </button>
-
-            {openIndex === idx && (
-              <div
-                id={`faq-panel-${idx}`}
-                className="px-6 pb-5 text-gray-600 dark:text-gray-300 text-base"
-              >
-                {item.answer}
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-
-      {/* Contact Form */}
-      <div
-        className="max-w-3xl mx-auto bg-white dark:bg-zinc-800 p-8 rounded-3xl shadow-md"
-        aria-live="polite"
-      >
-        <h3 className="text-2xl font-semibold mb-6 text-green-700 dark:text-emerald-400">
-          Need More Help?
-        </h3>
-
-        {submitted && (
-          <p className="mb-6 text-green-600 dark:text-emerald-400 text-center font-medium">
-            ✅ Thanks for reaching out! We’ll get back to you soon.
+      {/* Left: Form + FAQs */}
+      <div className="w-full md:w-1/2 max-w-xl bg-white dark:bg-zinc-900 p-10 rounded-3xl shadow-md dark:shadow-green-800/30 space-y-10">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold text-green-700 dark:text-emerald-400 mb-2">
+            Support & Help
+          </h2>
+          <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
+            Find answers to your questions or get in touch with us below.
           </p>
-        )}
+        </div>
 
+        {/* FAQ */}
+        <div className="space-y-4">
+          {faqs.map((item, idx) => (
+            <div
+              key={idx}
+              className="border border-green-200 dark:border-green-700 rounded-xl bg-white dark:bg-zinc-800 shadow-sm"
+            >
+              <button
+                onClick={() => toggleCollapse(idx)}
+                className="w-full px-5 py-4 flex justify-between items-center text-left focus:outline-none"
+                aria-expanded={openIndex === idx}
+                aria-controls={`faq-panel-${idx}`}
+              >
+                <span className="text-green-700 dark:text-emerald-400 font-semibold text-base">
+                  {item.question}
+                </span>
+                {openIndex === idx ? (
+                  <FaChevronUp className="text-gray-500 dark:text-gray-300" />
+                ) : (
+                  <FaChevronDown className="text-gray-500 dark:text-gray-300" />
+                )}
+              </button>
+              {openIndex === idx && (
+                <div
+                  id={`faq-panel-${idx}`}
+                  className="px-5 pb-4 text-gray-600 dark:text-gray-300 text-sm"
+                >
+                  {item.answer}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Contact Form */}
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-            >
-              Your Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="you@example.com"
-              className="w-full px-5 py-3 border rounded-xl dark:bg-zinc-700 dark:border-zinc-600
-                focus:outline-none focus:ring-2 focus:ring-green-500
-                transition"
-            />
-          </div>
+          <h3 className="text-xl font-semibold text-green-700 dark:text-emerald-400">
+            Still need help?
+          </h3>
 
-          <div>
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-            >
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows="5"
-              required
-              value={formData.message}
-              onChange={handleChange}
-              placeholder="Describe your issue or question"
-              className="w-full px-5 py-3 border rounded-xl dark:bg-zinc-700 dark:border-zinc-600
-                focus:outline-none focus:ring-2 focus:ring-green-500
-                transition resize-none"
-            />
-          </div>
+          {submitted && (
+            <p className="text-green-600 dark:text-emerald-400 font-medium text-sm">
+              ✅ Thanks for reaching out! We’ll get back to you soon.
+            </p>
+          )}
+
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            placeholder="you@example.com"
+            className="w-full px-5 py-3 border border-green-700 rounded-xl dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+          />
+
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            required
+            placeholder="Describe your issue or question"
+            rows="4"
+            className="w-full px-5 py-3 border border-green-700 rounded-xl dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition resize-none"
+          />
 
           <button
             type="submit"
-            className="w-full bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-xl font-semibold transition"
+            className="w-full bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-3xl transition"
           >
             Submit
           </button>
         </form>
       </div>
-    </section>
+
+      {/* Right: Illustration */}
+      <div className="w-full md:w-1/2 flex justify-center">
+        <img
+          src="https://i.ibb.co/k2MQLycF/Active-Support-bro.png"
+          alt="Support illustration"
+          className="w-full max-w-md h-auto object-contain"
+        />
+      </div>
+    </div>
   );
 };
 

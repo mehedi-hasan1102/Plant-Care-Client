@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -10,7 +9,6 @@ import {
 import { auth } from "../context/firebase/firebase.config";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-// import LoginLottie from "../LoginLottie";
 
 const provider = new GoogleAuthProvider();
 
@@ -23,6 +21,12 @@ const Signup = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  const isDark = document.documentElement.classList.contains("dark");
+  const swalStyle = {
+    background: isDark ? "#18181b" : "#fff",
+    color: isDark ? "#4ade80" : "#166534",
+  };
+
   const handleSignup = async (e) => {
     e.preventDefault();
 
@@ -30,7 +34,13 @@ const Signup = () => {
     if (!passwordRegex.test(password)) {
       const msg = "Password must contain uppercase, lowercase, and be at least 6 characters.";
       setError(msg);
-      Swal.fire("Invalid Password", msg, "error");
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Password",
+        text: msg,
+        background: swalStyle.background,
+        color: swalStyle.color,
+      });
       return;
     }
 
@@ -40,36 +50,62 @@ const Signup = () => {
         displayName: name,
         photoURL: photoURL,
       });
-      Swal.fire("Success", "Signup successful!", "success");
+      Swal.fire({
+        icon: "success",
+        title: "Signup Successful!",
+        background: swalStyle.background,
+        color: swalStyle.color,
+        timer: 2000,
+        showConfirmButton: false,
+      });
       navigate("/");
     } catch (err) {
       setError(err.message);
-      Swal.fire("Error", err.message, "error");
+      Swal.fire({
+        icon: "error",
+        title: "Signup Failed",
+        text: err.message,
+        background: swalStyle.background,
+        color: swalStyle.color,
+      });
     }
   };
 
   const handleGoogleSignup = async () => {
     try {
       await signInWithPopup(auth, provider);
-      Swal.fire("Success", "Signed up with Google!", "success");
+      Swal.fire({
+        icon: "success",
+        title: "Signed up with Google!",
+        background: swalStyle.background,
+        color: swalStyle.color,
+        timer: 2000,
+        showConfirmButton: false,
+      });
       navigate("/");
     } catch (err) {
       setError(err.message);
-      Swal.fire("Error", err.message, "error");
+      Swal.fire({
+        icon: "error",
+        title: "Google Signup Failed",
+        text: err.message,
+        background: swalStyle.background,
+        color: swalStyle.color,
+      });
     }
   };
 
   return (
     <div
-      className="mt-8 p-6 md:p-12 flex justify-center items-center min-h-screen
+      className="flex flex-col-reverse md:flex-row justify-center items-center gap-10 min-h-screen px-6 py-10
         bg-gradient-to-br from-green-50 via-white to-green-100
         dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
         transition-colors duration-300"
     >
-       {/* <LoginLottie /> */}
+      {/* Signup Form */}
       <form
         onSubmit={handleSignup}
-        className="w-full max-w-md bg-white dark:bg-zinc-900 shadow-md dark:shadow-green-800/30 p-10 rounded-3xl space-y-6"
+        className="w-full md:w-1/2 max-w-md bg-white dark:bg-zinc-900 shadow-md dark:shadow-green-800/30 p-10 rounded-3xl space-y-6"
       >
         <h2 className="text-4xl font-bold text-center text-green-700 dark:text-emerald-400">
           Register
@@ -168,6 +204,15 @@ const Signup = () => {
           </a>
         </p>
       </form>
+
+      {/* Image Section */}
+      <div className="w-full md:w-1/2 flex justify-center">
+        <img
+          src="https://i.ibb.co/678SMLSZ/Sign-up-bro.png" // 👈 Replace with your own image if needed
+          alt="Signup illustration"
+          className="w-full max-w-md h-auto object-contain"
+        />
+      </div>
     </div>
   );
 };

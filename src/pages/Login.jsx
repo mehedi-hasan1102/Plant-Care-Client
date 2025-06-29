@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -9,7 +10,6 @@ import {
 import { auth } from "../context/firebase/firebase.config";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Swal from "sweetalert2";
-// import LoginLottie from '../LoginLottie';
 
 const provider = new GoogleAuthProvider();
 
@@ -118,14 +118,15 @@ const Login = () => {
 
   return (
     <div
-      className="mt-8 p-6 md:p-12 flex justify-center items-center min-h-screen
+      className="flex flex-col-reverse md:flex-row justify-center items-center gap-10 min-h-screen px-6 py-10
         bg-gradient-to-br from-green-50 via-white to-green-100
         dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
         transition-colors duration-300"
     >
+      {/* Form Section */}
       <form
         onSubmit={handleLogin}
-        className="w-full max-w-md bg-white dark:bg-zinc-900 shadow-md dark:shadow-green-800/30 p-10 rounded-3xl space-y-6"
+        className="w-full md:w-1/2 max-w-md bg-white dark:bg-zinc-900 shadow-md dark:shadow-green-800/30 p-10 rounded-3xl space-y-6"
       >
         <h2 className="text-4xl font-bold text-center text-green-700 dark:text-emerald-400">
           Login
@@ -213,6 +214,15 @@ const Login = () => {
           </a>
         </p>
       </form>
+
+      {/* Image Section */}
+      <div className="w-full md:w-1/2 flex justify-center">
+        <img
+          src="https://i.ibb.co/xSJVc5d1/Tablet-login-bro.png" // 👈 Use your own login illustration image
+          alt="Login illustration"
+          className="w-full max-w-md h-auto object-contain"
+        />
+      </div>
     </div>
   );
 };
