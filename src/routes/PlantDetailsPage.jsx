@@ -136,10 +136,11 @@ const PlantDetailsPage = () => {
           </section>
         </div>
 
-        {/* Added By */}
-        <p className="mt-12 text-center text-sm text-gray-600 dark:text-gray-400 italic tracking-wide">
-          <strong>Added by:</strong> ({plant.email || "No email"})
-        </p>
+      
+        <p className="mt-12 text-center text-sm text-gray-600 dark:text-gray-400 italic tracking-wide break-words overflow-hidden">
+  <strong>Added by:</strong> ({plant.email || "No email"})
+</p>
+
       </Motion.div>
 
       {/* Next Watering Reminder */}
