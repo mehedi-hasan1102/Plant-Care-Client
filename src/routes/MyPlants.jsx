@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/Provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
@@ -67,23 +66,14 @@ const MyPlants = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen
-        bg-gradient-to-br from-green-50 via-white to-green-100
-        dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
-        transition-colors duration-300"
-      >
+      <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-300">
         <Loading />
       </div>
     );
   }
 
   return (
-    <div
-      className="min-h-screen
-        bg-gradient-to-br from-green-50 via-white to-green-100
-        dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
-        transition-colors duration-300 py-10 px-4"
-    >
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-300 py-10 px-4">
       <div className="max-w-5xl mx-auto bg-white dark:bg-zinc-900 rounded-3xl shadow-lg shadow-green-200/50 dark:shadow-emerald-600/50 p-8">
         <h2 className="text-3xl md:text-4xl font-extrabold text-green-700 dark:text-emerald-400 mb-8 text-center">
           My Plants
@@ -94,50 +84,83 @@ const MyPlants = () => {
             You haven’t added any plants yet.
           </p>
         ) : (
-          <div className="overflow-x-auto rounded-2xl border border-green-200 dark:border-emerald-600 shadow-sm">
-            <table className="min-w-full text-left text-sm text-gray-700 dark:text-gray-300 border-collapse rounded-2xl">
-              <thead className="bg-green-100 dark:bg-emerald-900 text-gray-800 dark:text-gray-100 rounded-t-2xl">
-                <tr>
-                  <th className="p-4 font-semibold rounded-tl-2xl">Name</th>
-                  <th className="p-4 font-semibold">Category</th>
-                  <th className="p-4 font-semibold">Watering</th>
-                  <th className="p-4 font-semibold text-center rounded-tr-2xl">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {plants.map((plant, idx) => (
-                  <tr
-                    key={plant._id}
-                    className={`border-t border-green-200 dark:border-emerald-700
-                      ${idx % 2 === 0
-                        ? "bg-green-50 dark:bg-zinc-800"
-                        : "bg-white dark:bg-zinc-700"
-                      } hover:bg-green-100 dark:hover:bg-emerald-900 transition`}
-                  >
-                    <td className="p-4 font-semibold">{plant.plantName}</td>
-                    <td className="p-4 capitalize">{plant.category}</td>
-                    <td className="p-4">{plant.wateringFrequency}</td>
-                    <td className="p-4 flex justify-center gap-3">
-                      <button
-                        onClick={() => navigate(`/dashboard/update-plant/${plant._id}`)}
-                        className="btn btn-success btn-sm text-white dark:bg-green-600 dark:hover:bg-green-700 rounded-2xl px-5 py-2"
-                        aria-label={`Update ${plant.plantName}`}
-                      >
-                        Update
-                      </button>
-                      <button
-                        onClick={() => setDeletingId(plant._id)}
-                        className="btn btn-sm btn-outline text-red-600 dark:text-red-400 rounded-2xl px-5 py-2"
-                        aria-label={`Delete ${plant.plantName}`}
-                      >
-                        Delete
-                      </button>
-                    </td>
+          <>
+            {/* 🖥 Table view for desktop */}
+            <div className="overflow-x-auto rounded-2xl border border-green-200 dark:border-emerald-600 shadow-sm hidden md:block">
+              <table className="min-w-full text-left text-sm text-gray-700 dark:text-gray-300 border-collapse rounded-2xl">
+                <thead className="bg-green-100 dark:bg-emerald-900 text-gray-800 dark:text-gray-100 rounded-t-2xl">
+                  <tr>
+                    <th className="p-4 font-semibold rounded-tl-2xl">Name</th>
+                    <th className="p-4 font-semibold">Category</th>
+                    <th className="p-4 font-semibold">Watering</th>
+                    <th className="p-4 font-semibold text-center rounded-tr-2xl">Actions</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {plants.map((plant, idx) => (
+                    <tr
+                      key={plant._id}
+                      className={`border-t border-green-200 dark:border-emerald-700 ${
+                        idx % 2 === 0 ? "bg-green-50 dark:bg-zinc-800" : "bg-white dark:bg-zinc-700"
+                      } hover:bg-green-100 dark:hover:bg-emerald-900 transition`}
+                    >
+                      <td className="p-4 font-semibold">{plant.plantName}</td>
+                      <td className="p-4 capitalize">{plant.category}</td>
+                      <td className="p-4">{plant.wateringFrequency}</td>
+                      <td className="p-4 flex justify-center gap-3">
+                        <button
+                          onClick={() => navigate(`/dashboard/update-plant/${plant._id}`)}
+                          className="btn btn-success btn-sm text-white dark:bg-green-600 dark:hover:bg-green-700 rounded-2xl px-5 py-2"
+                        >
+                          Update
+                        </button>
+                        <button
+                          onClick={() => setDeletingId(plant._id)}
+                          className="btn btn-sm btn-outline text-red-600 dark:text-red-400 rounded-2xl px-5 py-2"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* 📱 Card layout for mobile */}
+            <div className="md:hidden space-y-6">
+              {plants.map((plant) => (
+                <div
+                  key={plant._id}
+                  className="bg-white dark:bg-zinc-800 rounded-2xl shadow border border-green-200 dark:border-emerald-700 p-4"
+                >
+                  <h3 className="text-xl font-bold text-green-700 dark:text-emerald-400 mb-2">
+                    {plant.plantName}
+                  </h3>
+                  <p className="text-gray-700 dark:text-gray-300">
+                    <strong>Category:</strong> {plant.category}
+                  </p>
+                  <p className="text-gray-700 dark:text-gray-300">
+                    <strong>Watering:</strong> {plant.wateringFrequency}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-3 justify-end">
+                    <button
+                      onClick={() => navigate(`/dashboard/update-plant/${plant._id}`)}
+                      className="btn btn-success btn-sm text-white dark:bg-green-600 dark:hover:bg-green-700 rounded-2xl px-5 py-2"
+                    >
+                      Update
+                    </button>
+                    <button
+                      onClick={() => setDeletingId(plant._id)}
+                      className="btn btn-sm btn-outline text-red-600 dark:text-red-400 rounded-2xl px-5 py-2"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
         )}
 
         {/* Delete Confirmation Modal */}
