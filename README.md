@@ -115,8 +115,11 @@ Open a Pull Request
 This project is currently unlicensed. For usage permissions, please contact the maintainer.
 
 📬 Contact
+
 Maintainer: Mehedi Hasan
+
 📧 Email: mehedi.hasan11023@gmail.com
+
 🔗 GitHub: https://github.com/mehedi-hasan1102
 
 Why Choose Plant Care Tracker?
