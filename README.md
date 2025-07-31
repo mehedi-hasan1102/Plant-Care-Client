@@ -54,8 +54,8 @@ A full-stack web application for plant enthusiasts to manage and monitor their p
 
 ### Installation  
 ```bash
-git clone https://github.com/HasanCodeX/Project---web-b11-A10-PlantCare---client
-cd plant-care-tracker
+git clone https://github.com/mehedi-hasan1102/Plant-Care-Client
+cd Plant-Care-Client
 npm install
 
 
@@ -116,8 +116,8 @@ This project is currently unlicensed. For usage permissions, please contact the 
 
 📬 Contact
 Maintainer: Mehedi Hasan
-📧 Email: dev.hasan10@gmail.com
-🔗 GitHub: https://github.com/HasanCodeX
+📧 Email: mehedi.hasan11023@gmail.com
+🔗 GitHub: https://github.com/mehedi-hasan1102
 
 Why Choose Plant Care Tracker?
 ✔ Modern React 19 + Vite architecture
