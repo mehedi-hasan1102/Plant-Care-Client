@@ -39,7 +39,7 @@ const TopMistakesSection = () => {
 
   return (
     <section
-      className="max-w-7xl mx-auto px-4 py-14  shadow-lg
+      className="rounded-lg mx-auto px-4 py-14  shadow-lg
         bg-gradient-to-br from-green-50 via-white to-green-100
         dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-500"
     >

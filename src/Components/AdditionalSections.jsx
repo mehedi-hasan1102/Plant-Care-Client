@@ -19,8 +19,8 @@ const beginnerPlants = [
 
 const AdditionalSections = () => {
   return (
-    <section className="px-6 py-16 bg-gradient-to-br from-emerald-50 via-white to-green-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-500">
-      <div className="max-w-6xl mx-auto text-center">
+    <section className="rounded-lg px-6 py-16 bg-gradient-to-br from-emerald-50 via-white to-green-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-500">
+      <div className=" mx-auto text-center">
         <h2 className="text-4xl font-bold text-emerald-700 dark:text-emerald-400 mb-4">
           Beginner-Friendly Plants
         </h2>
