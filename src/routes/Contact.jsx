@@ -22,7 +22,7 @@ const Contact = () => {
   className="flex justify-center items-center min-h-screen px-6 py-10
     bg-gradient-to-br from-green-50 via-white to-green-100
     dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
-    transition-colors duration-300"
+    transition-colors duration-300 "
 >
   {/* Card */}
   <div className="flex flex-col md:flex-row w-full max-w-4xl rounded-3xl overflow-hidden shadow-lg dark:shadow-emerald-900/30 bg-white dark:bg-zinc-900">
