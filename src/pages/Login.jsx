@@ -117,113 +117,121 @@ const Login = () => {
   };
 
   return (
-    <div
-      className="flex flex-col-reverse md:flex-row justify-center items-center gap-10 min-h-screen px-6 py-10
-        bg-gradient-to-br from-green-50 via-white to-green-100
-        dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
-        transition-colors duration-300"
+   <div
+  className="flex justify-center items-center min-h-screen px-6 py-10
+    bg-gradient-to-br from-green-50 via-white to-green-100
+    dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
+    transition-colors duration-300"
+>
+  {/* Card */}
+  <div className="flex flex-col md:flex-row w-full max-w-4xl rounded-3xl overflow-hidden shadow-lg dark:shadow-emerald-900/30 bg-white dark:bg-zinc-900">
+    
+    {/* Image Section (hidden in mobile) */}
+    <div className="hidden md:flex w-1/2 bg-gradient-to-br from-emerald-100 to-green-200 dark:from-emerald-900 dark:to-green-800 justify-center items-center p-10">
+      <img
+        src="https://i.ibb.co/xSJVc5d1/Tablet-login-bro.png"
+        alt="Login illustration"
+        className="w-80 h-auto object-contain drop-shadow-lg"
+      />
+    </div>
+
+    {/* Form Section */}
+    <form
+      onSubmit={handleLogin}
+      className="w-full md:w-1/2 p-10 space-y-6"
     >
-      {/* Form Section */}
-      <form
-        onSubmit={handleLogin}
-        className="w-full md:w-1/2 max-w-md bg-white dark:bg-zinc-900 shadow-md dark:shadow-green-800/30 p-10 rounded-3xl space-y-6"
-      >
-        <h2 className="text-4xl font-bold text-center text-green-700 dark:text-emerald-400">
-          Login
-        </h2>
+      <h2 className="text-4xl font-bold text-center text-green-700 dark:text-emerald-400">
+        Welcome Back
+      </h2>
+      <p className="text-center text-gray-500 dark:text-gray-400">
+        Please login to continue
+      </p>
 
-        {error && (
-          <p className="text-red-600 dark:text-red-400 text-center text-sm font-medium">
-            {error}
-          </p>
-        )}
+      {error && (
+        <p className="text-red-600 dark:text-red-400 text-center text-sm font-medium">
+          {error}
+        </p>
+      )}
 
+      <input
+        type="email"
+        placeholder="Email"
+        className="w-full px-5 py-3 border border-green-700 rounded-xl
+          dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
+          focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+
+      <div className="relative">
         <input
-          type="email"
-          placeholder="Email"
+          type={showPassword ? "text" : "password"}
+          placeholder="Password"
           className="w-full px-5 py-3 border border-green-700 rounded-xl
             dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
-            focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+            focus:outline-none focus:ring-2 focus:ring-emerald-400 transition pr-12"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
-
-        <div className="relative">
-          <input
-            type={showPassword ? "text" : "password"}
-            placeholder="Password"
-            className="w-full px-5 py-3 border border-green-700 rounded-xl
-              dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
-              focus:outline-none focus:ring-2 focus:ring-emerald-400 transition pr-12"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <span
-            onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-green-700 dark:text-emerald-400"
-            title={showPassword ? "Hide password" : "Show password"}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") setShowPassword(!showPassword);
-            }}
-          >
-            {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
-          </span>
-        </div>
-
-        <div className="text-right">
-          <button
-            type="button"
-            onClick={resetPassword}
-            className="text-sm text-green-700 dark:text-emerald-400 hover:underline"
-          >
-            Forgot Password?
-          </button>
-        </div>
-
-        <button
-          type="submit"
-          className="w-full bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-3xl transition"
+        <span
+          onClick={() => setShowPassword(!showPassword)}
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-green-700 dark:text-emerald-400"
+          title={showPassword ? "Hide password" : "Show password"}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") setShowPassword(!showPassword);
+          }}
         >
-          Login
-        </button>
+          {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
+        </span>
+      </div>
 
-        <div className="divider dark:before:bg-emerald-400 dark:after:bg-emerald-400 text-green-700 dark:text-emerald-400">
-          OR
-        </div>
-
+      <div className="flex justify-between items-center text-sm">
         <button
           type="button"
-          onClick={handleGoogleLogin}
-          className="w-full border-2 border-green-700 text-green-700 dark:text-emerald-400
-            hover:bg-green-700 hover:text-white rounded-3xl py-3 font-semibold transition"
+          onClick={resetPassword}
+          className="text-green-700 dark:text-emerald-400 hover:underline"
         >
-          Continue with Google
+          Forgot Password?
         </button>
-
-        <p className="text-center text-green-700 dark:text-emerald-400 text-sm mt-5">
-          Don&apos;t have an account?{" "}
-          <a
-            href="/signup"
-            className="font-semibold hover:underline text-green-700 dark:text-emerald-400"
-          >
-            Sign up
-          </a>
-        </p>
-      </form>
-
-      {/* Image Section */}
-      <div className="w-full md:w-1/2 flex justify-center">
-        <img
-          src="https://i.ibb.co/xSJVc5d1/Tablet-login-bro.png" // 👈 Use your own login illustration image
-          alt="Login illustration"
-          className="w-full max-w-md h-auto object-contain"
-        />
       </div>
-    </div>
+
+      <button
+        type="submit"
+        className="w-full bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 text-white font-semibold px-6 py-3 rounded-2xl transition shadow-md"
+      >
+        Login
+      </button>
+
+      <div className="divider dark:before:bg-emerald-400 dark:after:bg-emerald-400 text-green-700 dark:text-emerald-400">
+        OR
+      </div>
+
+      <button
+        type="button"
+        onClick={handleGoogleLogin}
+        className="w-full border-2 border-green-700 dark:border-emerald-400 text-green-700 dark:text-emerald-400
+          hover:bg-green-700 hover:text-white rounded-2xl py-3 font-semibold transition"
+      >
+        Continue with Google
+      </button>
+
+      <p className="text-center text-green-700 dark:text-emerald-400 text-sm mt-5">
+        Don&apos;t have an account?{" "}
+        <a
+          href="/signup"
+          className="font-semibold hover:underline text-green-700 dark:text-emerald-400"
+        >
+          Sign up
+        </a>
+      </p>
+    </form>
+  </div>
+</div>
+
   );
 };
 
