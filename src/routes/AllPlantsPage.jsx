@@ -58,9 +58,9 @@ const AllPlantsPage = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-40">
+      // <div className="flex justify-center items-center h-40">
         <Loading />
-      </div>
+      // </div>
     );
   }
 
