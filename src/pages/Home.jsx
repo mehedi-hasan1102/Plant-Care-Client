@@ -9,7 +9,7 @@ import TopMistakesSection from "../Components/TopMistakesSection";
 
 const Home = () => {
   return (
-    < >
+    <div className="max-w-7xl mx-auto">
      
 
       <HeroSection />
@@ -18,7 +18,7 @@ const Home = () => {
        <AdditionalSections />
       <TopMistakesSection />
 
-    </>
+    </div>
   );
 };
 

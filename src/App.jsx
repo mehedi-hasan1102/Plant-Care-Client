@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import { useEffect, useState } from "react";
 import Loading from "./Components/Loading";
 import DarkModeSidebar from "./Components/DarkModeSidebar";
+import ScrollToTopButton from "./Components/ScrollToTopButton";
 
 
 
@@ -25,6 +26,7 @@ function App() {
 
   return (
     <>
+    
       <Navbar />
        <DarkModeSidebar />
       {loading ? (
@@ -35,7 +37,9 @@ function App() {
       )}
      
       <ToastContainer position="top-center" autoClose={1000} />
+      <ScrollToTopButton />
       <Footer />
+      
     </>
   );
 }
