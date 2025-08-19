@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
@@ -7,24 +5,19 @@ import Loading from "./Loading";
 
 const NewPlantsSection = () => {
   const [visiblePlants, setVisiblePlants] = useState([]);
-  const [allPlants, setAllPlants] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [showAll, setShowAll] = useState(false);
   const [fetchError, setFetchError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://project-web-b11-a10-plant-care-serv.vercel.app/plants")
       .then((res) => {
-        if (!res.ok) {
-          throw new Error("Network response was not ok");
-        }
+        if (!res.ok) throw new Error("Network response was not ok");
         return res.json();
       })
       .then((data) => {
         const sorted = [...data].reverse();
-        setAllPlants(sorted);
-        setVisiblePlants(sorted.slice(0, 4));
+        setVisiblePlants(sorted.slice(0, 8));
         setLoading(false);
         setFetchError(null);
       })
@@ -35,13 +28,8 @@ const NewPlantsSection = () => {
       });
   }, []);
 
-  const handleShowAll = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setVisiblePlants(allPlants);
-      setLoading(false);
-      setShowAll(true);
-    }, 800);
+  const handleViewAll = () => {
+    navigate("/all-plants");
   };
 
   return (
@@ -109,7 +97,9 @@ const NewPlantsSection = () => {
                     ? "bg-green-600 hover:bg-green-700 text-white cursor-pointer"
                     : "bg-gray-400 text-gray-200 cursor-not-allowed"
                   }`}
-                onClick={() => plant._id && navigate(`/dashboard/plant-details/${plant._id}`)}
+                onClick={() =>
+                  plant._id && navigate(`/dashboard/plant-details/${plant._id}`)
+                }
                 aria-disabled={!plant._id}
               >
                 See More
@@ -119,10 +109,10 @@ const NewPlantsSection = () => {
         </Motion.div>
       )}
 
-      {!showAll && !loading && allPlants.length > 4 && (
+      {!loading && visiblePlants.length > 4 && (
         <div className="flex justify-center mt-12">
           <button
-            onClick={handleShowAll}
+            onClick={handleViewAll}
             className="px-6 py-2 rounded-full border border-green-500 text-green-700 dark:text-white dark:border-green-500 hover:bg-green-100 dark:hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition"
           >
             View All Plants
