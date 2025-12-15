@@ -3,11 +3,11 @@
 import { Link, NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/Provider/AuthProvider";
-import { Tooltip } from "react-tooltip";
+// import { Tooltip } from "react-tooltip";
 import { FiLogOut } from "react-icons/fi";
 import { FaLeaf } from "react-icons/fa";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
-import Switch from "./DarkModeSidebar";
+import SimpleThemeToggle from "./DarkModeSidebar";
 import Swal from "sweetalert2";
 
 const Navbar = () => {
@@ -140,7 +140,7 @@ const Navbar = () => {
 
           {/* Right Side */}
           <div className="flex items-center gap-3">
-            <Switch />
+            <SimpleThemeToggle />
             {!user ? (
               <div className="flex space-x-3">
                 <Link
