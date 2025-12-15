@@ -23,10 +23,10 @@ export default function HeroVideo() {
 
       {/* Hero text */}
       <div className="absolute inset-0 flex flex-col justify-center items-center px-6 text-center">
-        <h1 className="text-white font-extrabold tracking-wide drop-shadow-lg text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+        <h1 className="text-emerald-400 font-extrabold tracking-wide drop-shadow-lg text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
           Nurture Your Greens
         </h1>
-        <p className="mt-4 text-white font-light drop-shadow-sm max-w-2xl text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
+        <p className="mt-4 text-gray-400 font-light drop-shadow-sm max-w-2xl text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
           Track every watering, mist, and feed with ease – your complete plant care companion.
         </p>
       </div>
