@@ -24,8 +24,7 @@ const PlantDetailsPage = () => {
     return (
       <div
         className="flex justify-center items-center min-h-screen
-        bg-gradient-to-br from-green-50 via-white to-green-100
-        dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
+       
         transition-colors duration-300 px-4 py-6"
       >
         <Loading />
@@ -35,8 +34,7 @@ const PlantDetailsPage = () => {
   return (
     <div
       className="min-h-screen
-      bg-gradient-to-br from-green-50 via-white to-green-100
-      dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
+      
       transition-colors duration-300 py-10 px-6 flex flex-col items-center"
     >
       <Motion.div

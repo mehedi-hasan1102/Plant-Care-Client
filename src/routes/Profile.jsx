@@ -56,12 +56,11 @@ const Profile = () => {
   return (
     <div
       className="flex flex-col-reverse md:flex-row justify-center items-center gap-10 min-h-screen px-6 py-10
-      bg-gradient-to-br from-green-50 via-white to-green-100
-      dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
+      
       transition-colors duration-300"
     >
       {/* Profile Form */}
-      <div className="w-full md:w-1/2 max-w-md bg-white dark:bg-zinc-900 shadow-md dark:shadow-green-800/30 p-10 rounded-3xl space-y-6">
+      <div className="w-full md:w-1/2 max-w-md border-green-200 dark:border-green-700 border  p-10 rounded-3xl space-y-6">
         <h1 className="text-4xl font-bold text-center text-green-700 dark:text-emerald-400">
           Update Profile
         </h1>

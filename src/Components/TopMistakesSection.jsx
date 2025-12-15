@@ -39,9 +39,8 @@ const TopMistakesSection = () => {
 
   return (
     <section
-      className="rounded-lg mx-auto px-4 py-14  shadow-lg
-        bg-gradient-to-br from-green-50 via-white to-green-100
-        dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-500"
+      className="rounded-lg mx-auto px-4 py-14  
+         transition-colors duration-500"
     >
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-extrabold text-emerald-700 dark:text-emerald-400 tracking-wide">

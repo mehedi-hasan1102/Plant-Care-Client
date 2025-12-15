@@ -22,10 +22,10 @@ const Support = () => {
   const toggleCollapse = (index) => setOpenIndex(openIndex === index ? null : index);
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen px-6 md:px-12 py-12 bg-gradient-to-br from-green-50 via-white to-green-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-300 items-center justify-center gap-8">
+    <div className="flex flex-col md:flex-row min-h-screen px-6 md:px-12 py-12  transition-colors duration-300 items-center justify-center gap-8">
       
       {/* Left Panel */}
-      <div className="w-full md:w-1/2 lg:w-2/5 bg-white dark:bg-zinc-900 backdrop-blur-md shadow-xl rounded-3xl p-8 md:p-10 space-y-6 transition-all">
+      <div className="w-full md:w-1/2 lg:w-2/5 rounded-3xl p-8 md:p-10 space-y-6 transition-all">
         <h2 className="text-3xl md:text-4xl font-bold text-green-700 dark:text-emerald-400">Support & Help</h2>
         <p className="text-gray-700 dark:text-gray-400 text-sm md:text-base leading-relaxed">
           Find answers to your questions or get in touch with us below.
@@ -83,7 +83,7 @@ const Support = () => {
         <img
           src="https://i.ibb.co/k2MQLycF/Active-Support-bro.png"
           alt="Support illustration"
-          className="w-full max-w-md h-auto object-contain shadow-xl rounded-xl transform hover:scale-105 transition duration-500"
+          className="w-full max-w-md h-auto object-contain  rounded-xl transform hover:scale-105 transition duration-500"
         />
       </div>
     </div>

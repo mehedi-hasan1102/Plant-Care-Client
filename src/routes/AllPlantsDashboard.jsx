@@ -36,15 +36,15 @@ const AllPlantsDashboard = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-500">
+      <div className="flex justify-center items-center min-h-screen ">
         <Loading />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-500 py-10 px-4">
-      <div className="max-w-5xl mx-auto bg-white dark:bg-zinc-900 rounded-3xl shadow-xl dark:shadow-green-800/30 p-6">
+    <div className="min-h-screen  py-10 px-4">
+      <div className="max-w-5xl mx-auto rounded-3xl  p-6">
         <h1 className="text-3xl md:text-4xl font-extrabold text-green-700 dark:text-emerald-400 mb-8 text-center">
           All Plants Dashboard
         </h1>

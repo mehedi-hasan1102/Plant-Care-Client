@@ -33,7 +33,7 @@ const NewPlantsSection = () => {
   };
 
   return (
-    <section className="rounded-lg mx-auto px-4 py-14 bg-gradient-to-b from-green-50 to-white dark:from-zinc-900 dark:to-zinc-800 transition-colors duration-300">
+    <section className="rounded-lg mx-auto px-4 py-14  dark:to-zinc-800 transition-colors duration-300">
       <div className="text-center mb-10">
         <h2 className="text-3xl md:text-4xl font-extrabold text-emerald-700 dark:text-emerald-400">
           New Arrivals
@@ -52,7 +52,7 @@ const NewPlantsSection = () => {
         <p className="text-center text-red-600 dark:text-red-400">{fetchError}</p>
       ) : (
         <Motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}

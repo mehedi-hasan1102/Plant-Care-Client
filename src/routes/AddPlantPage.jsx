@@ -37,12 +37,11 @@ const AddPlantPage = () => {
 
   return (
     <div
-      className="bg-gradient-to-br from-green-50 via-white to-green-100
-        dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
+      className="
         min-h-screen flex items-center justify-center px-4 py-8 transition-colors duration-300"
     >
       <Motion.section
-        className="w-full max-w-3xl p-10 bg-white dark:bg-zinc-900 rounded-3xl shadow-lg shadow-green-200/50 dark:shadow-emerald-600/50"
+        className="w-full max-w-3xl p-10 rounded-3xl border border-green-200 dark:border-green-700"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}

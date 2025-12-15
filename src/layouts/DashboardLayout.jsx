@@ -24,12 +24,12 @@ const DashboardLayout = () => {
   ];
 
   return (
-    <div className="min-h-screen flex bg-gradient-to-br from-green-50 via-white to-green-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-300">
+    <div className="min-h-screen flex  transition-colors duration-300">
       {/* Sidebar */}
       <aside
         className={`${
           collapsed ? "w-20" : "w-64"
-        } bg-white dark:bg-zinc-900 border-r-2 border-green-300 dark:border-emerald-700 p-4 flex flex-col justify-between transition-all duration-300`}
+        } border-r-1 border-green-300 dark:border-emerald-700 p-4 flex flex-col justify-between transition-all duration-300`}
       >
         {/* Top: Logo + Collapse */}
         <div>
@@ -99,7 +99,7 @@ const DashboardLayout = () => {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-6 overflow-y-auto bg-white dark:bg-zinc-900 text-gray-900 dark:text-zinc-200 transition-colors duration-300">
+      <main className="flex-1 p-6 overflow-y-auto  text-gray-900 dark:text-zinc-200 transition-colors duration-300">
         <Outlet />
       </main>
     </div>

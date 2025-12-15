@@ -35,7 +35,7 @@ const promotions = [
 
 const PromotionalOffers = () => {
   return (
-    <section className="rounded-lg mx-auto px-4 py-14 bg-gradient-to-b from-green-50 to-white dark:from-zinc-900 dark:to-zinc-800 transition-colors duration-300">
+    <section className="rounded-lg mx-auto px-4 py-14 bg-gradient-to-b  transition-colors duration-300">
       <div className="text-center mb-10">
         <h2 className="text-3xl md:text-4xl font-extrabold text-emerald-700 dark:text-emerald-400">
           Promotional Offers

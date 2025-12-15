@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../context/firebase/firebase.config";
 import { motion as Motion } from "framer-motion";
+import { BorderBeam } from "@stianlarsen/border-beam";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -38,8 +39,7 @@ const Overview = () => {
   return (
     <div
       className="min-h-screen flex items-center justify-center
-      bg-gradient-to-br from-green-50 via-white to-green-100
-      dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
+     
       px-4 py-12 transition-colors duration-300"
     >
       <div className="w-full max-w-6xl space-y-8">
@@ -59,16 +59,17 @@ const Overview = () => {
         </Motion.div>
 
         {/* Grid of 3 Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
           {/* Avatar Card */}
           <Motion.div
-            className="bg-white dark:bg-zinc-900 rounded-3xl p-6 shadow-xl text-center cursor-default"
+            className="relative rounded-3xl bg-gradient-to-br from-white to-green-50 dark:from-zinc-800 dark:to-zinc-900 p-6 shadow-xl text-center cursor-default border border-green-200 dark:border-green-700"
             custom={0}
             variants={cardVariants}
             initial="hidden"
             animate="visible"
             whileHover={{ scale: 1.05 }}
           >
+            <BorderBeam size={100} duration={8}  thickness={9} colorFrom="#22c55e" colorTo="#16a34a" />
             <div className="relative w-24 h-24 mx-auto mb-4">
               <Motion.img
                 src={user?.photoURL || "https://i.ibb.co/5r5C1fJ/user.png"}
@@ -90,13 +91,14 @@ const Overview = () => {
 
           {/* Total Plants Card */}
           <Motion.div
-            className="bg-white dark:bg-zinc-900 rounded-3xl p-6 shadow-xl text-center cursor-default"
+            className=" relative bg-gradient-to-br from-white to-green-50 dark:from-zinc-800 dark:to-zinc-900 border border-green-200 dark:border-green-700 rounded-3xl p-6 shadow-xl text-center cursor-default"
             custom={1}
             variants={cardVariants}
             initial="hidden"
             animate="visible"
             whileHover={{ scale: 1.05 }}
           >
+            <BorderBeam size={100} duration={8}  thickness={9} colorFrom="#22c55e" colorTo="#16a34a" />
             <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-2">
               🌿 Total Plants
             </h3>
@@ -113,13 +115,14 @@ const Overview = () => {
 
           {/* My Plants Card */}
           <Motion.div
-            className="bg-white dark:bg-zinc-900 rounded-3xl p-6 shadow-xl text-center cursor-default"
+            className="relative border border-green-200 dark:border-green-700 bg-gradient-to-br from-white to-green-50 dark:from-zinc-800 dark:to-zinc-900 rounded-3xl p-6 shadow-xl text-center cursor-default"
             custom={2}
             variants={cardVariants}
             initial="hidden"
             animate="visible"
             whileHover={{ scale: 1.05 }}
           >
+            <BorderBeam size={100} duration={8}  thickness={9} colorFrom="#22c55e" colorTo="#16a34a" />
             <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-2">
               🪴 My Plants
             </h3>
