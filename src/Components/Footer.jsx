@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer
-      className="px-4 md:px-12 py-10 border-t border-green-400 
-      bg-green-100 text-green-900 
-      dark:bg-gray-900 dark:text-green-100 transition-colors duration-300
+      className="px-4 md:px-12 py-10 
+       text-green-900 bg-green-50 dark:bg-zinc-900
+       dark:text-green-100 transition-colors duration-300
       min-h-[180px]"
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
