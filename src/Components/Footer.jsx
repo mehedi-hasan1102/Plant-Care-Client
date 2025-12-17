@@ -116,9 +116,19 @@ const Footer = () => {
       </div>
 
       {/* Bottom Line */}
-      <div className="border-t mt-10 pt-4 text-center text-sm text-green-700 dark:text-green-400">
-        &copy; {new Date().getFullYear()} PlantCare — All rights reserved.
-      </div>
+     <div className="border-t mt-10 pt-4 text-center text-sm text-green-700 dark:text-green-400">
+  &copy; {new Date().getFullYear()} PlantCare — All rights reserved. <br />
+  Developed by{" "}
+  <a
+    href="https://m-hasan.vercel.app"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="font-medium hover:underline hover:text-green-800 dark:hover:text-green-300"
+  >
+    Mehedi Hasan
+  </a>
+</div>
+
     </footer>
   );
 };
