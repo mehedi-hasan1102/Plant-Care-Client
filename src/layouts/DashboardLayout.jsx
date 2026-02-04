@@ -24,30 +24,30 @@ const DashboardLayout = () => {
   ];
 
   return (
-    <div className="min-h-screen flex  transition-colors duration-300">
+    <div className="min-h-screen flex bg-gray-50 dark:bg-zinc-950 transition-colors duration-300">
       {/* Sidebar */}
       <aside
         className={`${
-          collapsed ? "w-20" : "w-64"
-        } border-r-1 border-green-300 dark:border-emerald-700 p-4 flex flex-col justify-between transition-all duration-300`}
+          collapsed ? "w-20" : "w-72"
+        } bg-white dark:bg-zinc-900 border-r border-emerald-200 dark:border-emerald-800 flex flex-col justify-between transition-all duration-300 shadow-lg`}
       >
         {/* Top: Logo + Collapse */}
-        <div>
-          <div className="flex items-center justify-between mb-6">
+        <div className="p-6">
+          <div className="flex items-center justify-between mb-8">
             <Link
               to="/"
-              className="flex items-center gap-2 text-green-700 dark:text-emerald-400"
+              className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 hover:opacity-80 transition"
             >
-              <FaLeaf size={24} />
+              <FaLeaf size={26} />
               {!collapsed && (
-                <span className="text-xl font-bold tracking-wide select-none">
+                <span className="text-2xl font-bold tracking-tight select-none">
                   PlantCare
                 </span>
               )}
             </Link>
             <button
               onClick={() => setCollapsed(!collapsed)}
-              className="text-green-600 dark:text-emerald-400 text-lg font-bold select-none"
+              className="text-emerald-600 dark:text-emerald-400 text-lg font-bold select-none hover:bg-emerald-100 dark:hover:bg-emerald-900/30 p-1 rounded-md transition"
               aria-label="Toggle sidebar"
               title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
             >
@@ -59,48 +59,57 @@ const DashboardLayout = () => {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `flex items-center gap-3 px-3 py-2 rounded-md transition-colors hover:bg-green-100 dark:hover:bg-emerald-700 mb-2 ${
+              `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 font-medium mb-2 ${
                 isActive
-                  ? "bg-green-200 dark:bg-emerald-700 font-semibold text-green-700 dark:text-emerald-300"
-                  : "text-gray-800 dark:text-zinc-300"
+                  ? "bg-emerald-600 dark:bg-emerald-600 text-white shadow-lg hover:shadow-xl"
+                  : "text-gray-700 dark:text-zinc-300 hover:bg-emerald-50 dark:hover:bg-emerald-900/30"
               }`
             }
           >
-            <MdHome size={20} />
+            <MdHome size={22} />
             {!collapsed && "Home"}
           </NavLink>
 
           {/* Dashboard Navigation */}
-          <nav className="space-y-3">
-            {navItems.map(({ to, label, icon }) => (
-              <NavLink
-                key={to}
-                to={to}
-                end={to === "/dashboard"}
-                className={({ isActive }) =>
-                  `flex items-center gap-3 px-3 py-2 rounded-md transition-colors hover:bg-green-100 dark:hover:bg-emerald-700 ${
-                    isActive
-                      ? "bg-green-200 dark:bg-emerald-700 font-semibold text-green-700 dark:text-emerald-300"
-                      : "text-gray-800 dark:text-zinc-300"
-                  }`
-                }
-              >
-                {icon}
-                {!collapsed && label}
-              </NavLink>
-            ))}
-          </nav>
+          <div className="mt-4">
+            {!collapsed && (
+              <p className="text-xs font-semibold text-gray-500 dark:text-zinc-500 uppercase tracking-wide px-4 mb-3">
+                Dashboard
+              </p>
+            )}
+            <nav className="space-y-2">
+              {navItems.map(({ to, label, icon }) => (
+                <NavLink
+                  key={to}
+                  to={to}
+                  end={to === "/dashboard"}
+                  className={({ isActive }) =>
+                    `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 font-medium ${
+                      isActive
+                        ? "bg-emerald-600 dark:bg-emerald-600 text-white shadow-lg hover:shadow-xl"
+                        : "text-gray-700 dark:text-zinc-300 hover:bg-emerald-50 dark:hover:bg-emerald-900/30"
+                    }`
+                  }
+                >
+                  {icon}
+                  {!collapsed && label}
+                </NavLink>
+              ))}
+            </nav>
+          </div>
         </div>
 
         {/* Bottom: Theme Toggle */}
-        <div className="pt-4 border-t border-green-300 dark:border-emerald-700 flex justify-center">
+        <div className="p-6 border-t border-emerald-200 dark:border-emerald-800">
           {!collapsed && <Switch />}
         </div>
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-6 overflow-y-auto  text-gray-900 dark:text-zinc-200 transition-colors duration-300">
-        <Outlet />
+      <main className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 to-gray-100 dark:from-zinc-950 dark:to-zinc-900 text-gray-900 dark:text-zinc-200 transition-colors duration-300">
+        <div className="p-8 max-w-7xl mx-auto">
+          <Outlet />
+        </div>
       </main>
     </div>
   );
