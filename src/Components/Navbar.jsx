@@ -1,6 +1,6 @@
 
 
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/Provider/AuthProvider";
 // import { Tooltip } from "react-tooltip";
@@ -9,10 +9,12 @@ import { FaLeaf } from "react-icons/fa";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import SimpleThemeToggle from "./DarkModeSidebar";
 import Swal from "sweetalert2";
+import { smoothScrollToElement } from "../utils/smoothScroll";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
   const handleLogout = async () => {
     const isDarkMode = document.documentElement.classList.contains("dark");
@@ -49,6 +51,16 @@ const Navbar = () => {
           color: isDarkMode ? "#d1d5db" : "#111827",
         });
       }
+    }
+  };
+
+  // Handle smooth scroll for home page sections
+  const handleSectionScroll = (sectionId) => {
+    if (location.pathname === "/") {
+      setMenuOpen(false);
+      setTimeout(() => {
+        smoothScrollToElement(`#${sectionId}`, 1.2, "power3.inOut", 80);
+      }, 100);
     }
   };
 

@@ -13,19 +13,37 @@ import CTASection from "../Components/CTASection";
 const Home = () => {
   return (
     <div>
-  <HeroSection />
+  <section id="hero">
+    <HeroSection />
+  </section>
   
   <div className="max-w-7xl mx-auto">
-    <NewPlantsSection />
-    <FeaturesSection />
-    <PromotionalOffers />
-    <TestimonialsSection />
-    <PlantCareGuideSection />
-    <AdditionalSections />
-    <TopMistakesSection />
+    <section id="new-plants">
+      <NewPlantsSection />
+    </section>
+    <section id="features">
+      <FeaturesSection />
+    </section>
+    <section id="offers">
+      <PromotionalOffers />
+    </section>
+    <section id="testimonials">
+      <TestimonialsSection />
+    </section>
+    <section id="care-guide">
+      <PlantCareGuideSection />
+    </section>
+    <section id="additional">
+      <AdditionalSections />
+    </section>
+    <section id="mistakes">
+      <TopMistakesSection />
+    </section>
   </div>
 
-  <CTASection />
+  <section id="cta">
+    <CTASection />
+  </section>
 </div>
   );
 };
