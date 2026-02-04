@@ -106,7 +106,7 @@ const Profile = () => {
 
           <button
             type="submit"
-            className="w-full bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-3xl transition"
+            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 transform"
           >
             Save Changes
           </button>

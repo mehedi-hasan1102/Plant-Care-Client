@@ -145,13 +145,13 @@ const Navbar = () => {
               <div className="flex space-x-3">
                 <Link
                   to="/login"
-                  className="btn btn-outline btn-sm dark:border-green-500 dark:text-white dark:hover:bg-green-600"
+                  className="px-4 py-2 border-2 border-emerald-600 text-emerald-600 dark:border-emerald-400 dark:text-emerald-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all duration-300 font-medium"
                 >
                   Login
                 </Link>
                 <Link
                   to="/signup"
-                  className="btn btn-success btn-sm text-white dark:bg-green-600 dark:hover:bg-green-700"
+                  className="px-4 py-2 text-white bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-700 rounded-lg transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 transform font-medium"
                 >
                   Register
                 </Link>
@@ -165,7 +165,7 @@ const Navbar = () => {
                 />
                 <Link
                   to="/dashboard"
-                  className="btn btn-outline btn-sm dark:border-green-500 dark:text-white dark:hover:bg-green-600"
+                  className="px-4 py-2 border-2 border-emerald-600 text-emerald-600 dark:border-emerald-400 dark:text-emerald-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all duration-300 font-medium"
                 >
                   Dashboard
                 </Link>
@@ -223,7 +223,7 @@ const Navbar = () => {
             </div>
             <Link
               to="/dashboard"
-              className="block w-full text-center px-4 py-2 rounded-md bg-green-600 text-white font-medium hover:bg-green-700 transition duration-200"
+              className="block w-full text-center px-4 py-2 rounded-lg bg-emerald-600 text-white font-medium hover:bg-emerald-700 transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 transform"
             >
               Go to Dashboard
             </Link>

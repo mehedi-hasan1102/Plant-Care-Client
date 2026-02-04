@@ -1,15 +1,22 @@
 
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
- import tailwindcss from '@tailwindcss/vite'
+import tailwindcss from '@tailwindcss/vite'
+
 export default defineConfig({
-  plugins: [react(),tailwindcss(), ('@tailwindcss/line-clamp'),],
+  plugins: [react(), tailwindcss(), ('@tailwindcss/line-clamp')],
  
   css: {
     modules: {
       // Enable CSS modules if needed
       localsConvention: 'camelCase'
     }
+  },
+  
+  server: {
+    middlewareMode: false,
+    // Suppress source map warnings for third-party packages
+    sourcemap: 'hidden'
   }
 })
 

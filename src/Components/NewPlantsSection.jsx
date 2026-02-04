@@ -92,9 +92,9 @@ const NewPlantsSection = () => {
 
               <button
                 disabled={!plant._id}
-                className={`mt-auto px-4 py-2 rounded-md text-sm font-medium transition
+                className={`mt-auto px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300
                   ${plant._id
-                    ? "bg-green-600 hover:bg-green-700 text-white cursor-pointer"
+                    ? "bg-emerald-600 hover:bg-emerald-700 text-white cursor-pointer shadow-lg hover:shadow-2xl hover:scale-105 transform"
                     : "bg-gray-400 text-gray-200 cursor-not-allowed"
                   }`}
                 onClick={() =>
@@ -113,7 +113,7 @@ const NewPlantsSection = () => {
         <div className="flex justify-center mt-12">
           <button
             onClick={handleViewAll}
-            className="px-6 py-2 rounded-full border border-green-500 text-green-700 dark:text-white dark:border-green-500 hover:bg-green-100 dark:hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition"
+            className="px-10 py-4 bg-transparent border-2 border-emerald-600 text-emerald-600 dark:text-emerald-400 dark:border-emerald-400 font-bold rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all duration-300 text-lg"
           >
             View All Plants
           </button>

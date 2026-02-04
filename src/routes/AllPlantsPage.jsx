@@ -154,9 +154,9 @@ const AllPlantsPage = () => {
 
               <button
                 disabled={!plant._id}
-                className={`mt-auto px-4 py-2 rounded-md text-sm font-medium transition
+                className={`mt-auto px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300
                   ${plant._id
-                    ? "bg-green-600 hover:bg-green-700 text-white cursor-pointer"
+                    ? "bg-emerald-600 hover:bg-emerald-700 text-white cursor-pointer shadow-lg hover:shadow-2xl hover:scale-105 transform"
                     : "bg-gray-400 text-gray-200 cursor-not-allowed"
                   }`}
                 onClick={() => plant._id && navigate(`/dashboard/plant-details/${plant._id}`)}

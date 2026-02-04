@@ -72,7 +72,7 @@ const Support = () => {
             placeholder="Describe your issue or question"
             className="w-full px-4 py-3 border border-green-700 rounded-xl dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-400 shadow-inner transition text-sm resize-none"
           />
-          <button className="w-full bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 text-white font-semibold px-6 py-3 rounded-3xl shadow-md hover:shadow-xl transition text-sm transform hover:scale-105">
+          <button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 transform">
             Submit
           </button>
         </form>

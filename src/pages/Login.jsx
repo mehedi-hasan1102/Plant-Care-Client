@@ -201,7 +201,7 @@ const Login = () => {
 
       <button
         type="submit"
-        className="w-full bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 text-white font-semibold px-6 py-3 rounded-2xl transition shadow-md"
+        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 transform"
       >
         Login
       </button>
@@ -213,8 +213,7 @@ const Login = () => {
       <button
         type="button"
         onClick={handleGoogleLogin}
-        className="w-full border-2 border-green-700 dark:border-emerald-400 text-green-700 dark:text-emerald-400
-          hover:bg-green-700 hover:text-white rounded-2xl py-3 font-semibold transition"
+        className="w-full border-2 border-emerald-600 text-emerald-600 dark:border-emerald-400 dark:text-emerald-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all duration-300 font-semibold px-6 py-3"
       >
         Continue with Google
       </button>

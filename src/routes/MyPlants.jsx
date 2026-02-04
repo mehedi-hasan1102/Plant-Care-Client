@@ -110,13 +110,13 @@ const MyPlants = () => {
                       <td className="p-4 flex justify-center gap-3">
                         <button
                           onClick={() => navigate(`/dashboard/update-plant/${plant._id}`)}
-                          className="btn btn-success btn-sm text-white dark:bg-green-600 dark:hover:bg-green-700 rounded-2xl px-5 py-2"
+                          className="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 transform"
                         >
                           Update
                         </button>
                         <button
                           onClick={() => setDeletingId(plant._id)}
-                          className="btn btn-sm btn-outline text-red-600 dark:text-red-400 rounded-2xl px-5 py-2"
+                          className="px-5 py-2 border-2 border-red-600 text-red-600 dark:border-red-400 dark:text-red-400 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-300 font-semibold"
                         >
                           Delete
                         </button>
