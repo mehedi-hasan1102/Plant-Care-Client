@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion as Motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import CounterStat from './CounterStat';
 
 const CTASection = () => {
   const navigate = useNavigate();
@@ -71,18 +72,9 @@ const CTASection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-extrabold text-emerald-700 dark:text-emerald-400 mb-2">10K+</div>
-            <p className="text-sm md:text-base text-gray-600 dark:text-gray-400">Active Users</p>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-extrabold text-emerald-700 dark:text-emerald-400 mb-2">50K+</div>
-            <p className="text-sm md:text-base text-gray-600 dark:text-gray-400">Plants Tracked</p>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-extrabold text-emerald-700 dark:text-emerald-400 mb-2">4.9★</div>
-            <p className="text-sm md:text-base text-gray-600 dark:text-gray-400">User Rating</p>
-          </div>
+          <CounterStat endValue={10} suffix="K+" label="Active Users" />
+          <CounterStat endValue={50} suffix="K+" label="Plants Tracked" />
+          <CounterStat endValue={4.9} suffix="★" label="User Rating" decimals={1} />
         </Motion.div>
       </Motion.div>
     </section>
