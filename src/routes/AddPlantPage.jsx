@@ -38,24 +38,24 @@ const AddPlantPage = () => {
   return (
     <div
       className="
-        min-h-screen flex items-center justify-center px-4 py-8 transition-colors duration-300"
+        min-h-screen flex items-center justify-center px-4 py-6 md:py-8 transition-colors duration-300"
     >
       <Motion.section
-        className="w-full max-w-3xl p-10 rounded-3xl border border-green-200 dark:border-green-700"
+        className="w-full max-w-3xl p-6 md:p-10 rounded-2xl md:rounded-3xl border border-green-200 dark:border-green-700"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-3xl font-extrabold text-green-700 dark:text-emerald-400 text-center mb-6">
+        <h2 className="text-2xl md:text-3xl font-extrabold text-green-700 dark:text-emerald-400 text-center mb-6">
           Add a New Plant
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <div>
               <label
                 htmlFor="image"
-                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300 text-sm md:text-base"
               >
                 Image URL
               </label>
@@ -64,7 +64,7 @@ const AddPlantPage = () => {
                 name="image"
                 type="text"
                 required
-                className="input input-bordered rounded-xl w-full
+                className="input input-bordered rounded-lg md:rounded-xl w-full text-sm md:text-base
                   dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
                   border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               />
@@ -73,7 +73,7 @@ const AddPlantPage = () => {
             <div>
               <label
                 htmlFor="plantName"
-                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300 text-sm md:text-base"
               >
                 Plant Name
               </label>
@@ -82,7 +82,7 @@ const AddPlantPage = () => {
                 name="plantName"
                 type="text"
                 required
-                className="input input-bordered rounded-xl w-full
+                className="input input-bordered rounded-lg md:rounded-xl w-full text-sm md:text-base
                   dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
                   border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               />
@@ -91,7 +91,7 @@ const AddPlantPage = () => {
             <div>
               <label
                 htmlFor="category"
-                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300 text-sm md:text-base"
               >
                 Category
               </label>
@@ -99,7 +99,7 @@ const AddPlantPage = () => {
                 id="category"
                 name="category"
                 required
-                className="select select-bordered rounded-xl w-full
+                className="select select-bordered rounded-lg md:rounded-xl w-full text-sm md:text-base
                   dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
                   border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               >
@@ -114,7 +114,7 @@ const AddPlantPage = () => {
             <div>
               <label
                 htmlFor="description"
-                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300 text-sm md:text-base"
               >
                 Description
               </label>
@@ -123,7 +123,7 @@ const AddPlantPage = () => {
                 name="description"
                 required
                 rows={3}
-                className="textarea textarea-bordered rounded-xl w-full
+                className="textarea textarea-bordered rounded-lg md:rounded-xl w-full text-sm md:text-base
                   dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
                   border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               />
@@ -132,7 +132,7 @@ const AddPlantPage = () => {
             <div>
               <label
                 htmlFor="careLevel"
-                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300 text-sm md:text-base"
               >
                 Care Level
               </label>
@@ -140,7 +140,7 @@ const AddPlantPage = () => {
                 id="careLevel"
                 name="careLevel"
                 required
-                className="select select-bordered rounded-xl w-full
+                className="select select-bordered rounded-lg md:rounded-xl w-full text-sm md:text-base
                   dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
                   border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               >
@@ -153,7 +153,7 @@ const AddPlantPage = () => {
             <div>
               <label
                 htmlFor="wateringFrequency"
-                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300 text-sm md:text-base"
               >
                 Watering Frequency
               </label>
@@ -162,18 +162,18 @@ const AddPlantPage = () => {
                 name="wateringFrequency"
                 type="text"
                 required
-                className="input input-bordered rounded-xl w-full
+                className="input input-bordered rounded-lg md:rounded-xl w-full text-sm md:text-base
                   dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
                   border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-6">
             <div>
               <label
                 htmlFor="lastWateredDate"
-                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300 text-sm md:text-base"
               >
                 Last Watered Date
               </label>
@@ -182,7 +182,7 @@ const AddPlantPage = () => {
                 name="lastWateredDate"
                 type="date"
                 required
-                className="input input-bordered rounded-xl w-full
+                className="input input-bordered rounded-lg md:rounded-xl w-full text-sm md:text-base
                   dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
                   border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               />
@@ -191,7 +191,7 @@ const AddPlantPage = () => {
             <div>
               <label
                 htmlFor="nextWateringDate"
-                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300 text-sm md:text-base"
               >
                 Next Watered Date
               </label>
@@ -200,18 +200,18 @@ const AddPlantPage = () => {
                 name="nextWateringDate"
                 type="date"
                 required
-                className="input input-bordered rounded-xl w-full
+                className="input input-bordered rounded-lg md:rounded-xl w-full text-sm md:text-base
                   dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
                   border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-6">
             <div>
               <label
                 htmlFor="healthStatus"
-                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300 text-sm md:text-base"
               >
                 Health Status
               </label>
@@ -220,7 +220,7 @@ const AddPlantPage = () => {
                 name="healthStatus"
                 type="text"
                 required
-                className="input input-bordered rounded-xl w-full
+                className="input input-bordered rounded-lg md:rounded-xl w-full text-sm md:text-base
                   dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
                   border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               />
@@ -229,7 +229,7 @@ const AddPlantPage = () => {
             <div>
               <label
                 htmlFor="name"
-                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300 text-sm md:text-base"
               >
                 Added By
               </label>
@@ -239,7 +239,7 @@ const AddPlantPage = () => {
                 type="text"
                 value={user?.displayName || ""}
                 readOnly
-                className="input input-bordered rounded-xl w-full cursor-not-allowed
+                className="input input-bordered rounded-lg md:rounded-xl w-full cursor-not-allowed text-sm md:text-base
                   dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
                   border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               />
@@ -248,7 +248,7 @@ const AddPlantPage = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+                className="block mb-1 font-medium text-gray-700 dark:text-gray-300 text-sm md:text-base"
               >
                 Email
               </label>
@@ -258,7 +258,7 @@ const AddPlantPage = () => {
                 type="email"
                 value={user?.email || ""}
                 readOnly
-                className="input input-bordered rounded-xl w-full cursor-not-allowed
+                className="input input-bordered rounded-lg md:rounded-xl w-full cursor-not-allowed text-sm md:text-base
                   dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
                   border-green-700 focus:ring-emerald-400 focus:border-emerald-400"
               />
@@ -268,7 +268,7 @@ const AddPlantPage = () => {
           <Motion.button
             type="submit"
             whileTap={{ scale: 0.97 }}
-            className="w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-3 rounded-3xl transition mt-6"
+            className="w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-2 md:py-3 rounded-lg md:rounded-3xl transition mt-6 text-sm md:text-base"
           >
             🌱 Add Plant
           </Motion.button>

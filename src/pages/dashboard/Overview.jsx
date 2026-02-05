@@ -57,23 +57,23 @@ const Overview = () => {
   const COLORS = ["#10b981", "#0ea5e9", "#f59e0b", "#ef4444", "#8b5cf6", "#ec4899", "#06b6d4", "#14b8a6"];
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-6 md:space-y-10">
       {/* Header Section */}
       <Motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="bg-gradient-to-r from-emerald-600 to-emerald-500 dark:from-emerald-950 dark:to-emerald-900 rounded-3xl shadow-xl p-10 text-white"
+        className="bg-gradient-to-r from-emerald-600 to-emerald-500 dark:from-emerald-950 dark:to-emerald-900 rounded-2xl md:rounded-3xl shadow-xl p-6 md:p-10 text-white"
       >
-        <h1 className="text-5xl font-black mb-3 tracking-tight">Welcome back, {user?.displayName || "User"}! 👋</h1>
-        <p className="text-emerald-100 text-lg font-light leading-relaxed">Track, manage, and nurture your plants with precision and care</p>
+        <h1 className="text-3xl md:text-5xl font-black mb-3 tracking-tight">Welcome back, {user?.displayName || "User"}! 👋</h1>
+        <p className="text-emerald-100 text-base md:text-lg font-light leading-relaxed">Track, manage, and nurture your plants with precision and care</p>
       </Motion.div>
 
       {/* Main Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {/* Avatar Card */}
         <Motion.div
-          className="relative rounded-3xl bg-white dark:bg-zinc-800/80 backdrop-blur-sm p-8 shadow-lg border border-emerald-100 dark:border-emerald-900/50 hover:shadow-2xl transition-all duration-300 overflow-hidden group"
+          className="relative rounded-2xl md:rounded-3xl bg-white dark:bg-zinc-800/80 backdrop-blur-sm p-6 md:p-8 shadow-lg border border-emerald-100 dark:border-emerald-900/50 hover:shadow-2xl transition-all duration-300 overflow-hidden group"
           custom={0}
           variants={cardVariants}
           initial="hidden"
@@ -82,7 +82,7 @@ const Overview = () => {
         >
           <BorderBeam size={120} duration={8} thickness={8} colorFrom="#10b981" colorTo="#059669" />
           <div className="relative text-center">
-            <div className="w-32 h-32 mx-auto mb-5 relative">
+            <div className="w-24 md:w-32 h-24 md:h-32 mx-auto mb-5 relative">
               <Motion.img
                 src={user?.photoURL || "https://i.ibb.co/5r5C1fJ/user.png"}
                 alt="User Avatar"
@@ -91,20 +91,20 @@ const Overview = () => {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.6 }}
               />
-              <span className="absolute -top-2 -right-2 bg-emerald-600 dark:bg-emerald-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-                ✅ Active
+              <span className="absolute -top-2 -right-2 bg-emerald-600 dark:bg-emerald-500 text-white text-xs font-bold px-2 md:px-3 py-1 md:py-1.5 rounded-full shadow-lg">
+                ✅
               </span>
             </div>
-            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2 tracking-tight">
+            <h3 className="text-xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2 tracking-tight">
               {user?.displayName || "Anonymous"}
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400 break-all font-medium">{user?.email}</p>
+            <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 break-all font-medium">{user?.email}</p>
           </div>
         </Motion.div>
 
         {/* Total Plants Card */}
         <Motion.div
-          className="relative bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/30 dark:to-cyan-950/30 border border-blue-200 dark:border-blue-900/50 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group"
+          className="relative bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/30 dark:to-cyan-950/30 border border-blue-200 dark:border-blue-900/50 rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group"
           custom={1}
           variants={cardVariants}
           initial="hidden"
@@ -112,11 +112,11 @@ const Overview = () => {
           whileHover={{ scale: 1.02 }}
         >
           <BorderBeam size={120} duration={8} thickness={8} colorFrom="#0ea5e9" colorTo="#0284c7" />
-          <div className="relative">
-            <div className="text-6xl mb-5 group-hover:scale-125 transition-transform duration-300">🌿</div>
-            <p className="text-gray-700 dark:text-gray-300 text-sm font-semibold uppercase tracking-wider mb-4 opacity-80">Global Ecosystem</p>
+          <div className="relative text-center">
+            <div className="text-4xl md:text-6xl mb-5 group-hover:scale-125 transition-transform duration-300">🌿</div>
+            <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm font-semibold uppercase tracking-wider mb-4 opacity-80">Global Ecosystem</p>
             <Motion.p
-              className="text-5xl font-black bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent mb-2 tracking-tight"
+              className="text-4xl md:text-5xl font-black bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent mb-2 tracking-tight"
               initial="rest"
               whileHover="hover"
               animate="rest"
@@ -130,7 +130,7 @@ const Overview = () => {
 
         {/* My Plants Card */}
         <Motion.div
-          className="relative bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30 border border-emerald-200 dark:border-emerald-900/50 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group"
+          className="relative bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30 border border-emerald-200 dark:border-emerald-900/50 rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group"
           custom={2}
           variants={cardVariants}
           initial="hidden"
@@ -138,11 +138,11 @@ const Overview = () => {
           whileHover={{ scale: 1.02 }}
         >
           <BorderBeam size={120} duration={8} thickness={8} colorFrom="#10b981" colorTo="#059669" />
-          <div className="relative">
-            <div className="text-6xl mb-5 group-hover:scale-125 transition-transform duration-300">🪴</div>
-            <p className="text-gray-700 dark:text-gray-300 text-sm font-semibold uppercase tracking-wider mb-4 opacity-80">Your Collection</p>
+          <div className="relative text-center">
+            <div className="text-4xl md:text-6xl mb-5 group-hover:scale-125 transition-transform duration-300">🪴</div>
+            <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm font-semibold uppercase tracking-wider mb-4 opacity-80">Your Collection</p>
             <Motion.p
-              className="text-5xl font-black bg-gradient-to-r from-emerald-600 to-green-600 dark:from-emerald-400 dark:to-green-400 bg-clip-text text-transparent mb-2 tracking-tight"
+              className="text-4xl md:text-5xl font-black bg-gradient-to-r from-emerald-600 to-green-600 dark:from-emerald-400 dark:to-green-400 bg-clip-text text-transparent mb-2 tracking-tight"
               initial="rest"
               whileHover="hover"
               animate="rest"
@@ -160,19 +160,19 @@ const Overview = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.5 }}
-        className="bg-white dark:bg-zinc-800/80 backdrop-blur-sm rounded-3xl shadow-lg border border-gray-200 dark:border-zinc-700 p-8"
+        className="bg-white dark:bg-zinc-800/80 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-lg border border-gray-200 dark:border-zinc-700 p-6 md:p-8"
       >
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-5 tracking-tight">Quick Actions</h2>
-        <div className="flex gap-3 flex-wrap">
+        <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-5 tracking-tight">Quick Actions</h2>
+        <div className="flex flex-col sm:flex-row gap-3 flex-wrap">
           <Link
             to="/dashboard/add-plant"
-            className="bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-700 text-white font-semibold px-5 py-2 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 transform inline-block text-sm"
+            className="bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-700 text-white font-semibold px-4 md:px-5 py-2 md:py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 transform inline-block text-sm text-center"
           >
             ➕ Add Plant
           </Link>
           <Link
             to="/dashboard/my-plants"
-            className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-semibold px-5 py-2 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 transform inline-block text-sm"
+            className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-semibold px-4 md:px-5 py-2 md:py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 transform inline-block text-sm text-center"
           >
             📋 My Plants
           </Link>
@@ -180,26 +180,26 @@ const Overview = () => {
       </Motion.div>
 
       {/* Charts Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
         {/* Plants by Category - Bar Chart */}
         <Motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="bg-white dark:bg-zinc-800/80 backdrop-blur-sm rounded-3xl shadow-lg border border-gray-200 dark:border-zinc-700 p-8"
+          className="bg-white dark:bg-zinc-800/80 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-lg border border-gray-200 dark:border-zinc-700 p-6 md:p-8"
         >
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 tracking-tight">📊 Plants by Category</h3>
+          <h3 className="text-lg md:text-2xl font-bold text-gray-900 dark:text-white mb-6 md:mb-8 tracking-tight">📊 Plants by Category</h3>
           {chartData.length > 0 ? (
-            <ResponsiveContainer width="100%" height={320}>
+            <ResponsiveContainer width="100%" height={250}>
               <BarChart data={chartData} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                <XAxis dataKey="name" stroke="#6b7280" style={{ fontSize: "13px", fontWeight: "500" }} />
-                <YAxis stroke="#6b7280" style={{ fontSize: "13px" }} />
+                <XAxis dataKey="name" stroke="#6b7280" style={{ fontSize: "11px", fontWeight: "500" }} />
+                <YAxis stroke="#6b7280" style={{ fontSize: "11px" }} />
                 <Tooltip 
                   contentStyle={{ backgroundColor: "#1f2937", border: "1px solid #10b981", borderRadius: "12px", color: "#fff", fontSize: "13px" }}
                   cursor={{ fill: "rgba(16, 185, 129, 0.1)" }}
                 />
-                <Legend wrapperStyle={{ fontSize: "13px", fontWeight: "500" }} />
+                <Legend wrapperStyle={{ fontSize: "12px", fontWeight: "500" }} />
                 <Bar dataKey="value" fill="#10b981" name="Total Plants" radius={[12, 12, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -213,11 +213,11 @@ const Overview = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="bg-white dark:bg-zinc-800/80 backdrop-blur-sm rounded-3xl shadow-lg border border-gray-200 dark:border-zinc-700 p-8"
+          className="bg-white dark:bg-zinc-800/80 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-lg border border-gray-200 dark:border-zinc-700 p-6 md:p-8"
         >
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 tracking-tight">🥧 Distribution Overview</h3>
+          <h3 className="text-lg md:text-2xl font-bold text-gray-900 dark:text-white mb-6 md:mb-8 tracking-tight">🥧 Distribution Overview</h3>
           {chartData.length > 0 ? (
-            <ResponsiveContainer width="100%" height={320}>
+            <ResponsiveContainer width="100%" height={250}>
               <PieChart>
                 <Pie
                   data={chartData}
@@ -225,7 +225,7 @@ const Overview = () => {
                   cy="50%"
                   labelLine={false}
                   label={({ name, value }) => `${name}: ${value}`}
-                  outerRadius={110}
+                  outerRadius={80}
                   fill="#8884d8"
                   dataKey="value"
                 >
@@ -249,23 +249,23 @@ const Overview = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.8 }}
-        className="bg-gradient-to-r from-emerald-50 to-blue-50 dark:from-zinc-800/80 dark:to-zinc-800/50 backdrop-blur-sm rounded-3xl shadow-lg border border-gray-200 dark:border-zinc-700 p-10"
+        className="bg-gradient-to-r from-emerald-50 to-blue-50 dark:from-zinc-800/80 dark:to-zinc-800/50 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-lg border border-gray-200 dark:border-zinc-700 p-6 md:p-10"
       >
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 tracking-tight">📈 Collection Statistics</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white dark:bg-zinc-700/80 rounded-2xl p-6 shadow-sm border border-emerald-100 dark:border-emerald-900/30">
+        <h2 className="text-lg md:text-2xl font-bold text-gray-900 dark:text-white mb-6 md:mb-8 tracking-tight">📈 Collection Statistics</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          <div className="bg-white dark:bg-zinc-700/80 rounded-lg md:rounded-2xl p-4 md:p-6 shadow-sm border border-emerald-100 dark:border-emerald-900/30">
             <p className="text-gray-600 dark:text-gray-300 text-xs font-semibold uppercase tracking-widest mb-3 opacity-75">Total Ecosystem</p>
-            <p className="text-5xl font-black text-emerald-600 dark:text-emerald-400 tracking-tight">{stats.total}</p>
+            <p className="text-3xl md:text-5xl font-black text-emerald-600 dark:text-emerald-400 tracking-tight">{stats.total}</p>
             <p className="text-xs text-gray-500 dark:text-gray-400 font-medium mt-2">plants in system</p>
           </div>
-          <div className="bg-white dark:bg-zinc-700/80 rounded-2xl p-6 shadow-sm border border-blue-100 dark:border-blue-900/30">
+          <div className="bg-white dark:bg-zinc-700/80 rounded-lg md:rounded-2xl p-4 md:p-6 shadow-sm border border-blue-100 dark:border-blue-900/30">
             <p className="text-gray-600 dark:text-gray-300 text-xs font-semibold uppercase tracking-widest mb-3 opacity-75">Your Plants</p>
-            <p className="text-5xl font-black text-blue-600 dark:text-blue-400 tracking-tight">{stats.mine}</p>
+            <p className="text-3xl md:text-5xl font-black text-blue-600 dark:text-blue-400 tracking-tight">{stats.mine}</p>
             <p className="text-xs text-gray-500 dark:text-gray-400 font-medium mt-2">in your collection</p>
           </div>
-          <div className="bg-white dark:bg-zinc-700/80 rounded-2xl p-6 shadow-sm border border-purple-100 dark:border-purple-900/30">
+          <div className="bg-white dark:bg-zinc-700/80 rounded-lg md:rounded-2xl p-4 md:p-6 shadow-sm border border-purple-100 dark:border-purple-900/30">
             <p className="text-gray-600 dark:text-gray-300 text-xs font-semibold uppercase tracking-widest mb-3 opacity-75">Categories</p>
-            <p className="text-5xl font-black text-purple-600 dark:text-purple-400 tracking-tight">{chartData.length}</p>
+            <p className="text-3xl md:text-5xl font-black text-purple-600 dark:text-purple-400 tracking-tight">{chartData.length}</p>
             <p className="text-xs text-gray-500 dark:text-gray-400 font-medium mt-2">different types</p>
           </div>
         </div>

@@ -73,9 +73,9 @@ const MyPlants = () => {
   }
 
   return (
-    <div className="min-h-screen  transition-colors duration-300 py-10 px-4">
-      <div className="max-w-5xl mx-auto p-8">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-green-700 dark:text-emerald-400 mb-8 text-center">
+    <div className="min-h-screen  transition-colors duration-300 py-6 md:py-10 px-4 md:px-0">
+      <div className="max-w-5xl mx-auto p-4 md:p-8">
+        <h2 className="text-2xl md:text-4xl font-extrabold text-green-700 dark:text-emerald-400 mb-8 text-center">
           My Plants
         </h2>
 
@@ -86,14 +86,14 @@ const MyPlants = () => {
         ) : (
           <>
             {/* 🖥 Table view for desktop */}
-            <div className="overflow-x-auto rounded-2xl border border-green-200 dark:border-emerald-600 shadow-sm hidden md:block">
+            <div className="overflow-x-auto rounded-lg md:rounded-2xl border border-green-200 dark:border-emerald-600 shadow-sm hidden md:block">
               <table className="min-w-full text-left text-sm text-gray-700 dark:text-gray-300 border-collapse rounded-2xl">
                 <thead className="bg-green-100 dark:bg-emerald-900 text-gray-800 dark:text-gray-100 rounded-t-2xl">
                   <tr>
-                    <th className="p-4 font-semibold rounded-tl-2xl">Name</th>
-                    <th className="p-4 font-semibold">Category</th>
-                    <th className="p-4 font-semibold">Watering</th>
-                    <th className="p-4 font-semibold text-center rounded-tr-2xl">Actions</th>
+                    <th className="p-3 md:p-4 font-semibold rounded-tl-2xl text-xs md:text-sm">Name</th>
+                    <th className="p-3 md:p-4 font-semibold text-xs md:text-sm">Category</th>
+                    <th className="p-3 md:p-4 font-semibold text-xs md:text-sm">Watering</th>
+                    <th className="p-3 md:p-4 font-semibold text-center rounded-tr-2xl text-xs md:text-sm">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -104,19 +104,19 @@ const MyPlants = () => {
                         idx % 2 === 0 ? "bg-green-50 dark:bg-zinc-800" : "bg-white dark:bg-zinc-700"
                       } hover:bg-green-100 dark:hover:bg-emerald-900 transition`}
                     >
-                      <td className="p-4 font-semibold">{plant.plantName}</td>
-                      <td className="p-4 capitalize">{plant.category}</td>
-                      <td className="p-4">{plant.wateringFrequency}</td>
-                      <td className="p-4 flex justify-center gap-3">
+                      <td className="p-3 md:p-4 font-semibold text-xs md:text-sm">{plant.plantName}</td>
+                      <td className="p-3 md:p-4 capitalize text-xs md:text-sm">{plant.category}</td>
+                      <td className="p-3 md:p-4 text-xs md:text-sm">{plant.wateringFrequency}</td>
+                      <td className="p-3 md:p-4 flex justify-center gap-2">
                         <button
                           onClick={() => navigate(`/dashboard/update-plant/${plant._id}`)}
-                          className="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 transform"
+                          className="px-3 md:px-5 py-1 md:py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 transform text-xs md:text-sm"
                         >
                           Update
                         </button>
                         <button
                           onClick={() => setDeletingId(plant._id)}
-                          className="px-5 py-2 border-2 border-red-600 text-red-600 dark:border-red-400 dark:text-red-400 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-300 font-semibold"
+                          className="px-3 md:px-5 py-1 md:py-2 border-2 border-red-600 text-red-600 dark:border-red-400 dark:text-red-400 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-300 font-semibold text-xs md:text-sm"
                         >
                           Delete
                         </button>
@@ -165,20 +165,20 @@ const MyPlants = () => {
 
         {/* Delete Confirmation Modal */}
         {deletingId && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white dark:bg-zinc-800 p-6 rounded-3xl shadow-lg max-w-md w-[90%] text-gray-800 dark:text-gray-100">
-              <h3 className="text-xl font-semibold mb-4">Confirm Deletion</h3>
-              <p className="mb-6">Are you sure you want to delete this plant?</p>
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+            <div className="bg-white dark:bg-zinc-800 p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-lg max-w-md w-full text-gray-800 dark:text-gray-100">
+              <h3 className="text-lg md:text-xl font-semibold mb-4">Confirm Deletion</h3>
+              <p className="mb-6 text-sm md:text-base">Are you sure you want to delete this plant?</p>
               <div className="flex justify-end gap-4">
                 <button
                   onClick={() => setDeletingId(null)}
-                  className="px-5 py-2 border border-green-300 dark:border-emerald-500 rounded-2xl hover:bg-green-100 dark:hover:bg-emerald-700 transition"
+                  className="px-4 md:px-5 py-2 md:py-2.5 border border-green-300 dark:border-emerald-500 rounded-lg md:rounded-2xl hover:bg-green-100 dark:hover:bg-emerald-700 transition text-sm md:text-base"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={() => handleDelete(deletingId)}
-                  className="px-5 py-2 bg-red-600 hover:bg-red-700 text-white rounded-2xl transition"
+                  className="px-4 md:px-5 py-2 md:py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-lg md:rounded-2xl transition text-sm md:text-base"
                 >
                   Delete
                 </button>

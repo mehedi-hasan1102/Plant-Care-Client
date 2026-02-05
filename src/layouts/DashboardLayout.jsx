@@ -24,12 +24,23 @@ const DashboardLayout = () => {
   ];
 
   return (
-    <div className="min-h-screen flex bg-gray-50 dark:bg-zinc-950 transition-colors duration-300">
+    <div className="min-h-screen flex flex-col lg:flex-row bg-gray-50 dark:bg-zinc-950 transition-colors duration-300">
+      {/* Sidebar - Mobile Toggle Button */}
+      <div className="lg:hidden bg-white dark:bg-zinc-900 border-b border-emerald-200 dark:border-emerald-800 p-4">
+        <button
+          onClick={() => setCollapsed(!collapsed)}
+          className="text-emerald-600 dark:text-emerald-400 text-2xl font-bold p-2 hover:bg-emerald-100 dark:hover:bg-emerald-900/30 rounded-md transition"
+          aria-label="Toggle sidebar"
+        >
+          ☰
+        </button>
+      </div>
+
       {/* Sidebar */}
       <aside
         className={`${
           collapsed ? "w-20" : "w-72"
-        } bg-white dark:bg-zinc-900 border-r border-emerald-200 dark:border-emerald-800 flex flex-col justify-between transition-all duration-300 shadow-lg`}
+        } ${collapsed || window.innerWidth < 1024 ? "absolute lg:relative" : ""} bg-white dark:bg-zinc-900 border-r border-emerald-200 dark:border-emerald-800 flex flex-col justify-between transition-all duration-300 shadow-lg hidden lg:flex z-50 lg:z-auto`}
       >
         {/* Top: Logo + Collapse */}
         <div className="p-6">
@@ -106,8 +117,8 @@ const DashboardLayout = () => {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 to-gray-100 dark:from-zinc-950 dark:to-zinc-900 text-gray-900 dark:text-zinc-200 transition-colors duration-300">
-        <div className="p-8 max-w-7xl mx-auto">
+      <main className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 to-gray-100 dark:from-zinc-950 dark:to-zinc-900 text-gray-900 dark:text-zinc-200 transition-colors duration-300 w-full">
+        <div className="p-4 md:p-8 max-w-7xl mx-auto w-full">
           <Outlet />
         </div>
       </main>

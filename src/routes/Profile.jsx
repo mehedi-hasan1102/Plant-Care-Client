@@ -55,13 +55,13 @@ const Profile = () => {
 
   return (
     <div
-      className="flex flex-col-reverse md:flex-row justify-center items-center gap-10 min-h-screen px-6 py-10
+      className="flex flex-col-reverse md:flex-row justify-center items-center gap-6 md:gap-10 min-h-screen px-4 md:px-6 py-6 md:py-10
       
       transition-colors duration-300"
     >
       {/* Profile Form */}
-      <div className="w-full md:w-1/2 max-w-md border-green-200 dark:border-green-700 border  p-10 rounded-3xl space-y-6">
-        <h1 className="text-4xl font-bold text-center text-green-700 dark:text-emerald-400">
+      <div className="w-full md:w-1/2 max-w-md border-green-200 dark:border-green-700 border  p-6 md:p-10 rounded-2xl md:rounded-3xl space-y-6">
+        <h1 className="text-3xl md:text-4xl font-bold text-center text-green-700 dark:text-emerald-400">
           Update Profile
         </h1>
 
@@ -69,16 +69,16 @@ const Profile = () => {
           <img
             src={user?.photoURL || "https://i.ibb.co/5r5C1fJ/user.png"}
             alt="Profile"
-            className="w-28 h-28 rounded-full border-4 border-green-600 dark:border-emerald-500 shadow-lg object-cover"
+            className="w-20 md:w-28 h-20 md:h-28 rounded-full border-4 border-green-600 dark:border-emerald-500 shadow-lg object-cover"
           />
-          <h2 className="mt-4 text-xl font-semibold text-green-700 dark:text-emerald-400">
+          <h2 className="mt-4 text-lg md:text-xl font-semibold text-green-700 dark:text-emerald-400">
             {user?.displayName || "Anonymous User"}
           </h2>
-          <p className="text-sm text-gray-600 dark:text-gray-400">{user?.email}</p>
+          <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 break-all">{user?.email}</p>
         </div>
 
         {error && (
-          <div className="bg-red-100 dark:bg-red-700 bg-opacity-90 text-red-700 dark:text-red-300 p-3 rounded-md text-sm text-center font-medium transition-colors duration-500">
+          <div className="bg-red-100 dark:bg-red-700 bg-opacity-90 text-red-700 dark:text-red-300 p-3 rounded-md text-xs md:text-sm text-center font-medium transition-colors duration-500">
             {error}
           </div>
         )}
@@ -89,7 +89,7 @@ const Profile = () => {
             placeholder="Full Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full px-5 py-3 border border-green-700 rounded-xl
+            className="w-full px-4 md:px-5 py-2 md:py-3 border border-green-700 rounded-lg md:rounded-xl text-sm md:text-base
               dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
               focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
           />
@@ -99,14 +99,14 @@ const Profile = () => {
             placeholder="Profile Image URL"
             value={photoURL}
             onChange={(e) => setPhotoURL(e.target.value)}
-            className="w-full px-5 py-3 border border-green-700 rounded-xl
+            className="w-full px-4 md:px-5 py-2 md:py-3 border border-green-700 rounded-lg md:rounded-xl text-sm md:text-base
               dark:bg-zinc-800 dark:border-emerald-400 dark:text-emerald-300
               focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
           />
 
           <button
             type="submit"
-            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 transform"
+            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-2 md:py-3 rounded-lg md:rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 transform text-sm md:text-base"
           >
             Save Changes
           </button>
@@ -118,7 +118,7 @@ const Profile = () => {
         <img
           src="https://i.ibb.co/nMt5Tvrp/Update-bro.png"
           alt="Profile Illustration"
-          className="w-full max-w-md h-auto object-contain"
+          className="w-full max-w-xs md:max-w-md h-auto object-contain"
         />
       </div>
     </div>
